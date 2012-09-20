@@ -42,6 +42,8 @@ Don't forget to import header;
 Device support
 ------------
 
+iPhone
+
 * iPhone
 * iPhone3G
 * iPhone3GS
@@ -49,9 +51,13 @@ Device support
 * iPhone4S
 * iPhone5
 
+iPad
+
 * iPad
 * iPad2
 * iPad3
+
+iPod
 
 * iPod
 * iPod2
