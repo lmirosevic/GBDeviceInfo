@@ -11,6 +11,7 @@ First get a struct with the hardware info.
     GBDeviceDetails deviceDetails = [GBDeviceInfo deviceDetails];
 
 To get the model numbers. e.g. when running on an iPhone 4S
+
     //Model numbers
     NSLog(@"Big model number: %d", deviceDetails.bigModel);                 //Big model number: 4
     NSLog(@"Small model number: %d", deviceDetails.smallModel);             //SMall model number: 1
@@ -29,6 +30,7 @@ To get the model numbers. e.g. when running on an iPhone 4S
     NSLog(@"systemInfo string: %@", [GBDeviceInfo rawSystemInfoString]);    //systemInfo string: iPhone4,1
 
 Don't forget to import header;
+
     #import "GBDeviceInfo.h"
 
 Device support
