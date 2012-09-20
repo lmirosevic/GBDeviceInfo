@@ -5,11 +5,14 @@
 //  Created by Luka Mirošević on 15/02/2012.
 //  Copyright (c) 2012 Goonbee. All rights reserved.
 //
+//  This software is licensed under the terms of the GNU General Public License.
+//  http://www.gnu.org/licenses/
 
 #import <Foundation/Foundation.h>
 
 @interface GBDeviceInfo : NSObject
 
+//defs
 typedef enum {
     GBDeviceModelUnknown = 0,
     GBDeviceModeliPhone,
@@ -17,6 +20,7 @@ typedef enum {
     GBDeviceModeliPhone3GS,
     GBDeviceModeliPhone4,
     GBDeviceModeliPhone4S,
+    GBDeviceModeliPhone5,
     GBDeviceModeliPad,
     GBDeviceModeliPad2,
     GBDeviceModeliPad3,
@@ -24,27 +28,25 @@ typedef enum {
     GBDeviceModeliPod2,
     GBDeviceModeliPod3,
     GBDeviceModeliPod4,
-} GBDeviceSpecificModel;
+    GBDeviceModeliPod5,
+} GBDeviceModel;
 
 typedef enum {
-    GBDeviceModelFamilyUnknown = 0,
-    GBDeviceModelFamilyiPhone,
-    GBDeviceModelFamilyiPad,
-    GBDeviceModelFamilyiPod,
-} GBDeviceModelFamily;
+    GBDeviceFamilyUnknown = 0,
+    GBDeviceFamilyiPhone,
+    GBDeviceFamilyiPad,
+    GBDeviceFamilyiPod,
+} GBDeviceFamily;
 
 typedef struct {
-    GBDeviceSpecificModel specificModel;
-    GBDeviceModelFamily modelFamily;
-    NSUInteger bigModel;
-    NSUInteger smallModel;
+    GBDeviceModel           model;
+    GBDeviceFamily          family;
+    NSUInteger              bigModel;
+    NSUInteger              smallModel;
 } GBDeviceDetails;
 
-//WARNING, only works for single digit model numbers.
-@property (readonly, nonatomic) GBDeviceDetails deviceDetails;
-
-+(GBDeviceInfo *)currentInfo;
-
+//public API
++(GBDeviceDetails)deviceDetails;
 +(NSString *)rawSystemInfoString;
 
 @end
