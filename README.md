@@ -17,7 +17,7 @@ To get the model numbers. e.g. when running on an iPhone 4S
 ```objective-c
 //Model numbers
 NSLog(@"Big model number: %d", deviceDetails.bigModel);                 //Big model number: 4
-NSLog(@"Small model number: %d", deviceDetails.smallModel);             //SMall model number: 1
+NSLog(@"Small model number: %d", deviceDetails.smallModel);             //Small model number: 1
 
 //Specific model
 if (deviceDetails.model == GBDeviceModeliPhone4S) {
@@ -42,23 +42,15 @@ Don't forget to import header;
 Device support
 ------------
 
-iPhone
-
 * iPhone
 * iPhone3G
 * iPhone3GS
 * iPhone4
 * iPhone4S
 * iPhone5
-
-iPad
-
 * iPad
 * iPad2
 * iPad3
-
-iPod
-
 * iPod
 * iPod2
 * iPod3
