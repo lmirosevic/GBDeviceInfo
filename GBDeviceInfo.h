@@ -38,9 +38,17 @@ typedef enum {
     GBDeviceFamilyiPod,
 } GBDeviceFamily;
 
+typedef enum {
+    GBDeviceDisplayUnknown = 0,
+    GBDeviceDisplayiPad,
+    GBDeviceDisplayiPhone35Inch,
+    GBDeviceDisplayiPhone4Inch,
+} GBDeviceDisplay;
+
 typedef struct {
     GBDeviceModel           model;
     GBDeviceFamily          family;
+    GBDeviceDisplay         display;
     NSUInteger              bigModel;
     NSUInteger              smallModel;
 } GBDeviceDetails;

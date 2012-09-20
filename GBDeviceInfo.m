@@ -117,6 +117,28 @@
         details.model = GBDeviceModelUnknown;
     }
     
+    //get screen size
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    //ipad old
+    if ((screenWidth == 768) && (screenHeight == 1024)) {
+        details.display = GBDeviceDisplayiPad;
+    }
+    //iphone
+    else if ((screenWidth == 320) && (screenHeight == 480)) {
+        details.display = GBDeviceDisplayiPhone35Inch;
+    }
+    //iphone 4 inch
+    else if ((screenWidth == 320) && (screenHeight == 568)) {
+        details.display = GBDeviceDisplayiPhone4Inch;
+    }
+    //unknown
+    else {
+        details.display = GBDeviceDisplayUnknown;
+    }
+    
     return details;
 }
 

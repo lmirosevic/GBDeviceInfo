@@ -29,6 +29,11 @@ if (deviceDetails.family != GBDeviceFamilyiPad) {
     NSLog(@"It's not an iPad");                                         //It's not an iPad
 }
 
+//Screen type
+if (deviceDetails.display == GBDeviceDisplayiPhone35Inch) {
+	NSLog(@"It has an iPhone 3.5 inch display");						//It has an iPhone 3.5 inch display
+}
+
 //Raw systemInfo string
 NSLog(@"systemInfo string: %@", [GBDeviceInfo rawSystemInfoString]);    //systemInfo string: iPhone4,1
 ```
