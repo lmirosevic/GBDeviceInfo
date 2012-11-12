@@ -62,22 +62,27 @@
         details.bigModel = [[systemInfoString substringWithRange:NSMakeRange(4, 1)] intValue];
         details.smallModel = [[systemInfoString substringWithRange:NSMakeRange(6, 1)] intValue];
         
-        switch (details.bigModel) {
-            case 1:
-                details.model = GBDeviceModeliPad;
-                break;
-                
-            case 2:
+        if (details.bigModel == 1) {
+            details.model = GBDeviceModeliPad;
+        }
+        else if (details.bigModel == 2) {
+            if (details.smallModel <= 4) {
                 details.model = GBDeviceModeliPad2;
-                break;
-                
-            case 3:
+            }
+            else if (details.smallModel <= 7) {
+                details.model = GBDeviceModeliPadMini;
+            }
+        }
+        else if (details.bigModel == 3) {
+            if (details.smallModel <= 3) {
                 details.model = GBDeviceModeliPad3;
-                break;
-                
-            default:
+            }
+            else if (details.smallModel <= 6) {
+                details.model = GBDeviceModeliPad4;
+            }
+            else {
                 details.model = GBDeviceModelUnknown;
-                break;
+            }
         }
     }
     else if ([[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {

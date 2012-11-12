@@ -74,6 +74,8 @@ Device support
 * iPad
 * iPad2
 * iPad3
+* iPad4
+* iPadMini
 * iPod
 * iPod2
 * iPod3
