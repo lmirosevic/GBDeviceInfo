@@ -212,6 +212,7 @@
 		8A38F5A3162DA1C100BCF240 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/GBDeviceInfo.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GBDeviceInfo/GBDeviceInfo-Prefix.pch";
