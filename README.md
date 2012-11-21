@@ -1,7 +1,7 @@
 GBDeviceInfo
 ============
 
-Detects the hardware of the current iOS device.
+Detects the hardware, software and display of the current iOS device at runtime.
 
 Usage
 ------------
