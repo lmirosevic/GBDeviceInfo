@@ -6,13 +6,22 @@ Detects the hardware, software and display of the current iOS device at runtime.
 Usage
 ------------
 
-First get a struct with the hardware info.
+Simple usage is (examples on iPhone 4S running iOS 6.0):
+
+```objective-c
+[GBDeviceInfo deviceDetails].bigModel;                                  //Returns: 4
+[GBDeviceInfo deviceDetails].iOSVersion;                                //Returns: 6
+[GBDeviceInfo deviceDetails].model == GBDeviceModeliPhone4S;            //Returns: YES
+[GBDeviceInfo deviceDetails].family == GBDeviceFamilyiPad;              //Returns: NO
+```
+
+You can also reuse the returned struct to save some typing. First assign the struct to some variable:
 
 ```objective-c
 GBDeviceDetails deviceDetails = [GBDeviceInfo deviceDetails];
 ```
 
-To get the model numbers. e.g. when running on an iPhone 4S
+Then get whatever you like from the struct:
 
 ```objective-c
 //Model numbers
@@ -49,7 +58,7 @@ Don't forget to import header.
 #import "GBDeviceInfo.h"
 ```
 
-GBDeviceDetails definition:
+GBDeviceDetails struct definition:
 
 ```objective-c
 typedef struct {
