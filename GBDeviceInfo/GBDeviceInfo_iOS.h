@@ -1,9 +1,9 @@
 //
-//  GBDeviceInfo.h
+//  GBDeviceInfo_iOS.h
 //  GBDeviceInfo
 //
-//  Created by Luka Mirosevic on 14/03/2013.
-//  Copyright (c) 2013 Goonbee. All rights reserved.
+//  Created by Luka Mirosevic on 11/10/2012.
+//  Copyright (c) 2013 Goonbee. All Rights Reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -17,20 +17,11 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#import "GBTypes_iOS.h"
 
-/* iOS imports */
+@interface GBDeviceInfo : NSObject
 
-#if TARGET_OS_IPHONE
++(GBDeviceDetails)deviceDetails;
++(NSString *)rawSystemInfoString;
 
-#import "GBDeviceInfo_iOS.h"
-
-#endif
-
-
-/* OS X imports */
-
-#if !TARGET_OS_IPHONE
-
-
-#endif
-
+@end

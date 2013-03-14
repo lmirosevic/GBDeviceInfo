@@ -1,9 +1,9 @@
 //
-//  GBDeviceInfo.m
+//  GBDeviceInfo_iOS.m
 //  GBDeviceInfo
 //
 //  Created by Luka Mirosevic on 11/10/2012.
-//  Copyright (c) 2012 Luka Mirosevic.
+//  Copyright (c) 2013 Goonbee. All Rights Reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import "GBDeviceInfo.h"
+#import "GBDeviceInfo_iOS.h"
 
 #import <sys/utsname.h>
 
