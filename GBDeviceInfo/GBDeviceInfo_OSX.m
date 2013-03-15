@@ -195,8 +195,6 @@ static NSString *kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     return [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
 }
 
-#pragma mark - public API
-
 +(NSString *)rawSystemInfoString {
     return [self _sysctlStringForKey:kHardwareModelKey];
 }
@@ -204,6 +202,8 @@ static NSString *kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 +(NSString *)nodeName {
     return [NSString stringWithCString:[self _unameStruct].nodename encoding:NSUTF8StringEncoding];
 }
+
+#pragma mark - public API
 
 +(GBDeviceDetails *)deviceDetails {
     GBDeviceDetails *deviceDetails = [GBDeviceDetails new];
