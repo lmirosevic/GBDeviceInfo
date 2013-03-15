@@ -1,5 +1,5 @@
 //
-//  GBDeviceInfo.h
+//  GBDeviceInfo_OSX.h
 //  GBDeviceInfo
 //
 //  Created by Luka Mirosevic on 14/03/2013.
@@ -17,21 +17,11 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#import "GBTypes_OSX.h"
 
-/* iOS imports */
+@interface GBDeviceInfo : NSObject
 
-#if TARGET_OS_IPHONE
++(GBMacDetails *)macDetails;
++(NSString *)rawSystemInfoString;
 
-#import "GBDeviceInfo_iOS.h"
-
-#endif
-
-
-/* OS X imports */
-
-#if !TARGET_OS_IPHONE
-
-#import "GBDeviceInfo_OSX.h"
-
-#endif
-
+@end

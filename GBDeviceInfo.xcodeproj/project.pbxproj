@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A1B119D16F21F2E00BDDD2A /* GBDeviceInfo_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B119C16F21F2E00BDDD2A /* GBDeviceInfo_OSX.m */; };
 		8A1B11A616F2211400BDDD2A /* GBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */; };
 		8A1B11BB16F22CC400BDDD2A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B11BA16F22CC400BDDD2A /* Cocoa.framework */; };
+		8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */; };
+		8A1B11EA16F22DF200BDDD2A /* GBDeviceInfo_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B11E816F22DF200BDDD2A /* GBDeviceInfo_OSX.m */; };
 		8A38F597162DA1C100BCF240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F596162DA1C100BCF240 /* Foundation.framework */; };
 		8A38F59C162DA1C100BCF240 /* GBDeviceInfo_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A38F59B162DA1C100BCF240 /* GBDeviceInfo_iOS.h */; };
 		8A38F59E162DA1C100BCF240 /* GBDeviceInfo_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A38F59D162DA1C100BCF240 /* GBDeviceInfo_iOS.m */; };
@@ -31,12 +32,12 @@
 
 /* Begin PBXFileReference section */
 		8A1B118D16F21F2E00BDDD2A /* GBDeviceInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GBDeviceInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A1B119B16F21F2E00BDDD2A /* GBDeviceInfo_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfo_OSX.h; path = "GBDeviceInfo-OSX/GBDeviceInfo_OSX.h"; sourceTree = SOURCE_ROOT; };
-		8A1B119C16F21F2E00BDDD2A /* GBDeviceInfo_OSX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GBDeviceInfo_OSX.m; path = "GBDeviceInfo-OSX/GBDeviceInfo_OSX.m"; sourceTree = SOURCE_ROOT; };
 		8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo.h; sourceTree = "<group>"; };
 		8A1B11B416F2242500BDDD2A /* GBTypes_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_iOS.h; sourceTree = "<group>"; };
 		8A1B11B516F2246000BDDD2A /* GBTypes_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_OSX.h; sourceTree = "<group>"; };
 		8A1B11BA16F22CC400BDDD2A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_OSX.h; sourceTree = "<group>"; };
+		8A1B11E816F22DF200BDDD2A /* GBDeviceInfo_OSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDeviceInfo_OSX.m; sourceTree = "<group>"; };
 		8A38F593162DA1C100BCF240 /* libGBDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBDeviceInfo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A38F596162DA1C100BCF240 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBDeviceInfo-Prefix.pch"; sourceTree = "<group>"; };
@@ -88,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				8A1B11B516F2246000BDDD2A /* GBTypes_OSX.h */,
-				8A1B119B16F21F2E00BDDD2A /* GBDeviceInfo_OSX.h */,
-				8A1B119C16F21F2E00BDDD2A /* GBDeviceInfo_OSX.m */,
+				8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */,
+				8A1B11E816F22DF200BDDD2A /* GBDeviceInfo_OSX.m */,
 			);
 			name = "OS X";
 			sourceTree = "<group>";
@@ -149,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A1B11A616F2211400BDDD2A /* GBDeviceInfo.h in Headers */,
+				8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A1B119D16F21F2E00BDDD2A /* GBDeviceInfo_OSX.m in Sources */,
+				8A1B11EA16F22DF200BDDD2A /* GBDeviceInfo_OSX.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +396,7 @@
 				8A1B119F16F21F2E00BDDD2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A38F58D162DA1C100BCF240 /* Build configuration list for PBXProject "GBDeviceInfo" */ = {
 			isa = XCConfigurationList;

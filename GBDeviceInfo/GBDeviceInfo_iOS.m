@@ -27,9 +27,7 @@
     //NOTE: adjust code when double digit model numbers come out
     GBDeviceDetails details;
     
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *systemInfoString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    NSString *systemInfoString = [self rawSystemInfoString];
     
     //get data
     if ([[systemInfoString substringToIndex:6] isEqualToString:@"iPhone"]) {

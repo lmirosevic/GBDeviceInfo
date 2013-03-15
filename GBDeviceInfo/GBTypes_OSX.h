@@ -3,12 +3,50 @@
 //  GBDeviceInfo
 //
 //  Created by Luka Mirosevic on 14/03/2013.
-//  Copyright (c) 2013 Luka Mirosevic. All rights reserved.
+//  Copyright (c) 2013 Goonbee. All rights reserved.
 //
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 
-#ifndef GBDeviceInfo_GBTypes_OSX_h
-#define GBDeviceInfo_GBTypes_OSX_h
+typedef enum {
+    GBByteOrderLittleEndian,
+    GBByteOrderBigEndian,
+} GBByteOrder;
 
+typedef enum {
+    GBMacTypeUnknown = 0,
+    GBMacTypeiMac,
+    GBMacTypeMacMini,
+    GBMacTypeMacPro,
+    GBMacTypeMacBook,
+    GBMacTypeMacBookAir,
+    GBMacTypeMacBookPro,
+    GBMacTypeXserve,
+} GBMacType;
 
+@interface GBMacDetails : NSObject
 
-#endif
+@property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+@property (strong, atomic, readonly) NSString           *nodeName;
+@property (assign, atomic, readonly) GBMacType          macType;
+@property (assign, atomic, readonly) NSUInteger         majorModelNumber;
+@property (assign, atomic, readonly) NSUInteger         minorModelNumber;
+@property (assign, atomic, readonly) CGFloat            physicalMemory;
+@property (assign, atomic, readonly) CGFloat            cpuFrequency;
+@property (assign, atomic, readonly) NSUInteger         numberOfCores;
+@property (assign, atomic, readonly) CGFloat            l2CacheSize;
+@property (assign, atomic, readonly) GBByteOrder        byteOrder;
+@property (assign, atomic, readonly) CGSize             screenResolution;
+@property (assign, atomic, readonly) NSUInteger         majorOSVersion;
+@property (assign, atomic, readonly) NSUInteger         minorOSVersion;
+
+@end
