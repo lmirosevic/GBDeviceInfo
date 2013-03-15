@@ -23,27 +23,27 @@ typedef enum {
 } GBByteOrder;
 
 typedef enum {
-    GBMacTypeUnknown = 0,
-    GBMacTypeiMac,
-    GBMacTypeMacMini,
-    GBMacTypeMacPro,
-    GBMacTypeMacBook,
-    GBMacTypeMacBookAir,
-    GBMacTypeMacBookPro,
-    GBMacTypeXserve,
-} GBMacType;
+    GBDeviceFamilyUnknown = 0,
+    GBDeviceFamilyiMac,
+    GBDeviceFamilyMacMini,
+    GBDeviceFamilyMacPro,
+    GBDeviceFamilyMacBook,
+    GBDeviceFamilyMacBookAir,
+    GBDeviceFamilyMacBookPro,
+    GBDeviceFamilyXserve,
+} GBDeviceFamily;
 
-@interface GBMacDetails : NSObject
+@interface GBDeviceDetails : NSObject
 
 @property (strong, atomic, readonly) NSString           *rawSystemInfoString;
 @property (strong, atomic, readonly) NSString           *nodeName;
-@property (assign, atomic, readonly) GBMacType          macType;
+@property (assign, atomic, readonly) GBDeviceFamily     family;
 @property (assign, atomic, readonly) NSUInteger         majorModelNumber;
 @property (assign, atomic, readonly) NSUInteger         minorModelNumber;
-@property (assign, atomic, readonly) CGFloat            physicalMemory;
-@property (assign, atomic, readonly) CGFloat            cpuFrequency;
+@property (assign, atomic, readonly) CGFloat            physicalMemory;         // GB
+@property (assign, atomic, readonly) CGFloat            cpuFrequency;           // GHz
 @property (assign, atomic, readonly) NSUInteger         numberOfCores;
-@property (assign, atomic, readonly) CGFloat            l2CacheSize;
+@property (assign, atomic, readonly) CGFloat            l2CacheSize;            // KB
 @property (assign, atomic, readonly) GBByteOrder        byteOrder;
 @property (assign, atomic, readonly) CGSize             screenResolution;
 @property (assign, atomic, readonly) NSUInteger         majorOSVersion;

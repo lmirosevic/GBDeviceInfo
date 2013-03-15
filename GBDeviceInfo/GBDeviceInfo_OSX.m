@@ -33,11 +33,11 @@ static NSString *kHardwareByteOrderKey =            @"hw.byteorder";
 static NSString *kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 
 
-@interface GBMacDetails ()
+@interface GBDeviceDetails ()
 
 @property (strong, atomic, readwrite) NSString           *rawSystemInfoString;
 @property (strong, atomic, readwrite) NSString           *nodeName;
-@property (assign, atomic, readwrite) GBMacType          macType;
+@property (assign, atomic, readwrite) GBDeviceFamily     family;
 @property (assign, atomic, readwrite) NSUInteger         majorModelNumber;
 @property (assign, atomic, readwrite) NSUInteger         minorModelNumber;
 @property (assign, atomic, readwrite) CGFloat            physicalMemory;
@@ -51,10 +51,10 @@ static NSString *kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 
 @end
 
-@implementation GBMacDetails
+@implementation GBDeviceDetails
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nnodeName: %@\nmacType: %d\nmajorModelNumber: %ld\nminorModelNumber: %ld\npysicalMemory: %.3f\ncpuFrequency: %.3f\nnumberOfCores: %ld\nl2CacheSize: %.3f\nbyteOrder: %d\nscreenResolution: %.0fx%.0f\nmajorOSVersion: %ld\nminorOSVersion: %ld", [super description], self.rawSystemInfoString, self.nodeName, self.macType, (unsigned long)self.majorModelNumber, (unsigned long)self.minorModelNumber, self.physicalMemory, self.cpuFrequency, (unsigned long)self.numberOfCores, self.l2CacheSize, self.byteOrder, self.screenResolution.width, self.screenResolution.height, (unsigned long)self.majorOSVersion, (unsigned long)self.minorOSVersion];
+    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nnodeName: %@\nfamily: %d\nmajorModelNumber: %ld\nminorModelNumber: %ld\npysicalMemory: %.3f\ncpuFrequency: %.3f\nnumberOfCores: %ld\nl2CacheSize: %.3f\nbyteOrder: %d\nscreenResolution: %.0fx%.0f\nmajorOSVersion: %ld\nminorOSVersion: %ld", [super description], self.rawSystemInfoString, self.nodeName, self.family, (unsigned long)self.majorModelNumber, (unsigned long)self.minorModelNumber, self.physicalMemory, self.cpuFrequency, (unsigned long)self.numberOfCores, self.l2CacheSize, self.byteOrder, self.screenResolution.width, self.screenResolution.height, (unsigned long)self.majorOSVersion, (unsigned long)self.minorOSVersion];
 }
 
 @end
@@ -150,32 +150,32 @@ static NSString *kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     return [NSScreen mainScreen].frame.size;
 }
 
-+(GBMacType)macType {
++(GBDeviceFamily)family {
     NSString *systemInfoString = [self rawSystemInfoString];
     
     if ([[systemInfoString substringToIndex:4] isEqualToString:@"iMac"]) {
-        return GBMacTypeiMac;
+        return GBDeviceFamilyiMac;
     }
     else if ([[systemInfoString substringToIndex:7] isEqualToString:@"Macmini"]) {
-        return GBMacTypeMacMini;
+        return GBDeviceFamilyMacMini;
     }
     else if ([[systemInfoString substringToIndex:6] isEqualToString:@"MacPro"]) {
-        return GBMacTypeMacPro;
+        return GBDeviceFamilyMacPro;
     }
     else if ([[systemInfoString substringToIndex:7] isEqualToString:@"MacBook"]) {
-        return GBMacTypeMacBook;
+        return GBDeviceFamilyMacBook;
     }
     else if ([[systemInfoString substringToIndex:10] isEqualToString:@"MacBookAir"]) {
-        return GBMacTypeMacBookAir;
+        return GBDeviceFamilyMacBookAir;
     }
     else if ([[systemInfoString substringToIndex:10] isEqualToString:@"MacBookPro"]) {
-        return GBMacTypeMacBookPro;
+        return GBDeviceFamilyMacBookPro;
     }
     else if ([[systemInfoString substringToIndex:6] isEqualToString:@"Xserve"]) {
-        return GBMacTypeXserve;
+        return GBDeviceFamilyXserve;
     }
     else {
-        return GBMacTypeUnknown;
+        return GBDeviceFamilyUnknown;
     }
 }
 
@@ -205,24 +205,24 @@ static NSString *kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     return [NSString stringWithCString:[self _unameStruct].nodename encoding:NSUTF8StringEncoding];
 }
 
-+(GBMacDetails *)macDetails {
-    GBMacDetails *macDetails = [GBMacDetails new];
++(GBDeviceDetails *)deviceDetails {
+    GBDeviceDetails *deviceDetails = [GBDeviceDetails new];
     
-    macDetails.rawSystemInfoString = [self rawSystemInfoString];
-    macDetails.physicalMemory = [self physicalMemory];
-    macDetails.cpuFrequency = [self cpuFrequency];
-    macDetails.numberOfCores = [self numberOfCores];
-    macDetails.l2CacheSize = [self l2CacheSize];
-    macDetails.byteOrder = [self byteOrder];
-    macDetails.majorOSVersion = [self majorOSVersion];
-    macDetails.minorOSVersion = [self minorOSVersion];
-    macDetails.nodeName = [self nodeName];
-    macDetails.screenResolution = [self screenResolution];
-    macDetails.macType = [self macType];
-    macDetails.majorModelNumber = [self majorModelNumber];
-    macDetails.minorModelNumber = [self minorModelNumber];
+    deviceDetails.rawSystemInfoString = [self rawSystemInfoString];
+    deviceDetails.physicalMemory = [self physicalMemory];
+    deviceDetails.cpuFrequency = [self cpuFrequency];
+    deviceDetails.numberOfCores = [self numberOfCores];
+    deviceDetails.l2CacheSize = [self l2CacheSize];
+    deviceDetails.byteOrder = [self byteOrder];
+    deviceDetails.majorOSVersion = [self majorOSVersion];
+    deviceDetails.minorOSVersion = [self minorOSVersion];
+    deviceDetails.nodeName = [self nodeName];
+    deviceDetails.screenResolution = [self screenResolution];
+    deviceDetails.family = [self family];
+    deviceDetails.majorModelNumber = [self majorModelNumber];
+    deviceDetails.minorModelNumber = [self minorModelNumber];
     
-    return macDetails;
+    return deviceDetails;
 }
 
 @end

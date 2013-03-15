@@ -21,7 +21,6 @@
 
 @interface GBDeviceInfo : NSObject
 
-+(GBMacDetails *)macDetails;
-+(NSString *)rawSystemInfoString;
++(GBDeviceDetails *)deviceDetails;
 
 @end
