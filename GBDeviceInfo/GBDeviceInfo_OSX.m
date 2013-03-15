@@ -25,13 +25,12 @@
 #import <sys/sysctl.h>
 #import <sys/utsname.h>
 
-static NSString *kHardwareModelKey =                @"hw.model";
-static NSString *kHardwareMemorySizeKey =           @"hw.memsize";
-static NSString *kHardwareCPUFrequencyKey =         @"hw.cpufrequency";
-static NSString *kHardwareNumberOfCoresKey =        @"hw.ncpu";
-static NSString *kHardwareByteOrderKey =            @"hw.byteorder";
-static NSString *kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
-
+static NSString * const kHardwareModelKey =                @"hw.model";
+static NSString * const kHardwareMemorySizeKey =           @"hw.memsize";
+static NSString * const kHardwareCPUFrequencyKey =         @"hw.cpufrequency";
+static NSString * const kHardwareNumberOfCoresKey =        @"hw.ncpu";
+static NSString * const kHardwareByteOrderKey =            @"hw.byteorder";
+static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 
 @interface GBDeviceDetails ()
 
