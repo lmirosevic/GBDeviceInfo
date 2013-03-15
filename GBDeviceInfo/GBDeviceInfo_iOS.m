@@ -21,41 +21,94 @@
 
 #import <sys/utsname.h>
 
+
+@interface GBDeviceDetails()
+
+@property (strong, atomic, readwrite) NSString           *rawSystemInfoString;
+@property (assign, atomic, readwrite) GBDeviceModel      model;
+@property (assign, atomic, readwrite) GBDeviceFamily     family;
+@property (assign, atomic, readwrite) GBDeviceDisplay    display;
+@property (assign, atomic, readwrite) NSUInteger         majorModelNumber;
+@property (assign, atomic, readwrite) NSUInteger         minorModelNumber;
+@property (assign, atomic, readwrite) NSUInteger         majoriOSVersion;
+@property (assign, atomic, readwrite) NSUInteger         minoriOSVersion;
+
+@end
+
+@implementation GBDeviceDetails
+
+-(NSString *)description {
+    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %d\nfamily: %d\ndisplay: %d\nmajorModelNumber: %ld\nminorModelNumber: %ld\nmajoriOSVersion: %ld\nminoriOSVersion: %ld", [super description], self.rawSystemInfoString, self.model, self.family, self.display, (unsigned long)self.majorModelNumber, (unsigned long)self.minorModelNumber, (unsigned long)self.majoriOSVersion, (unsigned long)self.minoriOSVersion];
+}
+
+@end
+
 @implementation GBDeviceInfo
 
-+(GBDeviceDetails)deviceDetails {
-    //NOTE: adjust code when double digit model numbers come out
-    GBDeviceDetails details;
+#pragma mark - convenience
+
++(NSString *)rawSystemInfoString {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+}
+
++(NSUInteger)majorModelNumber {
+    NSString *systemInfoString = [self rawSystemInfoString];
+    
+    NSUInteger positionOfFirstInteger = [systemInfoString rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location;
+    NSUInteger positionOfComma = [systemInfoString rangeOfString:@","].location;
+    
+    return [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
+}
+
++(NSUInteger)minorModelNumber {
+    NSString *systemInfoString = [self rawSystemInfoString];
+    
+    NSUInteger positionOfComma = [systemInfoString rangeOfString:@"," options:NSBackwardsSearch].location;
+    return [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
+}
+
+
+#pragma mark - public API
+
++(GBDeviceDetails *)deviceDetails {
+    GBDeviceDetails *details = [GBDeviceDetails new];
     
     NSString *systemInfoString = [self rawSystemInfoString];
     
-    //get data
+    //system info string
+    details.rawSystemInfoString = systemInfoString;
+    
+    //model numbers
+    details.majorModelNumber = [self majorModelNumber];
+    details.minorModelNumber = [self minorModelNumber];
+    
+    //specific device
     if ([[systemInfoString substringToIndex:6] isEqualToString:@"iPhone"]) {
         details.family = GBDeviceFamilyiPhone;
-        details.bigModel = [[systemInfoString substringWithRange:NSMakeRange(6, 1)] intValue];
-        details.smallModel = [[systemInfoString substringWithRange:NSMakeRange(8, 1)] intValue];
         
-        if (details.bigModel == 1) {
-            if (details.smallModel == 1) {
+        if (details.majorModelNumber == 1) {
+            if (details.minorModelNumber == 1) {
                 details.model = GBDeviceModeliPhone;
             }
-            else if (details.smallModel == 2) {
+            else if (details.minorModelNumber == 2) {
                 details.model = GBDeviceModeliPhone3G;
             }
             else {
                 details.model = GBDeviceModelUnknown;
             }
         }
-        else if (details.bigModel == 2) {
+        else if (details.majorModelNumber == 2) {
             details.model = GBDeviceModeliPhone3GS;
         }
-        else if (details.bigModel == 3) {
+        else if (details.majorModelNumber == 3) {
             details.model = GBDeviceModeliPhone4;
         }
-        else if (details.bigModel == 4) {
+        else if (details.majorModelNumber == 4) {
             details.model = GBDeviceModeliPhone4S;
         }
-        else if (details.bigModel == 5) {
+        else if (details.majorModelNumber == 5) {
             details.model = GBDeviceModeliPhone5;
         }
         else {
@@ -64,25 +117,23 @@
     }
     else if ([[systemInfoString substringToIndex:4] isEqualToString:@"iPad"]) {
         details.family = GBDeviceFamilyiPad;
-        details.bigModel = [[systemInfoString substringWithRange:NSMakeRange(4, 1)] intValue];
-        details.smallModel = [[systemInfoString substringWithRange:NSMakeRange(6, 1)] intValue];
         
-        if (details.bigModel == 1) {
+        if (details.majorModelNumber == 1) {
             details.model = GBDeviceModeliPad;
         }
-        else if (details.bigModel == 2) {
-            if (details.smallModel <= 4) {
+        else if (details.majorModelNumber == 2) {
+            if (details.minorModelNumber <= 4) {
                 details.model = GBDeviceModeliPad2;
             }
-            else if (details.smallModel <= 7) {
+            else if (details.minorModelNumber <= 7) {
                 details.model = GBDeviceModeliPadMini;
             }
         }
-        else if (details.bigModel == 3) {
-            if (details.smallModel <= 3) {
+        else if (details.majorModelNumber == 3) {
+            if (details.minorModelNumber <= 3) {
                 details.model = GBDeviceModeliPad3;
             }
-            else if (details.smallModel <= 6) {
+            else if (details.minorModelNumber <= 6) {
                 details.model = GBDeviceModeliPad4;
             }
             else {
@@ -92,10 +143,8 @@
     }
     else if ([[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {
         details.family = GBDeviceFamilyiPod;
-        details.bigModel = [[systemInfoString substringWithRange:NSMakeRange(4, 1)] intValue];
-        details.smallModel = [[systemInfoString substringWithRange:NSMakeRange(6, 1)] intValue];
         
-        switch (details.bigModel) {
+        switch (details.majorModelNumber) {
             case 1:
                 details.model = GBDeviceModeliPod;
                 break;
@@ -123,12 +172,10 @@
     }
     else {
         details.family = GBDeviceFamilyUnknown;
-        details.bigModel = 0;
-        details.smallModel = 0;
         details.model = GBDeviceModelUnknown;
     }
     
-    //get screen size
+    //display
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
@@ -150,23 +197,16 @@
         details.display = GBDeviceDisplayUnknown;
     }
     
-    //ios version
-    NSArray *versionCompatibility = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-    if (versionCompatibility.count > 0) {
-        NSInteger version = [versionCompatibility[0] integerValue];
-        details.iOSVersion = version >= 0 ? (NSUInteger)version : 0;
-    }
-    else {
-        details.iOSVersion = 0;
+    //iOS version
+    NSArray *decomposedOSVersion = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if (decomposedOSVersion.count >= 2) {
+        NSInteger majorVersion = [decomposedOSVersion[0] integerValue];
+        NSInteger minorVersion = [decomposedOSVersion[1] integerValue];
+        details.majoriOSVersion = majorVersion >= 0 ? (NSUInteger)majorVersion : 0;
+        details.minoriOSVersion = minorVersion >= 0 ? (NSUInteger)minorVersion : 0;
     }
     
     return details;
-}
-
-+(NSString *)rawSystemInfoString {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
 }
 
 @end

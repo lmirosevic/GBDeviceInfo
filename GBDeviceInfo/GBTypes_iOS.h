@@ -51,11 +51,15 @@ typedef enum {
     GBDeviceDisplayiPhone4Inch,
 } GBDeviceDisplay;
 
-typedef struct {
-    GBDeviceModel            model;
-    GBDeviceFamily           family;
-    GBDeviceDisplay          display;
-    NSUInteger               bigModel;
-    NSUInteger               smallModel;
-    NSUInteger               iOSVersion;
-} GBDeviceDetails;
+@interface GBDeviceDetails : NSObject
+
+@property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+@property (assign, atomic, readonly) GBDeviceModel      model;
+@property (assign, atomic, readonly) GBDeviceFamily     family;
+@property (assign, atomic, readonly) GBDeviceDisplay    display;
+@property (assign, atomic, readonly) NSUInteger         majorModelNumber;
+@property (assign, atomic, readonly) NSUInteger         minorModelNumber;
+@property (assign, atomic, readonly) NSUInteger         majoriOSVersion;
+@property (assign, atomic, readonly) NSUInteger         minoriOSVersion;
+
+@end
