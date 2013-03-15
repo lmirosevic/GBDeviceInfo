@@ -1,32 +1,32 @@
 GBDeviceInfo
 ============
 
-Detects the hardware, software and display of the current iOS device at runtime.
+Detects the hardware, software and display of the current iOS or Mac OS X device at runtime.
 
-Usage
+Usage: iOS
 ------------
 
-Simple usage is (examples on iPhone 4S running iOS 6.0):
+Simple usage (examples on iPhone 4S running iOS 6.0):
 
 ```objective-c
-[GBDeviceInfo deviceDetails].bigModel;                                  //Returns: 4
-[GBDeviceInfo deviceDetails].iOSVersion;                                //Returns: 6
+[GBDeviceInfo deviceDetails].majorModelNumber;                          //Returns: 4
+[GBDeviceInfo deviceDetails].majoriOSVersion;                           //Returns: 6
 [GBDeviceInfo deviceDetails].model == GBDeviceModeliPhone4S;            //Returns: YES
 [GBDeviceInfo deviceDetails].family == GBDeviceFamilyiPad;              //Returns: NO
 ```
 
-You can also reuse the returned struct to save some typing. First assign the struct to some variable:
+You can also reuse the returned object (this used to be a c struct in previous versions) to save some typing. First assign the object to some variable:
 
 ```objective-c
-GBDeviceDetails deviceDetails = [GBDeviceInfo deviceDetails];
+GBDeviceDetails *deviceDetails = [GBDeviceInfo deviceDetails];
 ```
 
-Then get whatever you like from the struct:
+Then get whatever you like from the object:
 
 ```objective-c
 //Model numbers
-NSLog(@"Big model number: %d", deviceDetails.bigModel);                 //Big model number: 4
-NSLog(@"Small model number: %d", deviceDetails.smallModel);             //Small model number: 1
+NSLog(@"Major model number: %d", deviceDetails.majorModelNumber);       //Major model number: 4
+NSLog(@"Minor model number: %d", deviceDetails.minorModelNumber);       //Minor model number: 1
 
 //Specific model
 if (deviceDetails.model == GBDeviceModeliPhone4S) {
@@ -40,16 +40,16 @@ if (deviceDetails.family != GBDeviceFamilyiPad) {
 
 //Screen type
 if (deviceDetails.display == GBDeviceDisplayiPhone35Inch) {
-	NSLog(@"It has an iPhone 3.5 inch display");						//It has an iPhone 3.5 inch display
+    NSLog(@"It has an iPhone 3.5 inch display");                        //It has an iPhone 3.5 inch display
 }
 
 //iOS Version
-if (deviceDetails.iOSVersion >= 6) {
-	NSLog(@"It's running at least iOS 6");								//It's running at least iOS 6
+if (deviceDetails.majoriOSVersion >= 6) {
+    NSLog(@"It's running at least iOS 6");                              //It's running at least iOS 6
 }
 
 //Raw systemInfo string
-NSLog(@"systemInfo string: %@", [GBDeviceInfo rawSystemInfoString]);    //systemInfo string: iPhone4,1
+NSLog(@"systemInfo string: %@", deviceDetails.rawSystemInfoString);     //systemInfo string: iPhone4,1
 ```
 
 Don't forget to import header.
@@ -58,20 +58,105 @@ Don't forget to import header.
 #import "GBDeviceInfo.h"
 ```
 
-GBDeviceDetails struct definition:
+GBDeviceDetails object definition:
 
 ```objective-c
-typedef struct {
-    GBDeviceModel           model;
-    GBDeviceFamily          family;
-    GBDeviceDisplay         display;
-    NSUInteger              bigModel;
-    NSUInteger              smallModel;
-    NSUInteger              iOSVersion;
-} GBDeviceDetails;
+@interface GBDeviceDetails : NSObject
+
+@property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+@property (assign, atomic, readonly) GBDeviceModel      model;
+@property (assign, atomic, readonly) GBDeviceFamily     family;
+@property (assign, atomic, readonly) GBDeviceDisplay    display;
+@property (assign, atomic, readonly) NSUInteger         majorModelNumber;
+@property (assign, atomic, readonly) NSUInteger         minorModelNumber;
+@property (assign, atomic, readonly) NSUInteger         majoriOSVersion;
+@property (assign, atomic, readonly) NSUInteger         minoriOSVersion;
+
+@end
 ```
 
-Device support
+Usage: OS X
+------------
+
+Simple usage (examples on a Mac Pro with an Ivy Bridge 3770K processor running 10.8.2):
+
+```objective-c
+[GBDeviceInfo deviceDetails].majorOSVersion;                            //Returns: 8
+[GBDeviceInfo deviceDetails].minorOSVersion;                            //Returns: 2
+[GBDeviceInfo deviceDetails].family == GBDeviceFamilyMacPro;            //Returns: YES
+```
+
+You can also reuse the returned object to save some typing. First assign the object to some variable:
+
+```objective-c
+GBDeviceDetails *deviceDetails = [GBDeviceInfo deviceDetails];
+```
+
+Then get whatever you like from the object:
+
+```objective-c
+GBDeviceDetails *deviceDetails = [GBDeviceInfo deviceDetails];
+
+//OS X Version
+if (deviceDetails.majorOSVersion >= 8) {
+    NSLog(@"It's running at least OS X 10.8 (Lion)");                   //It's running at least OS X 10.8 (Lion)
+}
+
+//Hardware stuff
+NSLog(@"SystemInfo string: %@", deviceDetails.rawSystemInfoString);     //SystemInfo string: MacPro3,1
+NSLog(@"Major model number: %d", deviceDetails.majorModelNumber);       //Major model number: 3
+NSLog(@"Minor model number: %d", deviceDetails.minorModelNumber);       //Minor model number: 1
+NSLog(@"Network name: %@", deviceDetails.nodeName);                     //Network name: MyMac.local
+NSLog(@"RAM: %.3f GB", deviceDetails.physicalMemory);                   //RAM: 16.000 GB
+NSLog(@"CPU frequency: %.3f GHz", deviceDetails.cpuFrequency);          //CPU frequency: 3.262 GHz
+NSLog(@"Number of cores: %d", deviceDetails.numberOfCores);             //Number of cores: 8
+NSLog(@"L2 Cache size: %.0f KB", deviceDetails.l2CacheSize);            //L2 Cache size: 256 KB
+
+//Endianness
+if (deviceDetails.byteOrder == GBByteOrderLittleEndian) {
+    NSLog(@"Our machine is Litte Endian");                              //Our machine is Little Endian
+}
+
+//Family of device
+if (deviceDetails.family != GBDeviceFamilyMacBookAir) {
+    NSLog(@"It's not a Macbook air");                                   //It's not a Macbook air
+}
+
+//Screen resolution
+if (deviceDetails.screenResolution.width == 1920 && deviceDetails.screenResolution.height == 1200) {
+    NSLog(@"It has a resolution of 1920x1200");                         //It has a resolution of 1920x1200
+}
+```
+
+Don't forget to import framework:
+
+```objective-c
+#import <GBDeviceInfo/GBDeviceInfo.h>
+```
+
+GBDeviceDetails object properties:
+
+```objective-c
+@interface GBDeviceDetails : NSObject
+
+@property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+@property (strong, atomic, readonly) NSString           *nodeName;
+@property (assign, atomic, readonly) GBDeviceFamily     family;
+@property (assign, atomic, readonly) NSUInteger         majorModelNumber;
+@property (assign, atomic, readonly) NSUInteger         minorModelNumber;
+@property (assign, atomic, readonly) CGFloat            physicalMemory;         // GB
+@property (assign, atomic, readonly) CGFloat            cpuFrequency;           // GHz
+@property (assign, atomic, readonly) NSUInteger         numberOfCores;
+@property (assign, atomic, readonly) CGFloat            l2CacheSize;            // KB
+@property (assign, atomic, readonly) GBByteOrder        byteOrder;
+@property (assign, atomic, readonly) CGSize             screenResolution;
+@property (assign, atomic, readonly) NSUInteger         majorOSVersion;
+@property (assign, atomic, readonly) NSUInteger         minorOSVersion;
+
+@end
+```
+
+iOS Device support
 ------------
 
 * iPhone
@@ -90,6 +175,21 @@ Device support
 * iPod3
 * iPod4
 * iPod5
+
+Changelog
+------------
+
+*March 2013 update*
+
+* iOS version now returns an object instead of a struct, so you should declare your variables as `GBDeviceDetails *deviceDetails` instead of the old static way `GBDeviceDetails deviceDetails`
+* Some properties in iOS lib have been renamed:
+  * `iOSVersion` -> `majoriOSVersion`
+  * `bigModelNumber` -> `majorModelNumber`
+  * `smallModelNumber` -> `minorModelNumber`
+* New properties have been added in iOS lib:
+  * `minoriOSVersion`
+  * `rawSystemInfoString`
+* `rawSystemInfoString` method has been removed (you get the same string from the returned object now)
 
 Copyright & License
 ------------
