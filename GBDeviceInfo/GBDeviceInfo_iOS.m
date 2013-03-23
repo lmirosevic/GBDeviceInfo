@@ -59,14 +59,25 @@
     NSUInteger positionOfFirstInteger = [systemInfoString rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location;
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@","].location;
     
-    return [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
+    if (positionOfComma != NSNotFound) {
+        return [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
+    }
+    else {
+        return 0;
+    }
 }
 
 +(NSUInteger)minorModelNumber {
     NSString *systemInfoString = [self rawSystemInfoString];
     
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@"," options:NSBackwardsSearch].location;
-    return [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
+    
+    if (positionOfComma != NSNotFound) {
+        return [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
+    }
+    else {
+        return 0;
+    }
 }
 
 
