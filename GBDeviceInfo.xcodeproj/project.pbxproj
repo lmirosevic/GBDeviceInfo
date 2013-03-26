@@ -16,7 +16,6 @@
 		8A38F59E162DA1C100BCF240 /* GBDeviceInfo_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A38F59D162DA1C100BCF240 /* GBDeviceInfo_iOS.m */; };
 		8A38F5B8162DA4DF00BCF240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F5B7162DA4DF00BCF240 /* UIKit.framework */; };
 		8A521B281701CE1E00A89BE4 /* GBTypes_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11B516F2246000BDDD2A /* GBTypes_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A521B2A1701CE7800A89BE4 /* GBDeviceInfo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A521B291701CE7800A89BE4 /* GBDeviceInfo-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -229,7 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A521B2A1701CE7800A89BE4 /* GBDeviceInfo-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
