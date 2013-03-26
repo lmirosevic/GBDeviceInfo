@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A1B11A616F2211400BDDD2A /* GBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */; };
+		8A1B11A616F2211400BDDD2A /* GBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A1B11BB16F22CC400BDDD2A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B11BA16F22CC400BDDD2A /* Cocoa.framework */; };
-		8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */; };
+		8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A1B11EA16F22DF200BDDD2A /* GBDeviceInfo_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B11E816F22DF200BDDD2A /* GBDeviceInfo_OSX.m */; };
 		8A38F597162DA1C100BCF240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F596162DA1C100BCF240 /* Foundation.framework */; };
 		8A38F59C162DA1C100BCF240 /* GBDeviceInfo_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A38F59B162DA1C100BCF240 /* GBDeviceInfo_iOS.h */; };
 		8A38F59E162DA1C100BCF240 /* GBDeviceInfo_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A38F59D162DA1C100BCF240 /* GBDeviceInfo_iOS.m */; };
 		8A38F5B8162DA4DF00BCF240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F5B7162DA4DF00BCF240 /* UIKit.framework */; };
+		8A521B281701CE1E00A89BE4 /* GBTypes_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11B516F2246000BDDD2A /* GBTypes_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A521B2A1701CE7800A89BE4 /* GBDeviceInfo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A521B291701CE7800A89BE4 /* GBDeviceInfo-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +46,7 @@
 		8A38F59B162DA1C100BCF240 /* GBDeviceInfo_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_iOS.h; sourceTree = "<group>"; };
 		8A38F59D162DA1C100BCF240 /* GBDeviceInfo_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBDeviceInfo_iOS.m; sourceTree = "<group>"; };
 		8A38F5B7162DA4DF00BCF240 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8A521B291701CE7800A89BE4 /* GBDeviceInfo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GBDeviceInfo-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 		8A38F599162DA1C100BCF240 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A521B291701CE7800A89BE4 /* GBDeviceInfo-Info.plist */,
 				8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -151,6 +155,7 @@
 			files = (
 				8A1B11A616F2211400BDDD2A /* GBDeviceInfo.h in Headers */,
 				8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */,
+				8A521B281701CE1E00A89BE4 /* GBTypes_OSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A521B2A1701CE7800A89BE4 /* GBDeviceInfo-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +278,7 @@
 					"IPHONE=0",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "GBDeviceInfo/GBDeviceInfo-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = GBDeviceInfo;
 				SDKROOT = macosx;
@@ -300,6 +307,7 @@
 				GCC_PREFIX_HEADER = "GBDeviceInfo/GBDeviceInfo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "IPHONE=0";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "GBDeviceInfo/GBDeviceInfo-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = GBDeviceInfo;
 				SDKROOT = macosx;
