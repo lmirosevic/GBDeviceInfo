@@ -277,6 +277,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "GBDeviceInfo/GBDeviceInfo-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = GBDeviceInfo;
 				SDKROOT = macosx;
@@ -306,6 +307,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "IPHONE=0";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "GBDeviceInfo/GBDeviceInfo-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = GBDeviceInfo;
 				SDKROOT = macosx;
