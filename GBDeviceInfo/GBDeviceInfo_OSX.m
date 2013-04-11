@@ -152,25 +152,25 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 +(GBDeviceFamily)family {
     NSString *systemInfoString = [self rawSystemInfoString];
     
-    if ([[systemInfoString substringToIndex:4] isEqualToString:@"iMac"]) {
+    if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iMac"]) {
         return GBDeviceFamilyiMac;
     }
-    else if ([[systemInfoString substringToIndex:7] isEqualToString:@"Macmini"]) {
+    else if (systemInfoString.length >=7 && [[systemInfoString substringToIndex:7] isEqualToString:@"Macmini"]) {
         return GBDeviceFamilyMacMini;
     }
-    else if ([[systemInfoString substringToIndex:6] isEqualToString:@"MacPro"]) {
+    else if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"MacPro"]) {
         return GBDeviceFamilyMacPro;
     }
-    else if ([[systemInfoString substringToIndex:7] isEqualToString:@"MacBook"]) {
+    else if (systemInfoString.length >=7 && [[systemInfoString substringToIndex:7] isEqualToString:@"MacBook"]) {
         return GBDeviceFamilyMacBook;
     }
-    else if ([[systemInfoString substringToIndex:10] isEqualToString:@"MacBookAir"]) {
+    else if (systemInfoString.length >=10 && [[systemInfoString substringToIndex:10] isEqualToString:@"MacBookAir"]) {
         return GBDeviceFamilyMacBookAir;
     }
-    else if ([[systemInfoString substringToIndex:10] isEqualToString:@"MacBookPro"]) {
+    else if (systemInfoString.length >=10 && [[systemInfoString substringToIndex:10] isEqualToString:@"MacBookPro"]) {
         return GBDeviceFamilyMacBookPro;
     }
-    else if ([[systemInfoString substringToIndex:6] isEqualToString:@"Xserve"]) {
+    else if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"Xserve"]) {
         return GBDeviceFamilyXserve;
     }
     else {

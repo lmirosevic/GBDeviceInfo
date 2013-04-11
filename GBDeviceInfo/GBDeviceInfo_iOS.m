@@ -96,7 +96,7 @@
     details.minorModelNumber = [self minorModelNumber];
     
     //specific device
-    if ([[systemInfoString substringToIndex:6] isEqualToString:@"iPhone"]) {
+    if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"iPhone"]) {
         details.family = GBDeviceFamilyiPhone;
         
         if (details.majorModelNumber == 1) {
@@ -126,7 +126,7 @@
             details.model = GBDeviceModelUnknown;
         }
     }
-    else if ([[systemInfoString substringToIndex:4] isEqualToString:@"iPad"]) {
+    else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPad"]) {
         details.family = GBDeviceFamilyiPad;
         
         if (details.majorModelNumber == 1) {
@@ -152,7 +152,7 @@
             }
         }
     }
-    else if ([[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {
+    else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {
         details.family = GBDeviceFamilyiPod;
         
         switch (details.majorModelNumber) {
