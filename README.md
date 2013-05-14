@@ -191,6 +191,17 @@ iOS Device support
 * iPod4
 * iPod5
 
+OS X Device family support
+------------
+
+* iMac
+* MacMini
+* MacPro
+* MacBook
+* MacBookAir
+* MacBookPro
+* Xserve
+
 Changelog
 ------------
 
