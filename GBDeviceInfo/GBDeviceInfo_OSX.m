@@ -47,6 +47,8 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 @property (assign, atomic, readwrite) CGSize             screenResolution;
 @property (assign, atomic, readwrite) NSUInteger         majorOSVersion;
 @property (assign, atomic, readwrite) NSUInteger         minorOSVersion;
+@property (assign, atomic, readwrite) BOOL               isMacAppStoreAvailable;
+@property (assign, atomic, readwrite) BOOL               isIAPAvailable;
 
 @end
 
@@ -202,6 +204,15 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     return [NSString stringWithCString:[self _unameStruct].nodename encoding:NSUTF8StringEncoding];
 }
 
++(BOOL)isMacAppStoreAvailable {
+    return (([self majorOSVersion] >= 7) ||
+            ([self majorOSVersion] == 6 && [self minorOSVersion] >=  6));
+}
+
++(BOOL)isIAPAvailable {
+    return ([self majorOSVersion] >= 7);
+}
+
 #pragma mark - public API
 
 +(GBDeviceDetails *)deviceDetails {
@@ -220,11 +231,10 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     deviceDetails.family = [self family];
     deviceDetails.majorModelNumber = [self majorModelNumber];
     deviceDetails.minorModelNumber = [self minorModelNumber];
+    deviceDetails.isMacAppStoreAvailable = [self isMacAppStoreAvailable];
+    deviceDetails.isIAPAvailable = [self isIAPAvailable];
     
     return deviceDetails;
 }
 
 @end
-
-
-//add feature for detecting whether mac app store is available, same for IAP

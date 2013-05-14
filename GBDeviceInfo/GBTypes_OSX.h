@@ -48,5 +48,7 @@ typedef enum {
 @property (assign, atomic, readonly) CGSize             screenResolution;
 @property (assign, atomic, readonly) NSUInteger         majorOSVersion;
 @property (assign, atomic, readonly) NSUInteger         minorOSVersion;
+@property (assign, atomic, readonly) BOOL               isMacAppStoreAvailable; //YES if OSX >= 10.6.6
+@property (assign, atomic, readonly) BOOL               isIAPAvailable;         //YES if OSX >= 10.7
 
 @end
