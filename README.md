@@ -84,6 +84,8 @@ Simple usage (examples on a Mac Pro with an Ivy Bridge 3770K processor running 1
 [GBDeviceInfo deviceDetails].majorOSVersion;                            //Returns: 8
 [GBDeviceInfo deviceDetails].minorOSVersion;                            //Returns: 2
 [GBDeviceInfo deviceDetails].family == GBDeviceFamilyMacPro;            //Returns: YES
+[GBDeviceInfo deviceDetails].isMacAppStoreAvailable;                    //Returns: YES
+[GBDeviceInfo deviceDetails].isIAPAvailable;                            //Returns: YES
 ```
 
 You can also reuse the returned object to save some typing. First assign the object to some variable:
@@ -99,7 +101,18 @@ GBDeviceDetails *deviceDetails = [GBDeviceInfo deviceDetails];
 
 //OS X Version
 if (deviceDetails.majorOSVersion >= 8) {
-    NSLog(@"It's running at least OS X 10.8 (Lion)");                   //It's running at least OS X 10.8 (Lion)
+    NSLog(@"It's running at least OS X 10.8 (Mountain Lion)");          //It's running at least OS X 10.8 (Mountain Lion)
+}
+if (deviceDetails.majorOSVersion == 2) {
+    NSLog(@"Must be running 10.x.2");                                   //Must be running 10.x.2
+}
+
+//App Store stuff
+if (deviceDetails.isMacAppStoreAvailable) {
+    NSLog(@"App store is available.");                                  //App store is available
+}
+if (deviceDetails.isIAPAvailable) {
+    NSLog(@"...and so are IAPs");                                       //...and so are IAPs
 }
 
 //Hardware stuff
@@ -152,6 +165,8 @@ GBDeviceDetails object properties:
 @property (assign, atomic, readonly) CGSize             screenResolution;
 @property (assign, atomic, readonly) NSUInteger         majorOSVersion;
 @property (assign, atomic, readonly) NSUInteger         minorOSVersion;
+@property (assign, atomic, readonly) BOOL               isMacAppStoreAvailable; //YES if OSX >= 10.6.6
+@property (assign, atomic, readonly) BOOL               isIAPAvailable;         //YES if OSX >= 10.7
 
 @end
 ```
@@ -178,6 +193,9 @@ iOS Device support
 
 Changelog
 ------------
+
+*May 2013 update*
+* OSX version now has methods for checking whether the App Store and/or IAP are available on the machine
 
 *March 2013 update*
 
