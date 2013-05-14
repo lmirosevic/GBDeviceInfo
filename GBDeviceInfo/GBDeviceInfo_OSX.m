@@ -225,3 +225,6 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 }
 
 @end
+
+
+//add feature for detecting whether mac app store is available, same for IAP
