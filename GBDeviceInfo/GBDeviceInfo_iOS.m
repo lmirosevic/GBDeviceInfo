@@ -204,16 +204,17 @@
     }
     else {
         
-        if ([details.rawSystemInfoString hasSuffix:@"86"] || [details.rawSystemInfoString isEqual:@"x86_64"])
+        if ([details.rawSystemInfoString hasSuffix:@"86"] || [details.rawSystemInfoString isEqualToString:@"x86_64"])
         {
-            BOOL smallerScreen = [[UIScreen mainScreen] bounds].size.width < 768;
-            details.model = smallerScreen ? GBDeviceModeliPhoneSimulator : GBDeviceModeliPadSimulator;
-            details.modelString = smallerScreen ? @"iPhone Simulator" : @"iPad Simulator";
+            BOOL iPadScreen = [[UIScreen mainScreen] bounds].size.width == 768;
+            details.model = iPadScreen ? GBDeviceModeliPadSimulator : GBDeviceModeliPhoneSimulator;
+            details.modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
         }
-        
-        details.family = GBDeviceFamilyUnknown;
-        details.model = GBDeviceModelUnknown;
-        details.modelString = @"Unknown Device";
+        else {
+            details.family = GBDeviceFamilyUnknown;
+            details.model = GBDeviceModelUnknown;
+            details.modelString = @"Unknown Device";
+        }
     }
     
     //display
