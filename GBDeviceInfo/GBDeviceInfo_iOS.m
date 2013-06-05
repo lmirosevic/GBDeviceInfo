@@ -203,6 +203,14 @@
         }
     }
     else {
+        
+        if ([details.rawSystemInfoString hasSuffix:@"86"] || [details.rawSystemInfoString isEqual:@"x86_64"])
+        {
+            BOOL smallerScreen = [[UIScreen mainScreen] bounds].size.width < 768;
+            details.model = smallerScreen ? GBDeviceModeliPhoneSimulator : GBDeviceModeliPadSimulator;
+            details.modelString = smallerScreen ? @"iPhone Simulator" : @"iPad Simulator";
+        }
+        
         details.family = GBDeviceFamilyUnknown;
         details.model = GBDeviceModelUnknown;
         details.modelString = @"Unknown Device";

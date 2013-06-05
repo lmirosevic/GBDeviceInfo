@@ -19,6 +19,8 @@
 
 typedef enum {
     GBDeviceModelUnknown = 0,
+    GBDeviceModeliPhoneSimulator,
+    GBDeviceModeliPadSimulator,
     GBDeviceModeliPhone,
     GBDeviceModeliPhone3G,
     GBDeviceModeliPhone3GS,
