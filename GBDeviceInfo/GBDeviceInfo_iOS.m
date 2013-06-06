@@ -204,9 +204,9 @@
     }
     else {
         
-        if ([details.rawSystemInfoString hasSuffix:@"86"] || [details.rawSystemInfoString isEqualToString:@"x86_64"])
+        if (TARGET_IPHONE_SIMULATOR)
         {
-            BOOL iPadScreen = [[UIScreen mainScreen] bounds].size.width == 768;
+            BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
             details.model = iPadScreen ? GBDeviceModeliPadSimulator : GBDeviceModeliPhoneSimulator;
             details.modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
         }
