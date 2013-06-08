@@ -202,19 +202,17 @@
                 break;
         }
     }
-    else {
+    else if (TARGET_IPHONE_SIMULATOR) {
+        details.family = GBDeviceFamilySimulator;
         
-        if (TARGET_IPHONE_SIMULATOR)
-        {
-            BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-            details.model = iPadScreen ? GBDeviceModeliPadSimulator : GBDeviceModeliPhoneSimulator;
-            details.modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
-        }
-        else {
-            details.family = GBDeviceFamilyUnknown;
-            details.model = GBDeviceModelUnknown;
-            details.modelString = @"Unknown Device";
-        }
+        BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+        details.model = iPadScreen ? GBDeviceModeliPadSimulator : GBDeviceModeliPhoneSimulator;
+        details.modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
+    }
+    else {
+        details.family = GBDeviceFamilyUnknown;
+        details.model = GBDeviceModelUnknown;
+        details.modelString = @"Unknown Device";
     }
     
     //display
