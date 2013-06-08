@@ -190,6 +190,7 @@ iOS Device support
 * iPod3
 * iPod4
 * iPod5
+* Simulator
 
 OS X Device family support
 ------------
@@ -204,6 +205,10 @@ OS X Device family support
 
 Changelog
 ------------
+
+*June 2013 update*
+* iOS version now has support for simulator detection
+* iOS version can now return a human readable string for the device, e.g. "iPhone 4S"
 
 *May 2013 update*
 * OSX version now has methods for checking whether the App Store and/or IAP are available on the machine
