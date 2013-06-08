@@ -19,6 +19,8 @@
 
 typedef enum {
     GBDeviceModelUnknown = 0,
+    GBDeviceModeliPhoneSimulator,
+    GBDeviceModeliPadSimulator,
     GBDeviceModeliPhone,
     GBDeviceModeliPhone3G,
     GBDeviceModeliPhone3GS,
@@ -42,6 +44,7 @@ typedef enum {
     GBDeviceFamilyiPhone,
     GBDeviceFamilyiPad,
     GBDeviceFamilyiPod,
+    GBDeviceFamilySimulator,
 } GBDeviceFamily;
 
 typedef enum {
@@ -54,6 +57,7 @@ typedef enum {
 @interface GBDeviceDetails : NSObject
 
 @property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+@property (strong, atomic, readonly) NSString           *modelString;
 @property (assign, atomic, readonly) GBDeviceModel      model;
 @property (assign, atomic, readonly) GBDeviceFamily     family;
 @property (assign, atomic, readonly) GBDeviceDisplay    display;
