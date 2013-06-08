@@ -44,6 +44,7 @@ typedef enum {
     GBDeviceFamilyiPhone,
     GBDeviceFamilyiPad,
     GBDeviceFamilyiPod,
+    GBDeviceFamilySimulator,
 } GBDeviceFamily;
 
 typedef enum {
