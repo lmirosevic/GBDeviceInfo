@@ -202,7 +202,7 @@
 		8A38F58A162DA1C100BCF240 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Luka Mirosevic";
 			};
 			buildConfigurationList = 8A38F58D162DA1C100BCF240 /* Build configuration list for PBXProject "GBDeviceInfo" */;
@@ -256,7 +256,6 @@
 		8A1B119E16F21F2E00BDDD2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -288,7 +287,6 @@
 		8A1B119F16F21F2E00BDDD2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
