@@ -130,6 +130,10 @@
             details.model = GBDeviceModeliPhone5;
             details.modelString = @"iPhone 5";
         }
+        else if (details.majorModelNumber == 6) {
+            details.model = GBDeviceModeliPhone5;
+            details.modelString = @"iPhone 5S";
+        }
         else {
             details.model = GBDeviceModelUnknown;
             details.modelString = details.rawSystemInfoString;
