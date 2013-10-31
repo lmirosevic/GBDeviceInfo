@@ -127,8 +127,14 @@
             details.modelString = @"iPhone 4S";
         }
         else if (details.majorModelNumber == 5) {
-            details.model = GBDeviceModeliPhone5;
-            details.modelString = @"iPhone 5";
+            if (details.minorModelNumber <= 2) {
+                details.model = GBDeviceModeliPhone5;
+                details.modelString = @"iPhone 5";
+            }
+            else if (details.minorModelNumber <= 4) {
+                details.model = GBDeviceModeliPhone5C;
+                details.modelString = @"iPhone 5C";
+            }
         }
         else if (details.majorModelNumber == 6) {
             details.model = GBDeviceModeliPhone5;

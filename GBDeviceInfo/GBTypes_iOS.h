@@ -27,6 +27,7 @@ typedef enum {
     GBDeviceModeliPhone4,
     GBDeviceModeliPhone4S,
     GBDeviceModeliPhone5,
+    GBDeviceModeliPhone5C,
     GBDeviceModeliPhone5S,
     GBDeviceModeliPad,
     GBDeviceModeliPad2,
