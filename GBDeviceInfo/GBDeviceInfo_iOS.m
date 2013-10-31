@@ -176,6 +176,20 @@
                 details.modelString = details.rawSystemInfoString;
             }
         }
+        else if (details.majorModelNumber == 4) {
+            if (details.minorModelNumber <= 2) {
+                details.model = GBDeviceModeliPadAir;
+                details.modelString = @"iPad Air";
+            }
+            else if (details.minorModelNumber == 4 || details.minorModelNumber == 5) {
+                details.model = GBDeviceModeliPadMiniRetina;
+                details.modelString = @"iPad Mini Retina";
+            }
+            else {
+                details.model = GBDeviceModelUnknown;
+                details.modelString = details.rawSystemInfoString;
+            }
+        }
     }
     else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {
         details.family = GBDeviceFamilyiPod;
