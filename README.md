@@ -181,11 +181,15 @@ iOS Device support
 * iPhone4
 * iPhone4S
 * iPhone5
+* iPhone5C
+* iPhone5S
 * iPad
 * iPad2
 * iPad3
 * iPad4
 * iPadMini
+* iPadMiniRetina
+* iPadAir
 * iPod
 * iPod2
 * iPod3
@@ -206,6 +210,9 @@ OS X Device family support
 
 Changelog
 ------------
+
+*November 2013 update*
+* Added new devices: iPhone 5C, iPhone5S, iPad Mini Retina, iPad Air
 
 *June 2013 update*
 * iOS version now has support for simulator detection
