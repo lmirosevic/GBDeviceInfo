@@ -186,14 +186,14 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     NSUInteger positionOfFirstInteger = [systemInfoString rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location;
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@","].location;
     
-    return [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
+    return (NSUInteger)[[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
 }
 
 +(NSUInteger)minorModelNumber {
     NSString *systemInfoString = [self rawSystemInfoString];
     
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@"," options:NSBackwardsSearch].location;
-    return [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
+    return (NSUInteger)[[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
 }
 
 +(NSString *)rawSystemInfoString {
@@ -216,23 +216,27 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 #pragma mark - public API
 
 +(GBDeviceDetails *)deviceDetails {
-    GBDeviceDetails *deviceDetails = [GBDeviceDetails new];
-    
-    deviceDetails.rawSystemInfoString = [self rawSystemInfoString];
-    deviceDetails.physicalMemory = [self physicalMemory];
-    deviceDetails.cpuFrequency = [self cpuFrequency];
-    deviceDetails.numberOfCores = [self numberOfCores];
-    deviceDetails.l2CacheSize = [self l2CacheSize];
-    deviceDetails.byteOrder = [self byteOrder];
-    deviceDetails.majorOSVersion = [self majorOSVersion];
-    deviceDetails.minorOSVersion = [self minorOSVersion];
-    deviceDetails.nodeName = [self nodeName];
-    deviceDetails.screenResolution = [self screenResolution];
-    deviceDetails.family = [self family];
-    deviceDetails.majorModelNumber = [self majorModelNumber];
-    deviceDetails.minorModelNumber = [self minorModelNumber];
-    deviceDetails.isMacAppStoreAvailable = [self isMacAppStoreAvailable];
-    deviceDetails.isIAPAvailable = [self isIAPAvailable];
+    static GBDeviceDetails *deviceDetails;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        deviceDetails = [GBDeviceDetails new];
+        
+        deviceDetails.rawSystemInfoString = [self rawSystemInfoString];
+        deviceDetails.physicalMemory = [self physicalMemory];
+        deviceDetails.cpuFrequency = [self cpuFrequency];
+        deviceDetails.numberOfCores = [self numberOfCores];
+        deviceDetails.l2CacheSize = [self l2CacheSize];
+        deviceDetails.byteOrder = [self byteOrder];
+        deviceDetails.majorOSVersion = [self majorOSVersion];
+        deviceDetails.minorOSVersion = [self minorOSVersion];
+        deviceDetails.nodeName = [self nodeName];
+        deviceDetails.screenResolution = [self screenResolution];
+        deviceDetails.family = [self family];
+        deviceDetails.majorModelNumber = [self majorModelNumber];
+        deviceDetails.minorModelNumber = [self minorModelNumber];
+        deviceDetails.isMacAppStoreAvailable = [self isMacAppStoreAvailable];
+        deviceDetails.isIAPAvailable = [self isIAPAvailable];
+    });
     
     return deviceDetails;
 }
