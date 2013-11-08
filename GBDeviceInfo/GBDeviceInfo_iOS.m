@@ -61,7 +61,7 @@
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@","].location;
     
     if (positionOfComma != NSNotFound) {
-        return [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
+        return (NSUInteger)[[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
     }
     else {
         return 0;
@@ -74,7 +74,7 @@
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@"," options:NSBackwardsSearch].location;
     
     if (positionOfComma != NSNotFound) {
-        return [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
+        return (NSUInteger)[[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
     }
     else {
         return 0;
@@ -85,190 +85,195 @@
 #pragma mark - public API
 
 +(GBDeviceDetails *)deviceDetails {
-    GBDeviceDetails *details = [GBDeviceDetails new];
+    static GBDeviceDetails *details;
     
-    NSString *systemInfoString = [self rawSystemInfoString];
-    
-    //system info string
-    details.rawSystemInfoString = systemInfoString;
-    
-    //model numbers
-    details.majorModelNumber = [self majorModelNumber];
-    details.minorModelNumber = [self minorModelNumber];
-    
-    //specific device
-    if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"iPhone"]) {
-        details.family = GBDeviceFamilyiPhone;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        details = [GBDeviceDetails new];
         
-        if (details.majorModelNumber == 1) {
-            if (details.minorModelNumber == 1) {
-                details.model = GBDeviceModeliPhone;
-                details.modelString = @"iPhone 1";
+        NSString *systemInfoString = [self rawSystemInfoString];
+        
+        //system info string
+        details.rawSystemInfoString = systemInfoString;
+        
+        //model numbers
+        details.majorModelNumber = [self majorModelNumber];
+        details.minorModelNumber = [self minorModelNumber];
+        
+        //specific device
+        if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"iPhone"]) {
+            details.family = GBDeviceFamilyiPhone;
+            
+            if (details.majorModelNumber == 1) {
+                if (details.minorModelNumber == 1) {
+                    details.model = GBDeviceModeliPhone;
+                    details.modelString = @"iPhone 1";
+                }
+                else if (details.minorModelNumber == 2) {
+                    details.model = GBDeviceModeliPhone3G;
+                    details.modelString = @"iPhone 3G";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
             }
-            else if (details.minorModelNumber == 2) {
-                details.model = GBDeviceModeliPhone3G;
-                details.modelString = @"iPhone 3G";
+            else if (details.majorModelNumber == 2) {
+                details.model = GBDeviceModeliPhone3GS;
+                details.modelString = @"iPhone 3GS";
+            }
+            else if (details.majorModelNumber == 3) {
+                details.model = GBDeviceModeliPhone4;
+                details.modelString = @"iPhone 4";
+            }
+            else if (details.majorModelNumber == 4) {
+                details.model = GBDeviceModeliPhone4S;
+                details.modelString = @"iPhone 4S";
+            }
+            else if (details.majorModelNumber == 5) {
+                if (details.minorModelNumber <= 2) {
+                    details.model = GBDeviceModeliPhone5;
+                    details.modelString = @"iPhone 5";
+                }
+                else if (details.minorModelNumber <= 4) {
+                    details.model = GBDeviceModeliPhone5C;
+                    details.modelString = @"iPhone 5C";
+                }
+            }
+            else if (details.majorModelNumber == 6) {
+                details.model = GBDeviceModeliPhone5;
+                details.modelString = @"iPhone 5S";
             }
             else {
                 details.model = GBDeviceModelUnknown;
                 details.modelString = details.rawSystemInfoString;
             }
         }
-        else if (details.majorModelNumber == 2) {
-            details.model = GBDeviceModeliPhone3GS;
-            details.modelString = @"iPhone 3GS";
-        }
-        else if (details.majorModelNumber == 3) {
-            details.model = GBDeviceModeliPhone4;
-            details.modelString = @"iPhone 4";
-        }
-        else if (details.majorModelNumber == 4) {
-            details.model = GBDeviceModeliPhone4S;
-            details.modelString = @"iPhone 4S";
-        }
-        else if (details.majorModelNumber == 5) {
-            if (details.minorModelNumber <= 2) {
-                details.model = GBDeviceModeliPhone5;
-                details.modelString = @"iPhone 5";
+        else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPad"]) {
+            details.family = GBDeviceFamilyiPad;
+            
+            if (details.majorModelNumber == 1) {
+                details.model = GBDeviceModeliPad;
+                details.modelString = @"iPad 1";
             }
-            else if (details.minorModelNumber <= 4) {
-                details.model = GBDeviceModeliPhone5C;
-                details.modelString = @"iPhone 5C";
+            else if (details.majorModelNumber == 2) {
+                if (details.minorModelNumber <= 4) {
+                    details.model = GBDeviceModeliPad2;
+                    details.modelString = @"iPad 2";
+                }
+                else if (details.minorModelNumber <= 7) {
+                    details.model = GBDeviceModeliPadMini;
+                    details.modelString = @"iPad Mini";
+                }
+            }
+            else if (details.majorModelNumber == 3) {
+                if (details.minorModelNumber <= 3) {
+                    details.model = GBDeviceModeliPad3;
+                    details.modelString = @"iPad 3";
+                }
+                else if (details.minorModelNumber <= 6) {
+                    details.model = GBDeviceModeliPad4;
+                    details.modelString = @"iPad 4";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
+            }
+            else if (details.majorModelNumber == 4) {
+                if (details.minorModelNumber <= 2) {
+                    details.model = GBDeviceModeliPadAir;
+                    details.modelString = @"iPad Air";
+                }
+                else if (details.minorModelNumber == 4 || details.minorModelNumber == 5) {
+                    details.model = GBDeviceModeliPadMiniRetina;
+                    details.modelString = @"iPad Mini Retina";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
             }
         }
-        else if (details.majorModelNumber == 6) {
-            details.model = GBDeviceModeliPhone5;
-            details.modelString = @"iPhone 5S";
+        else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {
+            details.family = GBDeviceFamilyiPod;
+            
+            switch (details.majorModelNumber) {
+                case 1:
+                    details.model = GBDeviceModeliPod;
+                    details.modelString = @"iPod Touch 1";
+                    break;
+                    
+                case 2:
+                    details.model = GBDeviceModeliPod2;
+                    details.modelString = @"iPod Touch 2";
+                    break;
+                    
+                case 3:
+                    details.model = GBDeviceModeliPod3;
+                    details.modelString = @"iPod Touch 3";
+                    break;
+                    
+                case 4:
+                    details.model = GBDeviceModeliPod4;
+                    details.modelString = @"iPod Touch 4";
+                    break;
+                    
+                case 5:
+                    details.model = GBDeviceModeliPod5;
+                    details.modelString = @"iPod Touch 5";
+                    break;
+                    
+                default:
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                    break;
+            }
+        }
+        else if (TARGET_IPHONE_SIMULATOR) {
+            details.family = GBDeviceFamilySimulator;
+            
+            BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+            details.model = iPadScreen ? GBDeviceModeliPadSimulator : GBDeviceModeliPhoneSimulator;
+            details.modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
         }
         else {
+            details.family = GBDeviceFamilyUnknown;
             details.model = GBDeviceModelUnknown;
-            details.modelString = details.rawSystemInfoString;
+            details.modelString = @"Unknown Device";
         }
-    }
-    else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPad"]) {
-        details.family = GBDeviceFamilyiPad;
         
-        if (details.majorModelNumber == 1) {
-            details.model = GBDeviceModeliPad;
-            details.modelString = @"iPad 1";
-        }
-        else if (details.majorModelNumber == 2) {
-            if (details.minorModelNumber <= 4) {
-                details.model = GBDeviceModeliPad2;
-                details.modelString = @"iPad 2";
-            }
-            else if (details.minorModelNumber <= 7) {
-                details.model = GBDeviceModeliPadMini;
-                details.modelString = @"iPad Mini";
-            }
-        }
-        else if (details.majorModelNumber == 3) {
-            if (details.minorModelNumber <= 3) {
-                details.model = GBDeviceModeliPad3;
-                details.modelString = @"iPad 3";
-            }
-            else if (details.minorModelNumber <= 6) {
-                details.model = GBDeviceModeliPad4;
-                details.modelString = @"iPad 4";
-            }
-            else {
-                details.model = GBDeviceModelUnknown;
-                details.modelString = details.rawSystemInfoString;
-            }
-        }
-        else if (details.majorModelNumber == 4) {
-            if (details.minorModelNumber <= 2) {
-                details.model = GBDeviceModeliPadAir;
-                details.modelString = @"iPad Air";
-            }
-            else if (details.minorModelNumber == 4 || details.minorModelNumber == 5) {
-                details.model = GBDeviceModeliPadMiniRetina;
-                details.modelString = @"iPad Mini Retina";
-            }
-            else {
-                details.model = GBDeviceModelUnknown;
-                details.modelString = details.rawSystemInfoString;
-            }
-        }
-    }
-    else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {
-        details.family = GBDeviceFamilyiPod;
+        //display
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        CGFloat screenHeight = screenRect.size.height;
         
-        switch (details.majorModelNumber) {
-            case 1:
-                details.model = GBDeviceModeliPod;
-                details.modelString = @"iPod Touch 1";
-                break;
-                
-            case 2:
-                details.model = GBDeviceModeliPod2;
-                details.modelString = @"iPod Touch 2";
-                break;
-                
-            case 3:
-                details.model = GBDeviceModeliPod3;
-                details.modelString = @"iPod Touch 3";
-                break;
-                
-            case 4:
-                details.model = GBDeviceModeliPod4;
-                details.modelString = @"iPod Touch 4";
-                break;
-                
-            case 5:
-                details.model = GBDeviceModeliPod5;
-                details.modelString = @"iPod Touch 5";
-                break;
-                
-            default:
-                details.model = GBDeviceModelUnknown;
-                details.modelString = details.rawSystemInfoString;
-                break;
+        //ipad old
+        if ((screenWidth == 768) && (screenHeight == 1024)) {
+            details.display = GBDeviceDisplayiPad;
         }
-    }
-    else if (TARGET_IPHONE_SIMULATOR) {
-        details.family = GBDeviceFamilySimulator;
+        //iphone
+        else if ((screenWidth == 320) && (screenHeight == 480)) {
+            details.display = GBDeviceDisplayiPhone35Inch;
+        }
+        //iphone 4 inch
+        else if ((screenWidth == 320) && (screenHeight == 568)) {
+            details.display = GBDeviceDisplayiPhone4Inch;
+        }
+        //unknown
+        else {
+            details.display = GBDeviceDisplayUnknown;
+        }
         
-        BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-        details.model = iPadScreen ? GBDeviceModeliPadSimulator : GBDeviceModeliPhoneSimulator;
-        details.modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
-    }
-    else {
-        details.family = GBDeviceFamilyUnknown;
-        details.model = GBDeviceModelUnknown;
-        details.modelString = @"Unknown Device";
-    }
-    
-    //display
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    
-    //ipad old
-    if ((screenWidth == 768) && (screenHeight == 1024)) {
-        details.display = GBDeviceDisplayiPad;
-    }
-    //iphone
-    else if ((screenWidth == 320) && (screenHeight == 480)) {
-        details.display = GBDeviceDisplayiPhone35Inch;
-    }
-    //iphone 4 inch
-    else if ((screenWidth == 320) && (screenHeight == 568)) {
-        details.display = GBDeviceDisplayiPhone4Inch;
-    }
-    //unknown
-    else {
-        details.display = GBDeviceDisplayUnknown;
-    }
-    
-    //iOS version
-    NSArray *decomposedOSVersion = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-    if (decomposedOSVersion.count >= 2) {
-        NSInteger majorVersion = [decomposedOSVersion[0] integerValue];
-        NSInteger minorVersion = [decomposedOSVersion[1] integerValue];
-        details.majoriOSVersion = majorVersion >= 0 ? (NSUInteger)majorVersion : 0;
-        details.minoriOSVersion = minorVersion >= 0 ? (NSUInteger)minorVersion : 0;
-    }
+        //iOS version
+        NSArray *decomposedOSVersion = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+        if (decomposedOSVersion.count >= 2) {
+            NSInteger majorVersion = [decomposedOSVersion[0] integerValue];
+            NSInteger minorVersion = [decomposedOSVersion[1] integerValue];
+            details.majoriOSVersion = majorVersion >= 0 ? (NSUInteger)majorVersion : 0;
+            details.minoriOSVersion = minorVersion >= 0 ? (NSUInteger)minorVersion : 0;
+        }
+    });
     
     return details;
 }
