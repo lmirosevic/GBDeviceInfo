@@ -137,7 +137,7 @@
             }
         }
         else if (details.majorModelNumber == 6) {
-            details.model = GBDeviceModeliPhone5;
+            details.model = GBDeviceModeliPhone5S;
             details.modelString = @"iPhone 5S";
         }
         else {
