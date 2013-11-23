@@ -166,11 +166,11 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     else if (systemInfoString.length >=10 && [[systemInfoString substringToIndex:10] isEqualToString:@"MacBookPro"]) {
         return GBDeviceFamilyMacBookPro;
     }
-    else if (systemInfoString.length >=7 && [[systemInfoString substringToIndex:7] isEqualToString:@"MacBook"]) {
-        return GBDeviceFamilyMacBook;
-    }
     else if (systemInfoString.length >=10 && [[systemInfoString substringToIndex:10] isEqualToString:@"MacBookAir"]) {
         return GBDeviceFamilyMacBookAir;
+    }
+    else if (systemInfoString.length >=7 && [[systemInfoString substringToIndex:7] isEqualToString:@"MacBook"]) {
+        return GBDeviceFamilyMacBook;
     }
     else if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"Xserve"]) {
         return GBDeviceFamilyXserve;
