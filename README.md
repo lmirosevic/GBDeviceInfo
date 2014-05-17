@@ -1,5 +1,4 @@
-GBDeviceInfo
-============
+# GBDeviceInfo ![Version](https://img.shields.io/cocoapods/v/GBDeviceInfo.svg?style=flat)&nbsp;![License](https://img.shields.io/badge/license-Apache_2-green.svg?style=flat)
 
 Detects the hardware, software and display of the current iOS or Mac OS X device at runtime.
 
@@ -243,5 +242,3 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lmirosevic/gbdeviceinfo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
