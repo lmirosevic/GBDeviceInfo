@@ -103,7 +103,7 @@ GBDeviceDetails *deviceDetails = [GBDeviceInfo deviceDetails];
 if (deviceDetails.majorOSVersion >= 8) {
     NSLog(@"It's running at least OS X 10.8 (Mountain Lion)");          //It's running at least OS X 10.8 (Mountain Lion)
 }
-if (deviceDetails.majorOSVersion == 2) {
+if (deviceDetails.minorOSVersion == 2) {
     NSLog(@"Must be running 10.x.2");                                   //Must be running 10.x.2
 }
 
