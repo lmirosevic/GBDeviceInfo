@@ -140,6 +140,16 @@
             details.model = GBDeviceModeliPhone5S;
             details.modelString = @"iPhone 5S";
         }
+        else if (details.majorModelNumber == 7) {
+            if (details.minorModelNumber == 1) {
+                details.model = GBDeviceModeliPhone6Plus;
+                details.modelString = @"iPhone 6 Plus";
+            }
+            else if (details.minorModelNumber == 2) {
+                details.model = GBDeviceModeliPhone6;
+                details.modelString = @"iPhone 6";
+            }
+        }
         else {
             details.model = GBDeviceModelUnknown;
             details.modelString = details.rawSystemInfoString;
