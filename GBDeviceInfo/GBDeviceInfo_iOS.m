@@ -96,6 +96,10 @@
     details.majorModelNumber = [self majorModelNumber];
     details.minorModelNumber = [self minorModelNumber];
     
+    //default value
+    details.model = GBDeviceModelUnknown;
+    details.modelString = details.rawSystemInfoString;
+    
     //specific device
     if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"iPhone"]) {
         details.family = GBDeviceFamilyiPhone;
@@ -191,14 +195,32 @@
                 details.model = GBDeviceModeliPadAir;
                 details.modelString = @"iPad Air";
             }
-            else if (details.minorModelNumber == 4 || details.minorModelNumber == 5) {
+            else if (details.minorModelNumber >= 4 || details.minorModelNumber <= 6) {
                 details.model = GBDeviceModeliPadMiniRetina;
                 details.modelString = @"iPad Mini Retina";
+            }
+            else if (details.minorModelNumber >= 7 || details.minorModelNumber <= 9) {
+                details.model = GBDeviceModeliPadMini3;
+                details.modelString = @"iPad Mini 3";
             }
             else {
                 details.model = GBDeviceModelUnknown;
                 details.modelString = details.rawSystemInfoString;
             }
+        }
+        else if (details.majorModelNumber == 5){
+            if (details.minoriOSVersion == 3 || details.minoriOSVersion == 4) {
+                details.model = GBDeviceModeliPadAir2;
+                details.modelString = @"iPad Air 2";
+            }
+            else {
+                details.model = GBDeviceModelUnknown;
+                details.modelString = details.rawSystemInfoString;
+            }
+        }
+        else {
+            details.model = GBDeviceModelUnknown;
+            details.modelString = details.rawSystemInfoString;
         }
     }
     else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPod"]) {
