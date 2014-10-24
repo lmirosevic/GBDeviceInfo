@@ -209,7 +209,7 @@
             }
         }
         else if (details.majorModelNumber == 5){
-            if (details.minoriOSVersion <= 2) {
+            if (details.minoriOSVersion == 3 || details.minoriOSVersion == 4) {
                 details.model = GBDeviceModeliPadAir2;
                 details.modelString = @"iPad Air 2";
             }
