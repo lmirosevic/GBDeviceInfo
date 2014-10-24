@@ -182,19 +182,24 @@ iOS Device support
 * iPhone5
 * iPhone5C
 * iPhone5S
+* iPhone6
+* iPhone6Plus
 * iPad
 * iPad2
 * iPad3
 * iPad4
 * iPadMini
 * iPadMiniRetina
+* iPadMini3
 * iPadAir
+* iPadAir2
 * iPod
 * iPod2
 * iPod3
 * iPod4
 * iPod5
-* Simulator
+* iPhone Simulator
+* iPad Simulator
 
 OS X Device family support
 ------------
