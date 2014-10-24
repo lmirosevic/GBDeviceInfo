@@ -213,14 +213,12 @@
                 details.model = GBDeviceModeliPadAir2;
                 details.modelString = @"iPad Air 2";
             }
-            else
-            {
+            else {
                 details.model = GBDeviceModelUnknown;
                 details.modelString = details.rawSystemInfoString;
             }
         }
-        else
-        {
+        else {
             details.model = GBDeviceModelUnknown;
             details.modelString = details.rawSystemInfoString;
         }
