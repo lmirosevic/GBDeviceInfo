@@ -118,15 +118,21 @@
                 details.modelString = details.rawSystemInfoString;
             }
         }
-        else if (details.majorModelNumber == 2) {
+        else if (details.majorModelNumber == 2 && details.minorModelNumber == 1) {
             details.model = GBDeviceModeliPhone3GS;
             details.modelString = @"iPhone 3GS";
         }
         else if (details.majorModelNumber == 3) {
-            details.model = GBDeviceModeliPhone4;
-            details.modelString = @"iPhone 4";
+            if (details.minorModelNumber <= 3) {
+                details.model = GBDeviceModeliPhone4;
+                details.modelString = @"iPhone 4";
+            }
+            else {
+                details.model = GBDeviceModelUnknown;
+                details.modelString = details.rawSystemInfoString;
+            }
         }
-        else if (details.majorModelNumber == 4) {
+        else if (details.majorModelNumber == 4 && details.minorModelNumber == 1) {
             details.model = GBDeviceModeliPhone4S;
             details.modelString = @"iPhone 4S";
         }
@@ -139,10 +145,20 @@
                 details.model = GBDeviceModeliPhone5C;
                 details.modelString = @"iPhone 5C";
             }
+            else {
+                details.model = GBDeviceModelUnknown;
+                details.modelString = details.rawSystemInfoString;
+            }
         }
         else if (details.majorModelNumber == 6) {
-            details.model = GBDeviceModeliPhone5S;
-            details.modelString = @"iPhone 5S";
+            if (details.minorModelNumber <= 2) {
+                details.model = GBDeviceModeliPhone5S;
+                details.modelString = @"iPhone 5S";
+            }
+            else {
+                details.model = GBDeviceModelUnknown;
+                details.modelString = details.rawSystemInfoString;
+            }
         }
         else if (details.majorModelNumber == 7) {
             if (details.minorModelNumber == 1) {
@@ -153,6 +169,10 @@
                 details.model = GBDeviceModeliPhone6;
                 details.modelString = @"iPhone 6";
             }
+            else {
+                details.model = GBDeviceModelUnknown;
+                details.modelString = details.rawSystemInfoString;
+            }
         }
         else {
             details.model = GBDeviceModelUnknown;
@@ -162,7 +182,7 @@
     else if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iPad"]) {
         details.family = GBDeviceFamilyiPad;
         
-        if (details.majorModelNumber == 1) {
+        if (details.majorModelNumber == 1 && details.minorModelNumber == 1) {
             details.model = GBDeviceModeliPad;
             details.modelString = @"iPad 1";
         }
@@ -174,6 +194,10 @@
             else if (details.minorModelNumber <= 7) {
                 details.model = GBDeviceModeliPadMini;
                 details.modelString = @"iPad Mini";
+            }
+            else {
+                details.model = GBDeviceModelUnknown;
+                details.modelString = details.rawSystemInfoString;
             }
         }
         else if (details.majorModelNumber == 3) {
@@ -228,28 +252,58 @@
         
         switch (details.majorModelNumber) {
             case 1:
-                details.model = GBDeviceModeliPod;
-                details.modelString = @"iPod Touch 1";
+                if (details.minorModelNumber == 1) {
+                    details.model = GBDeviceModeliPod;
+                    details.modelString = @"iPod Touch 1";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
                 break;
                 
             case 2:
-                details.model = GBDeviceModeliPod2;
-                details.modelString = @"iPod Touch 2";
+                if (details.minorModelNumber == 1) {
+                    details.model = GBDeviceModeliPod2;
+                    details.modelString = @"iPod Touch 2";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
                 break;
                 
             case 3:
-                details.model = GBDeviceModeliPod3;
-                details.modelString = @"iPod Touch 3";
+                if (details.minorModelNumber == 1) {
+                    details.model = GBDeviceModeliPod3;
+                    details.modelString = @"iPod Touch 3";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
                 break;
                 
             case 4:
-                details.model = GBDeviceModeliPod4;
-                details.modelString = @"iPod Touch 4";
+                if (details.minorModelNumber == 1) {
+                    details.model = GBDeviceModeliPod4;
+                    details.modelString = @"iPod Touch 4";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
                 break;
                 
             case 5:
-                details.model = GBDeviceModeliPod5;
-                details.modelString = @"iPod Touch 5";
+                if (details.minorModelNumber == 1) {
+                    details.model = GBDeviceModeliPod5;
+                    details.modelString = @"iPod Touch 5";
+                }
+                else {
+                    details.model = GBDeviceModelUnknown;
+                    details.modelString = details.rawSystemInfoString;
+                }
                 break;
                 
             default:
