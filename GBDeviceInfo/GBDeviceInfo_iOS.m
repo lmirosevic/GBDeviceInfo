@@ -277,15 +277,18 @@
     CGFloat screenHeight = screenRect.size.height;
     
     //ipad old
-    if ((screenWidth == 768) && (screenHeight == 1024)) {
+    if (((screenWidth == 768) && (screenHeight == 1024)) ||
+        ((screenWidth == 1024) && (screenHeight == 768))) {
         details.display = GBDeviceDisplayiPad;
     }
     //iphone
-    else if ((screenWidth == 320) && (screenHeight == 480)) {
+    else if (((screenWidth == 320) && (screenHeight == 480)) ||
+             ((screenWidth == 480) && (screenHeight == 320))) {
         details.display = GBDeviceDisplayiPhone35Inch;
     }
     //iphone 4 inch
-    else if ((screenWidth == 320) && (screenHeight == 568)) {
+    else if (((screenWidth == 320) && (screenHeight == 568)) ||
+             ((screenWidth == 568) && (screenHeight == 320))) {
         details.display = GBDeviceDisplayiPhone4Inch;
     }
     //unknown
