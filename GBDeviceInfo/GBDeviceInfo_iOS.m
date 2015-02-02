@@ -276,27 +276,37 @@
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     
-    //ipad old
+    // iPad
     if (((screenWidth == 768) && (screenHeight == 1024)) ||
         ((screenWidth == 1024) && (screenHeight == 768))) {
         details.display = GBDeviceDisplayiPad;
     }
-    //iphone
+    // iPhone 3.5 inch
     else if (((screenWidth == 320) && (screenHeight == 480)) ||
              ((screenWidth == 480) && (screenHeight == 320))) {
         details.display = GBDeviceDisplayiPhone35Inch;
     }
-    //iphone 4 inch
+    // iPhone 4 inch
     else if (((screenWidth == 320) && (screenHeight == 568)) ||
              ((screenWidth == 568) && (screenHeight == 320))) {
         details.display = GBDeviceDisplayiPhone4Inch;
     }
-    //unknown
+    // iPhone 4.7 inch
+    else if (((screenWidth == 375) && (screenHeight == 667)) ||
+             ((screenWidth == 667) && (screenHeight == 375))) {
+        details.display = GBDeviceDisplayiPhone47Inch;
+    }
+    // iPhone 5.5 inch
+    else if (((screenWidth == 414) && (screenHeight == 736)) ||
+             ((screenWidth == 736) && (screenHeight == 414))) {
+        details.display = GBDeviceDisplayiPhone55Inch;
+    }
+    // unknown
     else {
         details.display = GBDeviceDisplayUnknown;
     }
     
-    //iOS version
+    // iOS version
     NSArray *decomposedOSVersion = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
     if (decomposedOSVersion.count >= 2) {
         NSInteger majorVersion = [decomposedOSVersion[0] integerValue];

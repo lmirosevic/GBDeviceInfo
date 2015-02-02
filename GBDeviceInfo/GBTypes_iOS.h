@@ -60,6 +60,8 @@ typedef enum {
     GBDeviceDisplayiPad,
     GBDeviceDisplayiPhone35Inch,
     GBDeviceDisplayiPhone4Inch,
+    GBDeviceDisplayiPhone47Inch,
+    GBDeviceDisplayiPhone55Inch,
 } GBDeviceDisplay;
 
 @interface GBDeviceDetails : NSObject
