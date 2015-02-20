@@ -37,7 +37,7 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
 @property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
 @property (strong, atomic, readwrite) NSString              *nodeName;
 @property (assign, atomic, readwrite) GBDeviceFamily        family;
-@property (assign, atomic, readwrite) GBDeviceModel         deviceModel;
+@property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
 @property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
 @property (assign, atomic, readwrite) CGFloat               physicalMemory;
 @property (assign, atomic, readwrite) GBByteOrder           systemByteOrder;
@@ -56,8 +56,8 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
         self.rawSystemInfoString,
         self.nodeName,
         self.family,
-        (unsigned long)self.deviceModel.major,
-        (unsigned long)self.deviceModel.minor,
+        (unsigned long)self.deviceVersion.major,
+        (unsigned long)self.deviceVersion.minor,
         self.cpuInfo.frequency,
         (unsigned long)self.cpuInfo.numberOfCores,
         self.cpuInfo.l2CacheSize,
@@ -88,7 +88,7 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
     deviceDetails.systemByteOrder = [self _systemByteOrder];
     deviceDetails.osVersion = [self _osVersion];
     deviceDetails.displayInfo = [self _displayInfo];
-    deviceDetails.deviceModel = [self _deviceModel];
+    deviceDetails.deviceVersion = [self _deviceVersion];
     deviceDetails.isMacAppStoreAvailable = [self _isMacAppStoreAvailable];
     deviceDetails.isIAPAvailable = [self _isIAPAvailable];
 
@@ -232,13 +232,13 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
     }
 }
 
-+ (GBDeviceModel)_deviceModel {
++ (GBDeviceVersion)_deviceVersion {
     NSString *systemInfoString = [self _rawSystemInfoString];
     
     NSUInteger positionOfFirstInteger = [systemInfoString rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location;
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@","].location;
 
-    return GBDeviceModelMake(
+    return GBDeviceVersionMake(
         [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue],
         [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue]
      );

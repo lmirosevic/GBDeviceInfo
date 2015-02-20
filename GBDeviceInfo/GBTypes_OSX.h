@@ -67,13 +67,13 @@ typedef struct {
      Minor device model. e.g. 2 for iMac13,2
      */
     NSUInteger                                          minor;
-} GBDeviceModel;
+} GBDeviceVersion;
 
 /**
- Makes a GBDeviceModel struct.
+ Makes a GBDeviceVersion struct.
  */
-inline static GBDeviceModel GBDeviceModelMake(NSUInteger major, NSUInteger minor) {
-    return (GBDeviceModel){major, minor};
+inline static GBDeviceVersion GBDeviceVersionMake(NSUInteger major, NSUInteger minor) {
+    return (GBDeviceVersion){major, minor};
 };
 
 typedef struct {
@@ -132,9 +132,9 @@ inline static GBDisplayInfo GBDisplayInfoMake(CGSize resolution) {
 @property (assign, atomic, readonly) GBDeviceFamily     family;
 
 /**
- The device Model. e.g. {13, 2}.
+ The device version. e.g. {13, 2}.
  */
-@property (assign, atomic, readonly) GBDeviceModel      deviceModel;
+@property (assign, atomic, readonly) GBDeviceVersion    deviceVersion;
 
 /**
  Information about the CPU.
