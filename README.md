@@ -16,7 +16,7 @@ Simple usage (examples on iPhone 6 running iOS 8.1.3):
 
 ```
 
-You can also reuse the returned object (this used to be a c struct in previous versions) to save some typing. First assign the object to some variable:
+You can also reuse the returned object to save some typing. First assign the object to some variable:
 
 ```objective-c
 GBDeviceInfo *deviceInfo = [GBDeviceInfo deviceInfo];
@@ -32,7 +32,7 @@ NSLog(@"Major device ver: %d", deviceInfo.deviceVersion.minor);     //Minor devi
 
 //Specific model
 if (deviceInfo.model == GBDeviceModeliPhone6) {
-    NSLog(@"It's a 4S");                                            //It's a 4S
+    NSLog(@"It's a 6");                                             //It's a 6
 }
 
 //Family of device
@@ -42,25 +42,25 @@ if (deviceInfo.family != GBDeviceFamilyiPad) {
 
 //Screen type
 if (deviceInfo.display == GBDeviceDisplayiPhone47Inch) {
-    NSLog(@"It has an iPhone 4.7 inch display");                    //It has an iPhone 4.7 inch display
+    NSLog(@"4.7 Inch display");                                     //4.7 Inch display
 }
 
 //iOS Version
 if (deviceInfo.majoriOSVersion >= 6) {
-    NSLog(@"It's running at least iOS 6");                          //It's running at least iOS 6
+    NSLog(@"We got iOS 6+");                                        //We got iOS 6+
 }
 
 //Raw systemInfo string
-NSLog(@"systemInfo string: %@", deviceInfo.rawSystemInfoString);    //systemInfo string: iPhone7,2
+NSLog(@"systemInfo: %@", deviceInfo.rawSystemInfoString);           //systemInfo: iPhone7,2
 ```
 
 Don't forget to import header.
 
 ```objective-c
-#import <GBDeviceInfo/GBDeviceInfo.h>"
+#import <GBDeviceInfo/GBDeviceInfo.h>
 ```
 
-GBDeviceInfo object definition:
+Available properties:
 
 ```objective-c
 /**
@@ -101,13 +101,15 @@ GBDeviceInfo object definition:
 /**
  Amount of physical memory (RAM) available to the system, in GB.
  */
-@property (assign, atomic, readonly) CGFloat            physicalMemory;         // GB (gibi)
+@property (assign, atomic, readonly) CGFloat            physicalMemory;  // GB (gibi)
 
 /**
  Information about the system's OS. e.g. {10, 8, 2}.
  */
 @property (assign, atomic, readonly) GBOSVersion        osVersion;
 ```
+
+Missing a property you need? Submit a Pull Request!
 
 OS X
 ------------
@@ -134,11 +136,11 @@ Then get whatever you like from the object:
 GBDeviceInfo *deviceInfo = [GBDeviceInfo deviceInfo];
 
 //OS X Version
-if (deviceInfo.majorOSVersion >= 8) {
-    NSLog(@"It's running at least OS X 10.8 (Mountain Lion)");     //It's running at least OS X 10.8 (Mountain Lion)
+if (deviceInfo.osVersion.minor >= 8) {
+    NSLog(@"It's OS X 10.8+ (Mountain Lion)");                     //It's OS X 10.8+ (Mountain Lion)
 }
-if (deviceInfo.minorOSVersion == 2) {
-    NSLog(@"Must be running 10.x.2");                              //Must be running 10.x.2
+if (deviceInfo.osVersion.patch == 2) {
+    NSLog(@"Must be running x.x.2");                              //Must be running x.x.2
 }
 
 //App Store stuff
@@ -150,28 +152,28 @@ if (deviceInfo.isIAPAvailable) {
 }
 
 //Hardware stuff
-NSLog(@"SystemInfo string: %@", deviceInfo.rawSystemInfoString);   //SystemInfo string: MacPro3,1
+NSLog(@"SystemInfo: %@", deviceInfo.rawSystemInfoString);          //SystemInfo: MacPro3,1
 NSLog(@"Major device ver: %d", deviceInfo.deviceVersion.major);    //Major device ver: 3
-NSLog(@"Minor device ver: %d", deviceInfo.deviceVersion.minor);    //Minor device ver: 3
-NSLog(@"Network name: %@", deviceInfo.nodeName);                   //Network name: MyMac.local
+NSLog(@"Minor device ver: %d", deviceInfo.deviceVersion.minor);    //Minor device ver: 1
+NSLog(@"Node name: %@", deviceInfo.nodeName);                      //Node name: MyMac.local
 NSLog(@"RAM: %.3f GB", deviceInfo.physicalMemory);                 //RAM: 16.000 GB
-NSLog(@"CPU frequency: %.3f GHz", deviceInfo.cpu.frequency);       //CPU frequency: 3.500 GHz
+NSLog(@"CPU freq: %.3f GHz", deviceInfo.cpu.frequency);            //CPU freq: 3.500 GHz
 NSLog(@"Number of cores: %d", deviceInfo.cpu.numberOfCores);       //Number of cores: 8
 NSLog(@"L2 Cache size: %.0f KB", deviceInfo.cpu.l2CacheSize);      //L2 Cache size: 256 KB
 
 //Endianness
 if (deviceInfo.byteOrder == GBByteOrderLittleEndian) {
-    NSLog(@"Our machine is Litte Endian");                         //Our machine is Little Endian
+    NSLog(@"Little Endian");                                       //Little Endian
 }
 
 //Family of device
 if (deviceInfo.family != GBDeviceFamilyMacBookAir) {
-    NSLog(@"It's not a Macbook air");                              //It's not a Macbook air
+    NSLog(@"It's not a Macbook Air");                              //It's not a Macbook Air
 }
 
 //Screen resolution
 if (deviceInfo.screenResolution.width == 1920 && deviceInfo.screenResolution.height == 1200) {
-    NSLog(@"It has a resolution of 1920x1200");                    //It has a resolution of 1920x1200
+    NSLog(@"Resolution: 1920x1200");                              //Resolution: 1920x1200
 }
 ```
 
@@ -181,7 +183,7 @@ Don't forget to import framework:
 #import <GBDeviceInfo/GBDeviceInfo.h>
 ```
 
-GBDeviceInfo object definition:
+Available properties:
 
 ```objective-c
 /**
@@ -239,6 +241,8 @@ GBDeviceInfo object definition:
  */
 @property (assign, atomic, readonly) BOOL               isIAPAvailable;         //YES if OSX >= 10.7
 ```
+
+Missing a property you need? Submit a Pull Request!
 
 iOS Device support
 ------------
