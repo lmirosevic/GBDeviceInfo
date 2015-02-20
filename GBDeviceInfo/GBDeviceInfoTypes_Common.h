@@ -69,6 +69,8 @@ inline static GBDeviceVersion GBDeviceVersionMake(NSUInteger major, NSUInteger m
 typedef struct {
     /**
      CPU frequency, in GHz.
+     
+     Warning: Might not be (=probably won't be) available on all iOS devices.
      */
     CGFloat                                             frequency;              // GHz (giga)
     

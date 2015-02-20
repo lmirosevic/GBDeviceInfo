@@ -19,17 +19,11 @@
 
 #import "GBDeviceInfo_OSX.h"
 
-#import <stdlib.h>
-#import <stdio.h>
-#import <sys/types.h>
-#import <sys/sysctl.h>
 #import <sys/utsname.h>
 
+#import "GBDeviceInfoCommonUtils.h"
+
 static NSString * const kHardwareModelKey =                 @"hw.model";
-static NSString * const kHardwareCPUFrequencyKey =          @"hw.cpufrequency";
-static NSString * const kHardwareNumberOfCoresKey =         @"hw.ncpu";
-static NSString * const kHardwareByteOrderKey =             @"hw.byteorder";
-static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
 
 @interface GBDeviceInfo ()
 
@@ -78,9 +72,9 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
     deviceInfo.rawSystemInfoString = [self _rawSystemInfoString];
     deviceInfo.nodeName = [self _nodeName];
     deviceInfo.family = [self _deviceFamily];
-    deviceInfo.cpuInfo = [self _cpuInfo];
-    deviceInfo.physicalMemory = [self _physicalMemory];
-    deviceInfo.systemByteOrder = [self _systemByteOrder];
+    deviceInfo.cpuInfo = [GBDeviceInfoCommonUtils cpuInfo];
+    deviceInfo.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
+    deviceInfo.systemByteOrder = [GBDeviceInfoCommonUtils systemByteOrder];
     deviceInfo.osVersion = [self _osVersion];
     deviceInfo.displayInfo = [self _displayInfo];
     deviceInfo.deviceVersion = [self _deviceVersion];
@@ -92,78 +86,11 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
 
 #pragma mark - Private API
 
-+ (NSString *)_sysctlStringForKey:(NSString *)key {
-    const char *keyCString = [key UTF8String];
-    NSString *answer;
-    
-    size_t length;
-    sysctlbyname(keyCString, NULL, &length, NULL, 0);
-    if (length) {
-        char *answerCString = malloc(length * sizeof(char));
-        sysctlbyname(keyCString, answerCString, &length, NULL, 0);
-        answer = [NSString stringWithCString:answerCString encoding:NSUTF8StringEncoding];
-        free(answerCString);
-    }
-    
-    return answer;
-}
-
-+ (CGFloat)_sysctlCGFloatForKey:(NSString *)key {
-    const char *keyCString = [key UTF8String];
-    CGFloat answerFloat;
-    
-    size_t length;
-    sysctlbyname(keyCString, NULL, &length, NULL, 0);
-    if (length) {
-        char *answerRaw = malloc(length * sizeof(char));
-        sysctlbyname(keyCString, answerRaw, &length, NULL, 0);
-        switch (length) {
-            case 8: {
-                answerFloat = (CGFloat)*(int64_t *)answerRaw;
-            } break;
-                
-            case 4: {
-                answerFloat = (CGFloat)*(int32_t *)answerRaw;
-            } break;
-                
-            default: {
-                answerFloat = 0.;
-            } break;
-        }
-        free(answerRaw);
-    }
-    
-    return answerFloat;
-}
-
 + (struct utsname)_unameStruct {
     struct utsname systemInfo;
     uname(&systemInfo);
 
     return systemInfo;
-}
-
-+ (GBCPUInfo)_cpuInfo {
-    return GBCPUInfoMake(
-        [self _sysctlCGFloatForKey:kHardwareCPUFrequencyKey] / 1000000000., //giga
-        (NSUInteger)[self _sysctlCGFloatForKey:kHardwareNumberOfCoresKey],
-        [self _sysctlCGFloatForKey:kHardwareL2CacheSizeKey] / 1024          //kibi
-    );
-}
-
-+ (CGFloat)_physicalMemory {
-    return [[NSProcessInfo processInfo] physicalMemory] / 1073741824.;      //gibi
-}
-
-+ (GBByteOrder)_systemByteOrder {
-    NSString *byteOrderString = [self _sysctlStringForKey:kHardwareByteOrderKey];
- 
-    if ([byteOrderString isEqualToString:@"1234"]) {
-        return GBByteOrderLittleEndian;
-    }
-    else {
-        return GBByteOrderBigEndian;
-    }
 }
 
 + (GBOSVersion)_osVersion {
@@ -203,25 +130,25 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
 + (GBDeviceFamily)_deviceFamily {
     NSString *systemInfoString = [self _rawSystemInfoString];
     
-    if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iMac"]) {
+    if ([systemInfoString hasPrefix:@"iMac"]) {
         return GBDeviceFamilyiMac;
     }
-    else if (systemInfoString.length >=7 && [[systemInfoString substringToIndex:7] isEqualToString:@"Macmini"]) {
+    else if ([systemInfoString hasPrefix:@"Mac Mini"]) {
         return GBDeviceFamilyMacMini;
     }
-    else if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"MacPro"]) {
+    else if ([systemInfoString hasPrefix:@"Mac Pro"]) {
         return GBDeviceFamilyMacPro;
     }
-    else if (systemInfoString.length >=10 && [[systemInfoString substringToIndex:10] isEqualToString:@"MacBookPro"]) {
+    else if ([systemInfoString hasPrefix:@"MacBook Pro"]) {
         return GBDeviceFamilyMacBookPro;
     }
-    else if (systemInfoString.length >=10 && [[systemInfoString substringToIndex:10] isEqualToString:@"MacBookAir"]) {
+    else if ([systemInfoString hasPrefix:@"MacBook Air"]) {
         return GBDeviceFamilyMacBookAir;
     }
-    else if (systemInfoString.length >=7 && [[systemInfoString substringToIndex:7] isEqualToString:@"MacBook"]) {
+    else if ([systemInfoString hasPrefix:@"MacBook"]) {
         return GBDeviceFamilyMacBook;
     }
-    else if (systemInfoString.length >=6 && [[systemInfoString substringToIndex:6] isEqualToString:@"Xserve"]) {
+    else if ([systemInfoString hasPrefix:@"Xserve"]) {
         return GBDeviceFamilyXserve;
     }
     else {
@@ -247,7 +174,7 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
 }
 
 + (NSString *)_rawSystemInfoString {
-    return [self _sysctlStringForKey:kHardwareModelKey];
+    return [GBDeviceInfoCommonUtils sysctlStringForKey:kHardwareModelKey];
 }
 
 + (NSString *)_nodeName {

@@ -19,8 +19,8 @@
 
 typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModelUnknown = 0,
-    GBDeviceModeliPhoneSimulator,
-    GBDeviceModeliPadSimulator,
+    GBDeviceModelSimulatoriPhone,
+    GBDeviceModelSimulatoriPad,
     GBDeviceModeliPhone1,
     GBDeviceModeliPhone3G,
     GBDeviceModeliPhone3GS,

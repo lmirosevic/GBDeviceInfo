@@ -7,10 +7,13 @@ Pod::Spec.new do |s|
   s.license                   = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.source                    = { :git => 'https://github.com/lmirosevic/GBDeviceInfo.git', :tag => s.version.to_s }
 
-  s.ios.source_files          = 'GBDeviceInfo/*_iOS.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoTypes_Common.h', 'GBDeviceInfo/GBDeviceInfoInterface.h'
+  s.ios.source_files          = 'GBDeviceInfo/*_iOS.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoTypes_Common.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfoCommonUtils.{h,m}'
   s.ios.public_header_files   = 'GBDeviceInfo/*_iOS.h', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoTypes_Common.h', 'GBDeviceInfo/GBDeviceInfoInterface.h'
-  s.osx.source_files          = 'GBDeviceInfo/*_OSX.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoTypes_Common.h', 'GBDeviceInfo/GBDeviceInfoInterface.h'
+  s.osx.source_files          = 'GBDeviceInfo/*_OSX.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoTypes_Common.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfoCommonUtils.{h,m}'
   s.osx.public_header_files   = 'GBDeviceInfo/*_OSX.h', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoTypes_Common.h', 'GBDeviceInfo/GBDeviceInfoInterface.h'
+
+  s.osx.frameworks            = 'Cocoa', 'CoreServices', 'Foundation'
+  s.ios.frameworks            = 'Foundation'
 
   s.requires_arc              = true
 
