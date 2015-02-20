@@ -130,19 +130,17 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
 }
 
 +(NSUInteger)majorOSVersion {
-    NSString *kernelVersionString = [NSString stringWithCString:[self _unameStruct].release encoding:NSUTF8StringEncoding];
-    NSString *majorKernelVersion = [kernelVersionString componentsSeparatedByString:@"."][0];
-    NSUInteger majorKernelVersionInteger = [majorKernelVersion integerValue];
-    NSUInteger majorOSVersionInteger = majorKernelVersionInteger - 4;
+    NSString *systemVersion = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"][@"ProductUserVisibleVersion"];
+    NSString *majorSystemVersion = [systemVersion componentsSeparatedByString:@"."][0];
+    NSUInteger majorOSVersionInteger = [majorSystemVersion integerValue];
     
     return majorOSVersionInteger;
 }
 
 +(NSUInteger)minorOSVersion {
-    NSString *kernelVersionString = [NSString stringWithCString:[self _unameStruct].release encoding:NSUTF8StringEncoding];
-    NSString *minorKernelVersion = [kernelVersionString componentsSeparatedByString:@"."][1];
-    NSUInteger minorKernelVersionInteger = [minorKernelVersion integerValue];
-    NSUInteger minorOSVersionInteger = minorKernelVersionInteger;
+    NSString *systemVersion = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"][@"ProductUserVisibleVersion"];
+    NSString *minorSystemVersion = [systemVersion componentsSeparatedByString:@"."][1];
+    NSUInteger minorOSVersionInteger = [minorSystemVersion integerValue];
     
     return minorOSVersionInteger;
 }
