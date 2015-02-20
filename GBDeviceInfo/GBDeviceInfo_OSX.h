@@ -21,6 +21,9 @@
 
 @interface GBDeviceInfo : NSObject
 
-+(GBDeviceDetails *)deviceDetails;
+/**
+ Returns information about the device the current app is running on.
+ */
++ (GBDeviceDetails *)deviceDetails;
 
 @end

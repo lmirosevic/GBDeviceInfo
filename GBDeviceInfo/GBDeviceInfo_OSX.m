@@ -25,47 +25,79 @@
 #import <sys/sysctl.h>
 #import <sys/utsname.h>
 
-static NSString * const kHardwareModelKey =                @"hw.model";
-static NSString * const kHardwareMemorySizeKey =           @"hw.memsize";
-static NSString * const kHardwareCPUFrequencyKey =         @"hw.cpufrequency";
-static NSString * const kHardwareNumberOfCoresKey =        @"hw.ncpu";
-static NSString * const kHardwareByteOrderKey =            @"hw.byteorder";
-static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
+static NSString * const kHardwareModelKey =                 @"hw.model";
+static NSString * const kHardwareMemorySizeKey =            @"hw.memsize";
+static NSString * const kHardwareCPUFrequencyKey =          @"hw.cpufrequency";
+static NSString * const kHardwareNumberOfCoresKey =         @"hw.ncpu";
+static NSString * const kHardwareByteOrderKey =             @"hw.byteorder";
+static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
 
 @interface GBDeviceDetails ()
 
-@property (strong, atomic, readwrite) NSString           *rawSystemInfoString;
-@property (strong, atomic, readwrite) NSString           *nodeName;
-@property (assign, atomic, readwrite) GBDeviceFamily     family;
-@property (assign, atomic, readwrite) NSUInteger         majorModelNumber;
-@property (assign, atomic, readwrite) NSUInteger         minorModelNumber;
-@property (assign, atomic, readwrite) CGFloat            physicalMemory;
-@property (assign, atomic, readwrite) CGFloat            cpuFrequency;
-@property (assign, atomic, readwrite) NSUInteger         numberOfCores;
-@property (assign, atomic, readwrite) CGFloat            l2CacheSize;
-@property (assign, atomic, readwrite) GBByteOrder        byteOrder;
-@property (assign, atomic, readwrite) CGSize             screenResolution;
-@property (assign, atomic, readwrite) NSUInteger         majorOSVersion;
-@property (assign, atomic, readwrite) NSUInteger         minorOSVersion;
-@property (assign, atomic, readwrite) BOOL               isMacAppStoreAvailable;
-@property (assign, atomic, readwrite) BOOL               isIAPAvailable;
+@property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
+@property (strong, atomic, readwrite) NSString              *nodeName;
+@property (assign, atomic, readwrite) GBDeviceFamily        family;
+@property (assign, atomic, readwrite) GBDeviceModel         deviceModel;
+@property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
+@property (assign, atomic, readwrite) CGFloat               physicalMemory;
+@property (assign, atomic, readwrite) GBByteOrder           systemByteOrder;
+@property (assign, atomic, readwrite) GBDisplayInfo         displayInfo;
+@property (assign, atomic, readwrite) GBOSVersion           osVersion;
+@property (assign, atomic, readwrite) BOOL                  isMacAppStoreAvailable;
+@property (assign, atomic, readwrite) BOOL                  isIAPAvailable;
 
 @end
 
 @implementation GBDeviceDetails
 
--(NSString *)description {
-    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nnodeName: %@\nfamily: %d\nmajorModelNumber: %ld\nminorModelNumber: %ld\npysicalMemory: %.3f\ncpuFrequency: %.3f\nnumberOfCores: %ld\nl2CacheSize: %.3f\nbyteOrder: %d\nscreenResolution: %.0fx%.0f\nmajorOSVersion: %ld\nminorOSVersion: %ld", [super description], self.rawSystemInfoString, self.nodeName, self.family, (unsigned long)self.majorModelNumber, (unsigned long)self.minorModelNumber, self.physicalMemory, self.cpuFrequency, (unsigned long)self.numberOfCores, self.l2CacheSize, self.byteOrder, self.screenResolution.width, self.screenResolution.height, (unsigned long)self.majorOSVersion, (unsigned long)self.minorOSVersion];
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nnodeName: %@\nfamily: %ld\ndeviceModel.major: %ld\ndeviceModel.minor: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f\nsystemByteOrder: %ld\nscreenResolution: %.0fx%.0f\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld",
+        [super description],
+        self.rawSystemInfoString,
+        self.nodeName,
+        self.family,
+        (unsigned long)self.deviceModel.major,
+        (unsigned long)self.deviceModel.minor,
+        self.cpuInfo.frequency,
+        (unsigned long)self.cpuInfo.numberOfCores,
+        self.cpuInfo.l2CacheSize,
+        self.physicalMemory,
+        self.systemByteOrder,
+        self.displayInfo.resolution.width,
+        self.displayInfo.resolution.height,
+        (unsigned long)self.osVersion.major,
+        (unsigned long)self.osVersion.minor,
+        (unsigned long)self.osVersion.patch
+    ];
 }
 
 @end
 
-
 @implementation GBDeviceInfo
 
-#pragma mark - private API
+#pragma mark - Public API
 
-+(NSString *)_sysctlStringForKey:(NSString *)key {
++ (GBDeviceDetails *)deviceDetails {
+    GBDeviceDetails *deviceDetails = [GBDeviceDetails new];
+
+    deviceDetails.rawSystemInfoString = [self _rawSystemInfoString];
+    deviceDetails.nodeName = [self _nodeName];
+    deviceDetails.family = [self _deviceFamily];
+    deviceDetails.cpuInfo = [self _cpuInfo];
+    deviceDetails.physicalMemory = [self _physicalMemory];
+    deviceDetails.systemByteOrder = [self _systemByteOrder];
+    deviceDetails.osVersion = [self _osVersion];
+    deviceDetails.displayInfo = [self _displayInfo];
+    deviceDetails.deviceModel = [self _deviceModel];
+    deviceDetails.isMacAppStoreAvailable = [self _isMacAppStoreAvailable];
+    deviceDetails.isIAPAvailable = [self _isIAPAvailable];
+
+    return deviceDetails;
+}
+
+#pragma mark - Private API
+
++ (NSString *)_sysctlStringForKey:(NSString *)key {
     const char *keyCString = [key UTF8String];
     NSString *answer;
     
@@ -81,44 +113,52 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     return answer;
 }
 
-+(CGFloat)_sysctlCGFloatForKey:(NSString *)key {
++ (CGFloat)_sysctlCGFloatForKey:(NSString *)key {
     const char *keyCString = [key UTF8String];
-    CGFloat answer;
-    
+
     size_t length;
-    int64_t answerInt64;
-    sysctlbyname(keyCString, &answerInt64, &length, NULL, 0);
-    answer = (CGFloat)answerInt64;
+    sysctlbyname(keyCString, NULL, &length, NULL, 0);
+    char *answerRaw = malloc(length);
+    sysctlbyname(keyCString, answerRaw, &length, NULL, 0);
+    CGFloat answerFloat;
+    switch (length) {
+        case 8: {
+            answerFloat = (CGFloat)*(int64_t *)answerRaw;
+        } break;
+            
+        case 4: {
+            answerFloat = (CGFloat)*(int32_t *)answerRaw;
+        } break;
+            
+        default: {
+            answerFloat = 0.;
+        } break;
+    }
+    free(answerRaw);
     
-    return answer;
+    return answerFloat;
 }
 
-+(struct utsname)_unameStruct {
++ (struct utsname)_unameStruct {
     struct utsname systemInfo;
     uname(&systemInfo);
 
     return systemInfo;
 }
 
-#pragma mark - convenience
-
-+(CGFloat)physicalMemory {
-    return [self _sysctlCGFloatForKey:kHardwareMemorySizeKey] / 1073741824.; //Giga
++ (GBCPUInfo)_cpuInfo {
+    return GBCPUInfoMake(
+        [self _sysctlCGFloatForKey:kHardwareCPUFrequencyKey] / 1000000000., //giga
+        (NSUInteger)[self _sysctlCGFloatForKey:kHardwareNumberOfCoresKey],
+        [self _sysctlCGFloatForKey:kHardwareL2CacheSizeKey] / 1024          //kibi
+    );
 }
 
-+(CGFloat)cpuFrequency {
-    return [self _sysctlCGFloatForKey:kHardwareCPUFrequencyKey] / 1073741824.; //Giga
++ (CGFloat)_physicalMemory {
+    return [[NSProcessInfo processInfo] physicalMemory] / 1073741824.;      //gibi
 }
 
-+(NSUInteger)numberOfCores {
-    return [self _sysctlCGFloatForKey:kHardwareNumberOfCoresKey];
-}
-
-+(CGFloat)l2CacheSize {
-    return [self _sysctlCGFloatForKey:kHardwareL2CacheSizeKey] / 1024.; //Kilo
-}
-
-+(GBByteOrder)byteOrder {
++ (GBByteOrder)_systemByteOrder {
     NSString *byteOrderString = [self _sysctlStringForKey:kHardwareByteOrderKey];
  
     if ([byteOrderString isEqualToString:@"1234"]) {
@@ -129,30 +169,42 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     }
 }
 
-+(NSUInteger)majorOSVersion {
-    NSString *kernelVersionString = [NSString stringWithCString:[self _unameStruct].release encoding:NSUTF8StringEncoding];
-    NSString *majorKernelVersion = [kernelVersionString componentsSeparatedByString:@"."][0];
-    NSUInteger majorKernelVersionInteger = [majorKernelVersion integerValue];
-    NSUInteger majorOSVersionInteger = majorKernelVersionInteger - 4;
++ (GBOSVersion)_osVersion {
+    GBOSVersion osVersion;
     
-    return majorOSVersionInteger;
-}
-
-+(NSUInteger)minorOSVersion {
-    NSString *kernelVersionString = [NSString stringWithCString:[self _unameStruct].release encoding:NSUTF8StringEncoding];
-    NSString *minorKernelVersion = [kernelVersionString componentsSeparatedByString:@"."][1];
-    NSUInteger minorKernelVersionInteger = [minorKernelVersion integerValue];
-    NSUInteger minorOSVersionInteger = minorKernelVersionInteger;
+    if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)]) {
+        NSOperatingSystemVersion osSystemVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
+        
+        osVersion.major = osSystemVersion.majorVersion;
+        osVersion.minor = osSystemVersion.minorVersion;
+        osVersion.patch = osSystemVersion.patchVersion;
+    }
+    else {
+        SInt32 majorVersion, minorVersion, patchVersion;
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        Gestalt(gestaltSystemVersionMajor, &majorVersion);
+        Gestalt(gestaltSystemVersionMinor, &minorVersion);
+        Gestalt(gestaltSystemVersionBugFix, &patchVersion);
+#pragma clang diagnostic pop
+        
+        osVersion.major = majorVersion;
+        osVersion.minor = minorVersion;
+        osVersion.patch = patchVersion;
+    }
     
-    return minorOSVersionInteger;
+    return osVersion;
 }
 
-+(CGSize)screenResolution {
-    return [NSScreen mainScreen].frame.size;
++ (GBDisplayInfo)_displayInfo {
+    return GBDisplayInfoMake(
+        [NSScreen mainScreen].frame.size
+    );
 }
 
-+(GBDeviceFamily)family {
-    NSString *systemInfoString = [self rawSystemInfoString];
++ (GBDeviceFamily)_deviceFamily {
+    NSString *systemInfoString = [self _rawSystemInfoString];
     
     if (systemInfoString.length >=4 && [[systemInfoString substringToIndex:4] isEqualToString:@"iMac"]) {
         return GBDeviceFamilyiMac;
@@ -180,61 +232,37 @@ static NSString * const kHardwareL2CacheSizeKey =          @"hw.l2cachesize";
     }
 }
 
-+(NSUInteger)majorModelNumber {
-    NSString *systemInfoString = [self rawSystemInfoString];
++ (GBDeviceModel)_deviceModel {
+    NSString *systemInfoString = [self _rawSystemInfoString];
     
     NSUInteger positionOfFirstInteger = [systemInfoString rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location;
     NSUInteger positionOfComma = [systemInfoString rangeOfString:@","].location;
-    
-    return [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue];
+
+    return GBDeviceModelMake(
+        [[systemInfoString substringWithRange:NSMakeRange(positionOfFirstInteger, positionOfComma - positionOfFirstInteger)] integerValue],
+        [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue]
+     );
 }
 
-+(NSUInteger)minorModelNumber {
-    NSString *systemInfoString = [self rawSystemInfoString];
-    
-    NSUInteger positionOfComma = [systemInfoString rangeOfString:@"," options:NSBackwardsSearch].location;
-    return [[systemInfoString substringFromIndex:positionOfComma + 1] integerValue];
-}
-
-+(NSString *)rawSystemInfoString {
++ (NSString *)_rawSystemInfoString {
     return [self _sysctlStringForKey:kHardwareModelKey];
 }
 
-+(NSString *)nodeName {
++ (NSString *)_nodeName {
     return [NSString stringWithCString:[self _unameStruct].nodename encoding:NSUTF8StringEncoding];
 }
 
-+(BOOL)isMacAppStoreAvailable {
-    return (([self majorOSVersion] >= 7) ||
-            ([self majorOSVersion] == 6 && [self minorOSVersion] >=  6));
++ (BOOL)_isMacAppStoreAvailable {
+    GBOSVersion osVersion = [self _osVersion];
+    
+    return ((osVersion.minor >= 7) ||
+            (osVersion.minor == 6 && osVersion.patch >=  6));
 }
 
-+(BOOL)isIAPAvailable {
-    return ([self majorOSVersion] >= 7);
-}
-
-#pragma mark - public API
-
-+(GBDeviceDetails *)deviceDetails {
-    GBDeviceDetails *deviceDetails = [GBDeviceDetails new];
++ (BOOL)_isIAPAvailable {
+    GBOSVersion osVersion = [self _osVersion];
     
-    deviceDetails.rawSystemInfoString = [self rawSystemInfoString];
-    deviceDetails.physicalMemory = [self physicalMemory];
-    deviceDetails.cpuFrequency = [self cpuFrequency];
-    deviceDetails.numberOfCores = [self numberOfCores];
-    deviceDetails.l2CacheSize = [self l2CacheSize];
-    deviceDetails.byteOrder = [self byteOrder];
-    deviceDetails.majorOSVersion = [self majorOSVersion];
-    deviceDetails.minorOSVersion = [self minorOSVersion];
-    deviceDetails.nodeName = [self nodeName];
-    deviceDetails.screenResolution = [self screenResolution];
-    deviceDetails.family = [self family];
-    deviceDetails.majorModelNumber = [self majorModelNumber];
-    deviceDetails.minorModelNumber = [self minorModelNumber];
-    deviceDetails.isMacAppStoreAvailable = [self isMacAppStoreAvailable];
-    deviceDetails.isIAPAvailable = [self isIAPAvailable];
-    
-    return deviceDetails;
+    return (osVersion.minor >= 7);
 }
 
 @end

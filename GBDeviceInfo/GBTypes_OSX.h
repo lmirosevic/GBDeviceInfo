@@ -33,22 +33,142 @@ typedef NS_ENUM(NSInteger, GBDeviceFamily) {
     GBDeviceFamilyXserve,
 };
 
+typedef struct {
+    /**
+     Major OS version number. For e.g. 10.8.2 => 10
+     */
+    NSUInteger                                          major;
+    
+    /**
+     Minor OS version number. For e.g. 10.8.2 => 8
+     */
+    NSUInteger                                          minor;
+    
+    /**
+     Patch OS version number. For e.g. 10.8.2 => 2
+     */
+    NSUInteger                                          patch;
+} GBOSVersion;
+
+/**
+ Makes a GBOSVersion struct.
+ */
+inline static GBOSVersion GBOSVersionMake(NSUInteger major, NSUInteger minor,  NSUInteger patch) {
+    return (GBOSVersion){major, minor, patch};
+};
+
+typedef struct {
+    /** 
+     Major device model. e.g. 13 for iMac13,2
+     */
+    NSUInteger                                          major;
+
+    /**
+     Minor device model. e.g. 2 for iMac13,2
+     */
+    NSUInteger                                          minor;
+} GBDeviceModel;
+
+/**
+ Makes a GBDeviceModel struct.
+ */
+inline static GBDeviceModel GBDeviceModelMake(NSUInteger major, NSUInteger minor) {
+    return (GBDeviceModel){major, minor};
+};
+
+typedef struct {
+    /**
+     CPU frequency, in GHz.
+     */
+    CGFloat                                             frequency;              // GHz (giga)
+    
+    /**
+     Number of logical cores the CPU has.
+     */
+    NSUInteger                                          numberOfCores;
+    
+    /**
+     CPU's l2 cache size, in KB.
+     */
+    CGFloat                                             l2CacheSize;            // KB (kibi)
+} GBCPUInfo;
+
+/**
+ Makes a GBCPUInfo struct.
+ */
+inline static GBCPUInfo GBCPUInfoMake(CGFloat frequency, NSUInteger numberOfCores, CGFloat l2CacheSize) {
+    return (GBCPUInfo){frequency, numberOfCores, l2CacheSize};
+};
+
+typedef struct {
+    /**
+     The main display's resolution.
+     */
+    CGSize                                              resolution;
+} GBDisplayInfo;
+
+/**
+ Makes a GBDisplayInfo struct.
+ */
+inline static GBDisplayInfo GBDisplayInfoMake(CGSize resolution) {
+    return (GBDisplayInfo){resolution};
+};
+
 @interface GBDeviceDetails : NSObject
 
+/**
+ The raw system info string, e.g. "iMac13,2".
+ */
 @property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+
+/**
+ The node name on the network, e.g. "MyMachine.local".
+ */
 @property (strong, atomic, readonly) NSString           *nodeName;
+
+/**
+ The device family. e.g. GBDeviceFamilyiMac.
+ */
 @property (assign, atomic, readonly) GBDeviceFamily     family;
-@property (assign, atomic, readonly) NSUInteger         majorModelNumber;
-@property (assign, atomic, readonly) NSUInteger         minorModelNumber;
-@property (assign, atomic, readonly) CGFloat            physicalMemory;         // GB
-@property (assign, atomic, readonly) CGFloat            cpuFrequency;           // GHz
-@property (assign, atomic, readonly) NSUInteger         numberOfCores;
-@property (assign, atomic, readonly) CGFloat            l2CacheSize;            // KB
-@property (assign, atomic, readonly) GBByteOrder        byteOrder;
-@property (assign, atomic, readonly) CGSize             screenResolution;
-@property (assign, atomic, readonly) NSUInteger         majorOSVersion;
-@property (assign, atomic, readonly) NSUInteger         minorOSVersion;
+
+/**
+ The device Model. e.g. {13, 2}.
+ */
+@property (assign, atomic, readonly) GBDeviceModel      deviceModel;
+
+/**
+ Information about the CPU.
+ */
+@property (assign, atomic, readonly) GBCPUInfo          cpuInfo;
+
+/**
+ Amount of physical memory (RAM) available to the system, in GB.
+ */
+@property (assign, atomic, readonly) CGFloat            physicalMemory;         // GB (gibi)
+
+/**
+ System byte order, e.g. GBByteOrderLittleEndian.
+ */
+@property (assign, atomic, readonly) GBByteOrder        systemByteOrder;
+
+/** 
+ Information about the display.
+ */
+@property (assign, atomic, readonly) GBDisplayInfo      displayInfo;
+
+/**
+ Information about the system's OS. e.g. {10, 8, 2}.
+ */
+@property (assign, atomic, readonly) GBOSVersion        osVersion;
+
+/**
+ Indicates whether the app store is available on this machine.
+ */
 @property (assign, atomic, readonly) BOOL               isMacAppStoreAvailable; //YES if OSX >= 10.6.6
+
+/**
+ Indicates whether IAP is available on this machine.
+ */
 @property (assign, atomic, readonly) BOOL               isIAPAvailable;         //YES if OSX >= 10.7
 
 @end
