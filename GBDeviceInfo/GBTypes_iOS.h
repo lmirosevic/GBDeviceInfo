@@ -17,7 +17,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-typedef enum {
+typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModelUnknown = 0,
     GBDeviceModeliPhoneSimulator,
     GBDeviceModeliPadSimulator,
@@ -45,24 +45,24 @@ typedef enum {
     GBDeviceModeliPod3,
     GBDeviceModeliPod4,
     GBDeviceModeliPod5,
-} GBDeviceModel;
+};
 
-typedef enum {
+typedef NS_ENUM(NSInteger, GBDeviceFamily) {
     GBDeviceFamilyUnknown = 0,
     GBDeviceFamilyiPhone,
     GBDeviceFamilyiPad,
     GBDeviceFamilyiPod,
     GBDeviceFamilySimulator,
-} GBDeviceFamily;
+};
 
-typedef enum {
+typedef NS_ENUM(NSInteger, GBDeviceDisplay) {
     GBDeviceDisplayUnknown = 0,
     GBDeviceDisplayiPad,
     GBDeviceDisplayiPhone35Inch,
     GBDeviceDisplayiPhone4Inch,
     GBDeviceDisplayiPhone47Inch,
     GBDeviceDisplayiPhone55Inch,
-} GBDeviceDisplay;
+};
 
 @interface GBDeviceDetails : NSObject
 

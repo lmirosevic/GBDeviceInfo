@@ -17,12 +17,12 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-typedef enum {
+typedef NS_ENUM(NSInteger, GBByteOrder) {
     GBByteOrderLittleEndian,
     GBByteOrderBigEndian,
-} GBByteOrder;
+};
 
-typedef enum {
+typedef NS_ENUM(NSInteger, GBDeviceFamily) {
     GBDeviceFamilyUnknown = 0,
     GBDeviceFamilyiMac,
     GBDeviceFamilyMacMini,
@@ -31,7 +31,7 @@ typedef enum {
     GBDeviceFamilyMacBookAir,
     GBDeviceFamilyMacBookPro,
     GBDeviceFamilyXserve,
-} GBDeviceFamily;
+};
 
 @interface GBDeviceDetails : NSObject
 
