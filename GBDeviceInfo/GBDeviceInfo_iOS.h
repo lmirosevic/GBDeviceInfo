@@ -51,7 +51,7 @@
 /**
  The display identifier, e.g. GBDeviceDisplayiPhone47Inch
  */
-@property (assign, atomic, readonly) GBDeviceDisplay    display;//change this to idiom, and size
+@property (assign, atomic, readonly) GBDeviceDisplay    display;
 
 /**
  Information about the CPU.
