@@ -17,10 +17,55 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import "GBTypes_iOS.h"
+#import "GBDeviceInfoTypes_Common.h"
+#import "GBDeviceInfoTypes_iOS.h"
+#import "GBDeviceInfoInterface.h"
 
-@interface GBDeviceInfo : NSObject
+@interface GBDeviceInfo : NSObject <GBDeviceInfoInterface>
 
-+(GBDeviceDetails *)deviceDetails;
+/**
+ The raw system info string, e.g. "iPhone7,2".
+ */
+@property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+
+/**
+ The device version. e.g. {7, 2}.
+ */
+@property (assign, atomic, readonly) GBDeviceVersion    deviceVersion;
+
+/**
+ The human readable name for the device, e.g. "iPhone 6".
+ */
+@property (strong, atomic, readonly) NSString           *modelString;
+
+/**
+ The device family. e.g. GBDeviceFamilyiPhone.
+ */
+@property (assign, atomic, readonly) GBDeviceFamily     family;
+
+/**
+ The specific device model, e.g. GBDeviceModeliPhone6.
+ */
+@property (assign, atomic, readonly) GBDeviceModel      model;
+
+/**
+ The display identifier, e.g. GBDeviceDisplayiPhone47Inch
+ */
+@property (assign, atomic, readonly) GBDeviceDisplay    display;//change this to idiom, and size
+
+/**
+ Information about the CPU.
+ */
+@property (assign, atomic, readonly) GBCPUInfo          cpuInfo;
+
+/**
+ Amount of physical memory (RAM) available to the system, in GB.
+ */
+@property (assign, atomic, readonly) CGFloat            physicalMemory;         // GB (gibi)
+
+/**
+ Information about the system's OS. e.g. {10, 8, 2}.
+ */
+@property (assign, atomic, readonly) GBOSVersion        osVersion;
 
 @end

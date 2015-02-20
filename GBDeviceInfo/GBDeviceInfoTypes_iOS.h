@@ -1,5 +1,5 @@
 //
-//  GBTypes_iOS.h
+//  GBDeviceInfoTypes_iOS.h
 //  GBDeviceInfo
 //
 //  Created by Luka Mirosevic on 14/03/2013.
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModelUnknown = 0,
     GBDeviceModeliPhoneSimulator,
     GBDeviceModeliPadSimulator,
-    GBDeviceModeliPhone,
+    GBDeviceModeliPhone1,
     GBDeviceModeliPhone3G,
     GBDeviceModeliPhone3GS,
     GBDeviceModeliPhone4,
@@ -31,16 +31,16 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPhone5S,
     GBDeviceModeliPhone6,
     GBDeviceModeliPhone6Plus,
-    GBDeviceModeliPad,
+    GBDeviceModeliPad1,
     GBDeviceModeliPad2,
     GBDeviceModeliPad3,
     GBDeviceModeliPad4,
-    GBDeviceModeliPadMini,
-    GBDeviceModeliPadMiniRetina,
+    GBDeviceModeliPadMini1,
+    GBDeviceModeliPadMini2,
     GBDeviceModeliPadMini3,
-    GBDeviceModeliPadAir,
+    GBDeviceModeliPadAir1,
     GBDeviceModeliPadAir2,
-    GBDeviceModeliPod,
+    GBDeviceModeliPod1,
     GBDeviceModeliPod2,
     GBDeviceModeliPod3,
     GBDeviceModeliPod4,
@@ -63,17 +63,3 @@ typedef NS_ENUM(NSInteger, GBDeviceDisplay) {
     GBDeviceDisplayiPhone47Inch,
     GBDeviceDisplayiPhone55Inch,
 };
-
-@interface GBDeviceDetails : NSObject
-
-@property (strong, atomic, readonly) NSString           *rawSystemInfoString;
-@property (strong, atomic, readonly) NSString           *modelString;
-@property (assign, atomic, readonly) GBDeviceModel      model;
-@property (assign, atomic, readonly) GBDeviceFamily     family;
-@property (assign, atomic, readonly) GBDeviceDisplay    display;
-@property (assign, atomic, readonly) NSUInteger         majorModelNumber;
-@property (assign, atomic, readonly) NSUInteger         minorModelNumber;
-@property (assign, atomic, readonly) NSUInteger         majoriOSVersion;
-@property (assign, atomic, readonly) NSUInteger         minoriOSVersion;
-
-@end
