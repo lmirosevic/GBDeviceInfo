@@ -23,7 +23,9 @@
 
 #import "GBDeviceInfoCommonUtils.h"
 
-@interface GBDeviceInfo()
+@interface GBDeviceInfo ()
+
+// Static properties: assigned once during initialisation and cached
 
 @property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
 @property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
@@ -61,34 +63,48 @@
 #pragma mark - Public API
 
 + (GBDeviceInfo *)deviceInfo {
-    GBDeviceInfo *info = [GBDeviceInfo new];
+    static GBDeviceInfo *_shared;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _shared = [self new];
+    });
     
-    // system info string
-    info.rawSystemInfoString = [self _rawSystemInfoString];
-    
-    // device version
-    info.deviceVersion = [self _deviceVersion];
-    
-    // model nuances
-    NSArray *modelNuances = [self _modelNuances];
-    info.family = [modelNuances[0] integerValue];
-    info.model = [modelNuances[1] integerValue];
-    info.modelString = modelNuances[2];
-    
-    // Display
-    info.display = [self _display];
-    
-    // iOS version
-    info.osVersion = [self _osVersion];
-    
-    // RAM
-    info.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
-    
-    // CPU info
-    info.cpuInfo = [GBDeviceInfoCommonUtils cpuInfo];
-    
-    return info;
+    return _shared;
 }
+
+- (instancetype)init {
+    if (self = [super init]) {
+        // system info string
+        self.rawSystemInfoString = [GBDeviceInfo _rawSystemInfoString];
+        
+        // device version
+        self.deviceVersion = [GBDeviceInfo _deviceVersion];
+        
+        // model nuances
+        NSArray *modelNuances = [GBDeviceInfo _modelNuances];
+        self.family = [modelNuances[0] integerValue];
+        self.model = [modelNuances[1] integerValue];
+        self.modelString = modelNuances[2];
+        
+        // Display
+        self.display = [GBDeviceInfo _display];
+        
+        // iOS version
+        self.osVersion = [GBDeviceInfo _osVersion];
+        
+        // RAM
+        self.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
+        
+        // CPU info
+        self.cpuInfo = [GBDeviceInfoCommonUtils cpuInfo];
+    }
+    
+    return self;
+}
+
+#pragma mark - Dynamic Properties
+
+// none yet
 
 #pragma mark - Private API
 
