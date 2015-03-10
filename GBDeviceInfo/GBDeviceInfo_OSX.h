@@ -30,6 +30,8 @@
 
 /**
  The node name on the network, e.g. "MyMachine.local".
+ 
+ N.B.: Dynamic getter that recalculates the value each time.
  */
 @property (strong, atomic, readonly) NSString           *nodeName;
 
@@ -45,6 +47,8 @@
 
 /**
  Information about the CPU.
+ 
+  N.B.: Dynamic getter that recalculates the value each time.
  */
 @property (assign, atomic, readonly) GBCPUInfo          cpuInfo;
 
@@ -60,6 +64,8 @@
 
 /**
  Information about the display.
+ 
+  N.B.: Dynamic getter that recalculates the value each time.
  */
 @property (assign, atomic, readonly) GBDisplayInfo      displayInfo;
 

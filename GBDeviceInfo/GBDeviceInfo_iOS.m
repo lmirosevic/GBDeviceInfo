@@ -23,7 +23,9 @@
 
 #import "GBDeviceInfoCommonUtils.h"
 
-@interface GBDeviceInfo()
+@interface GBDeviceInfo ()
+
+// Static properties: assigned once during initialisation and cached
 
 @property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
 @property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
@@ -34,13 +36,6 @@
 @property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
 @property (assign, atomic, readwrite) CGFloat               physicalMemory;
 @property (assign, atomic, readwrite) GBOSVersion           osVersion;
-
-
-// Dynamic propeties that cannot be cached since they could change while an app
-// is running
-//
-// - none yet
-
 
 @end
 
@@ -77,10 +72,8 @@
     return _shared;
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
+- (instancetype)init {
+    if (self = [super init]) {
         // system info string
         self.rawSystemInfoString = [GBDeviceInfo _rawSystemInfoString];
         
@@ -105,12 +98,13 @@
         // CPU info
         self.cpuInfo = [GBDeviceInfoCommonUtils cpuInfo];
     }
+    
     return self;
 }
 
 #pragma mark - Dynamic Properties
 
-// -- none yet
+// none yet
 
 #pragma mark - Private API
 

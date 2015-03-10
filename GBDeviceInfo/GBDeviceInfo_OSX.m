@@ -27,6 +27,8 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 
 @interface GBDeviceInfo ()
 
+// Static properties: assigned once during initialisation and cached
+
 @property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
 @property (assign, atomic, readwrite) GBDeviceFamily        family;
 @property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
@@ -35,13 +37,6 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 @property (assign, atomic, readwrite) GBOSVersion           osVersion;
 @property (assign, atomic, readwrite) BOOL                  isMacAppStoreAvailable;
 @property (assign, atomic, readwrite) BOOL                  isIAPAvailable;
-
-// Dynamic propeties that cannot be cached since they could change while an app
-// is running
-//@property (strong, atomic, readwrite) NSString              *nodeName;
-//@property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
-//@property (assign, atomic, readwrite) GBDisplayInfo         displayInfo;
-
 
 @end
 
@@ -80,10 +75,8 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
     return _shared;
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
+- (instancetype)init {
+    if (self = [super init]) {
         self.rawSystemInfoString = [GBDeviceInfo _rawSystemInfoString];
         self.family = [GBDeviceInfo _deviceFamily];
         self.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
@@ -93,19 +86,21 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
         self.isMacAppStoreAvailable = [GBDeviceInfo _isMacAppStoreAvailable];
         self.isIAPAvailable = [GBDeviceInfo _isIAPAvailable];
     }
+    
     return self;
 }
 
 #pragma mark - Dynamic Properties
--(NSString*) nodeName {
+
+- (NSString *)nodeName {
     return [GBDeviceInfo _nodeName];
 }
 
--(GBCPUInfo) cpuInfo {
+-(GBCPUInfo)cpuInfo {
     return [GBDeviceInfoCommonUtils cpuInfo];
 }
 
--(GBDisplayInfo) displayInfo {
+-(GBDisplayInfo)displayInfo {
     return [GBDeviceInfo _displayInfo];
 }
 
