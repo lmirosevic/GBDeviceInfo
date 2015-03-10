@@ -28,16 +28,20 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 @interface GBDeviceInfo ()
 
 @property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
-@property (strong, atomic, readwrite) NSString              *nodeName;
 @property (assign, atomic, readwrite) GBDeviceFamily        family;
 @property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
-@property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
 @property (assign, atomic, readwrite) CGFloat               physicalMemory;
 @property (assign, atomic, readwrite) GBByteOrder           systemByteOrder;
-@property (assign, atomic, readwrite) GBDisplayInfo         displayInfo;
 @property (assign, atomic, readwrite) GBOSVersion           osVersion;
 @property (assign, atomic, readwrite) BOOL                  isMacAppStoreAvailable;
 @property (assign, atomic, readwrite) BOOL                  isIAPAvailable;
+
+// Dynamic propeties that cannot be cached since they could change while an app
+// is running
+//@property (strong, atomic, readwrite) NSString              *nodeName;
+//@property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
+//@property (assign, atomic, readwrite) GBDisplayInfo         displayInfo;
+
 
 @end
 
@@ -67,21 +71,42 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 #pragma mark - Public API
 
 + (GBDeviceInfo *)deviceInfo {
-    GBDeviceInfo *deviceInfo = [GBDeviceInfo new];
+    static GBDeviceInfo *_shared;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _shared = [self new];
+    });
+    
+    return _shared;
+}
 
-    deviceInfo.rawSystemInfoString = [self _rawSystemInfoString];
-    deviceInfo.nodeName = [self _nodeName];
-    deviceInfo.family = [self _deviceFamily];
-    deviceInfo.cpuInfo = [GBDeviceInfoCommonUtils cpuInfo];
-    deviceInfo.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
-    deviceInfo.systemByteOrder = [GBDeviceInfoCommonUtils systemByteOrder];
-    deviceInfo.osVersion = [self _osVersion];
-    deviceInfo.displayInfo = [self _displayInfo];
-    deviceInfo.deviceVersion = [self _deviceVersion];
-    deviceInfo.isMacAppStoreAvailable = [self _isMacAppStoreAvailable];
-    deviceInfo.isIAPAvailable = [self _isIAPAvailable];
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.rawSystemInfoString = [GBDeviceInfo _rawSystemInfoString];
+        self.family = [GBDeviceInfo _deviceFamily];
+        self.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
+        self.systemByteOrder = [GBDeviceInfoCommonUtils systemByteOrder];
+        self.osVersion = [GBDeviceInfo _osVersion];
+        self.deviceVersion = [GBDeviceInfo _deviceVersion];
+        self.isMacAppStoreAvailable = [GBDeviceInfo _isMacAppStoreAvailable];
+        self.isIAPAvailable = [GBDeviceInfo _isIAPAvailable];
+    }
+    return self;
+}
 
-    return deviceInfo;
+#pragma mark - Dynamic Properties
+-(NSString*) nodeName {
+    return [GBDeviceInfo _nodeName];
+}
+
+-(GBCPUInfo) cpuInfo {
+    return [GBDeviceInfoCommonUtils cpuInfo];
+}
+
+-(GBDisplayInfo) displayInfo {
+    return [GBDeviceInfo _displayInfo];
 }
 
 #pragma mark - Private API
