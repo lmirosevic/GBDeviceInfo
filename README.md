@@ -1,3 +1,5 @@
+![GBDeviceInfo logo](https://raw.githubusercontent.com/lmirosevic/GBDeviceInfo/master/logo.png)
+
 # GBDeviceInfo ![Version](https://img.shields.io/cocoapods/v/GBDeviceInfo.svg?style=flat)&nbsp;![License](https://img.shields.io/badge/license-Apache_2-green.svg?style=flat)
 
 Detects the hardware, software and display of the current iOS or Mac OS X device at runtime.
