@@ -68,4 +68,9 @@
  */
 @property (assign, atomic, readonly) GBOSVersion        osVersion;
 
+/**
+ Is the device jailbroken?
+ */
+@property (assign, atomic, readonly) BOOL               isJailbroken;
+
 @end

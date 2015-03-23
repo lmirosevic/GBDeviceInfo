@@ -20,6 +20,7 @@
 #import "GBDeviceInfo_iOS.h"
 
 #import <sys/utsname.h>
+#import "dlfcn.h"
 
 #import "GBDeviceInfoCommonUtils.h"
 
@@ -41,8 +42,10 @@
 
 @implementation GBDeviceInfo
 
+@dynamic isJailbroken;
+
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %ld\nfamily: %ld\ndisplay: %ld\ndeviceVersion.major: %ld\ndeviceVersion.minor: %ld\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f",
+    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %ld\nfamily: %ld\ndisplay: %ld\ndeviceVersion.major: %ld\ndeviceVersion.minor: %ld\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f\nisJailbroken: %@",
             [super description],
             self.rawSystemInfoString,
             (long)self.model,
@@ -56,7 +59,8 @@
             self.cpuInfo.frequency,
             (unsigned long)self.cpuInfo.numberOfCores,
             self.cpuInfo.l2CacheSize,
-            self.physicalMemory
+            self.physicalMemory,
+            self.isJailbroken ? @"YES" : @"NO"
         ];
 }
 
@@ -75,22 +79,22 @@
 - (instancetype)init {
     if (self = [super init]) {
         // system info string
-        self.rawSystemInfoString = [GBDeviceInfo _rawSystemInfoString];
+        self.rawSystemInfoString = [self.class _rawSystemInfoString];
         
         // device version
-        self.deviceVersion = [GBDeviceInfo _deviceVersion];
+        self.deviceVersion = [self.class _deviceVersion];
         
         // model nuances
-        NSArray *modelNuances = [GBDeviceInfo _modelNuances];
+        NSArray *modelNuances = [self.class _modelNuances];
         self.family = [modelNuances[0] integerValue];
         self.model = [modelNuances[1] integerValue];
         self.modelString = modelNuances[2];
         
         // Display
-        self.display = [GBDeviceInfo _display];
+        self.display = [self.class _display];
         
         // iOS version
-        self.osVersion = [GBDeviceInfo _osVersion];
+        self.osVersion = [self.class _osVersion];
         
         // RAM
         self.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
@@ -322,5 +326,25 @@
     
     return GBOSVersionMake(majorVersion, minorVersion, patchVersion);
 }
+
+#pragma mark - Integrity protection
+
+#if !DEBUG
+typedef int (*ptrace_ptr_t)(int _request, pid_t _pid, caddr_t _addr, int _data);
+#ifndef PT_DENY_ATTACH
+#define PT_DENY_ATTACH 31
+#endif
+
+static void DisableGDB() {
+    void *handle = dlopen(0, RTLD_GLOBAL | RTLD_NOW);
+    ptrace_ptr_t ptrace_ptr = dlsym(handle, "ptrace");
+    ptrace_ptr(PT_DENY_ATTACH, 0, 0, 0);
+    dlclose(handle);
+}
+
++ (void)load {
+    DisableGDB();
+}
+#endif
 
 @end
