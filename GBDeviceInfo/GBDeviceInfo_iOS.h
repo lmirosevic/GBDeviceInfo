@@ -54,6 +54,11 @@
 @property (assign, atomic, readonly) GBDeviceDisplay    display;
 
 /**
+ Information about the display.
+ */
+@property (assign, atomic, readonly) GBDisplayInfo      displayInfo;
+
+/**
  Information about the CPU.
  */
 @property (assign, atomic, readonly) GBCPUInfo          cpuInfo;

@@ -63,3 +63,17 @@ typedef NS_ENUM(NSInteger, GBDeviceDisplay) {
     GBDeviceDisplayiPhone47Inch,
     GBDeviceDisplayiPhone55Inch,
 };
+
+typedef struct {
+    /**
+     The display's pixels per inch ratio
+     */
+    NSUInteger                                    pixelsPerInch;
+} GBDisplayInfo;
+
+/**
+ Makes a GBDisplayInfo struct.
+ */
+inline static GBDisplayInfo GBDisplayInfoMake(NSUInteger pixelsPerInch) {
+    return (GBDisplayInfo){ pixelsPerInch };
+};

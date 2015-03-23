@@ -33,6 +33,7 @@
 @property (assign, atomic, readwrite) GBDeviceFamily        family;
 @property (assign, atomic, readwrite) GBDeviceModel         model;
 @property (assign, atomic, readwrite) GBDeviceDisplay       display;
+@property (assign, atomic, readwrite) GBDisplayInfo         displayInfo;
 @property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
 @property (assign, atomic, readwrite) CGFloat               physicalMemory;
 @property (assign, atomic, readwrite) GBOSVersion           osVersion;
@@ -42,12 +43,13 @@
 @implementation GBDeviceInfo
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %ld\nfamily: %ld\ndisplay: %ld\ndeviceVersion.major: %ld\ndeviceVersion.minor: %ld\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f",
+    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %ld\nfamily: %ld\ndisplay: %ld\nppi: %ld\ndeviceVersion.major: %ld\ndeviceVersion.minor: %ld\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f",
             [super description],
             self.rawSystemInfoString,
             (long)self.model,
             (long)self.family,
             (long)self.display,
+            (unsigned long)self.displayInfo.pixelsPerInch,
             (unsigned long)self.deviceVersion.major,
             (unsigned long)self.deviceVersion.minor,
             (unsigned long)self.osVersion.major,
@@ -88,6 +90,9 @@
         
         // Display
         self.display = [GBDeviceInfo _display];
+      
+        // Display info
+        self.displayInfo = [GBDeviceInfo _displayInfoForDeviceModel:self.model];
         
         // iOS version
         self.osVersion = [GBDeviceInfo _osVersion];
@@ -308,6 +313,51 @@
     else {
         return GBDeviceDisplayUnknown;
     }
+}
+
++ (NSUInteger)_pixelsPerInchForDeviceModel:(GBDeviceModel)model {
+    switch (model) {
+        case GBDeviceModeliPhone1:
+        case GBDeviceModeliPhone3G:
+        case GBDeviceModeliPhone3GS:
+        case GBDeviceModeliPadMini1:
+        case GBDeviceModeliPod1:
+        case GBDeviceModeliPod2:
+        case GBDeviceModeliPod3:
+            return 163;
+
+        case GBDeviceModeliPhone4:
+        case GBDeviceModeliPhone4S:
+        case GBDeviceModeliPhone5:
+        case GBDeviceModeliPhone5C:
+        case GBDeviceModeliPhone5S:
+        case GBDeviceModeliPhone6:
+        case GBDeviceModeliPadMini2:
+        case GBDeviceModeliPadMini3:
+        case GBDeviceModeliPod4:
+        case GBDeviceModeliPod5:
+            return 326;
+        
+        case GBDeviceModeliPhone6Plus:
+            return 401;
+
+        case GBDeviceModeliPad1:
+        case GBDeviceModeliPad2:
+            return 132;
+
+        case GBDeviceModeliPad3:
+        case GBDeviceModeliPad4:
+        case GBDeviceModeliPadAir1:
+        case GBDeviceModeliPadAir2:
+            return 264;
+
+        default:
+            return 326;
+    }
+}
+
++ (GBDisplayInfo)_displayInfoForDeviceModel:(GBDeviceModel)model {
+    return GBDisplayInfoMake([self _pixelsPerInchForDeviceModel:model]);
 }
 
 + (GBOSVersion)_osVersion {
