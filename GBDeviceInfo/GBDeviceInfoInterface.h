@@ -17,6 +17,8 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#import "GBDeviceInfoTypes_Common.h"
+
 @class GBDeviceInfo;
 
 @protocol GBDeviceInfoInterface <NSObject>
@@ -26,5 +28,10 @@
  Returns information about the device the current app is running on.
  */
 + (GBDeviceInfo *)deviceInfo;
+
+/**
+ Check if the OS version is equal to or higher than version.
+ */
+- (BOOL)isOperatingSystemAtLeastVersion:(GBOSVersion)version;
 
 @end

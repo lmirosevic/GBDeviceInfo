@@ -22,21 +22,15 @@
 #import <sys/utsname.h>
 #import "dlfcn.h"
 
-#import "GBDeviceInfoCommonUtils.h"
+#import "GBDeviceInfo_Common.h"
+#import "GBDeviceInfo_Subclass.h"
 
 @interface GBDeviceInfo ()
 
-// Static properties: assigned once during initialisation and cached
-
-@property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
 @property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
 @property (strong, atomic, readwrite) NSString              *modelString;
-@property (assign, atomic, readwrite) GBDeviceFamily        family;
 @property (assign, atomic, readwrite) GBDeviceModel         model;
 @property (assign, atomic, readwrite) GBDeviceDisplay       display;
-@property (assign, atomic, readwrite) GBCPUInfo             cpuInfo;
-@property (assign, atomic, readwrite) CGFloat               physicalMemory;
-@property (assign, atomic, readwrite) GBOSVersion           osVersion;
 
 @end
 
@@ -62,19 +56,10 @@
             self.physicalMemory,
             self.isJailbroken ? @"YES" : @"NO"
         ];
+    
 }
 
 #pragma mark - Public API
-
-+ (GBDeviceInfo *)deviceInfo {
-    static GBDeviceInfo *_shared;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _shared = [self new];
-    });
-    
-    return _shared;
-}
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -97,10 +82,10 @@
         self.osVersion = [self.class _osVersion];
         
         // RAM
-        self.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
+        self.physicalMemory = [self.class _physicalMemory];
         
         // CPU info
-        self.cpuInfo = [GBDeviceInfoCommonUtils cpuInfo];
+        self.cpuInfo = [self.class _cpuInfo];
     }
     
     return self;

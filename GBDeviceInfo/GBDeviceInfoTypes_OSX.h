@@ -17,17 +17,6 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-typedef NS_ENUM(NSInteger, GBDeviceFamily) {
-    GBDeviceFamilyUnknown = 0,
-    GBDeviceFamilyiMac,
-    GBDeviceFamilyMacMini,
-    GBDeviceFamilyMacPro,
-    GBDeviceFamilyMacBook,
-    GBDeviceFamilyMacBookAir,
-    GBDeviceFamilyMacBookPro,
-    GBDeviceFamilyXserve,
-};
-
 typedef struct {
     /**
      The main display's resolution.

@@ -21,20 +21,15 @@
 
 #import <sys/utsname.h>
 
-#import "GBDeviceInfoCommonUtils.h"
+#import "GBDeviceInfo_Common.h"
+#import "GBDeviceInfo_Subclass.h"
 
 static NSString * const kHardwareModelKey =                 @"hw.model";
 
 @interface GBDeviceInfo ()
 
-// Static properties: assigned once during initialisation and cached
-
-@property (strong, atomic, readwrite) NSString              *rawSystemInfoString;
-@property (assign, atomic, readwrite) GBDeviceFamily        family;
 @property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
-@property (assign, atomic, readwrite) CGFloat               physicalMemory;
 @property (assign, atomic, readwrite) GBByteOrder           systemByteOrder;
-@property (assign, atomic, readwrite) GBOSVersion           osVersion;
 @property (assign, atomic, readwrite) BOOL                  isMacAppStoreAvailable;
 @property (assign, atomic, readwrite) BOOL                  isIAPAvailable;
 
@@ -65,26 +60,16 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 
 #pragma mark - Public API
 
-+ (GBDeviceInfo *)deviceInfo {
-    static GBDeviceInfo *_shared;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _shared = [self new];
-    });
-    
-    return _shared;
-}
-
 - (instancetype)init {
     if (self = [super init]) {
-        self.rawSystemInfoString = [GBDeviceInfo _rawSystemInfoString];
-        self.family = [GBDeviceInfo _deviceFamily];
-        self.physicalMemory = [GBDeviceInfoCommonUtils physicalMemory];
-        self.systemByteOrder = [GBDeviceInfoCommonUtils systemByteOrder];
-        self.osVersion = [GBDeviceInfo _osVersion];
-        self.deviceVersion = [GBDeviceInfo _deviceVersion];
-        self.isMacAppStoreAvailable = [GBDeviceInfo _isMacAppStoreAvailable];
-        self.isIAPAvailable = [GBDeviceInfo _isIAPAvailable];
+        self.rawSystemInfoString = [self.class _rawSystemInfoString];
+        self.family = [self.class _deviceFamily];
+        self.physicalMemory = [self.class _physicalMemory];
+        self.systemByteOrder = [self.class _systemByteOrder];
+        self.osVersion = [self.class _osVersion];
+        self.deviceVersion = [self.class _deviceVersion];
+        self.isMacAppStoreAvailable = [self.class _isMacAppStoreAvailable];
+        self.isIAPAvailable = [self.class _isIAPAvailable];
     }
     
     return self;
@@ -93,15 +78,15 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 #pragma mark - Dynamic Properties
 
 - (NSString *)nodeName {
-    return [GBDeviceInfo _nodeName];
+    return [self.class _nodeName];
 }
 
--(GBCPUInfo)cpuInfo {
-    return [GBDeviceInfoCommonUtils cpuInfo];
+- (GBCPUInfo)cpuInfo {
+    return [self.class _cpuInfo];
 }
 
--(GBDisplayInfo)displayInfo {
-    return [GBDeviceInfo _displayInfo];
+- (GBDisplayInfo)displayInfo {
+    return [self.class _displayInfo];
 }
 
 #pragma mark - Private API
@@ -194,7 +179,7 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 }
 
 + (NSString *)_rawSystemInfoString {
-    return [GBDeviceInfoCommonUtils sysctlStringForKey:kHardwareModelKey];
+    return [GBDeviceInfo_Common _sysctlStringForKey:kHardwareModelKey];
 }
 
 + (NSString *)_nodeName {

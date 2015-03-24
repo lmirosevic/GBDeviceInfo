@@ -91,3 +91,24 @@ typedef struct {
 inline static GBCPUInfo GBCPUInfoMake(CGFloat frequency, NSUInteger numberOfCores, CGFloat l2CacheSize) {
     return (GBCPUInfo){frequency, numberOfCores, l2CacheSize};
 };
+
+#if TARGET_OS_IPHONE
+typedef NS_ENUM(NSInteger, GBDeviceFamily) {
+    GBDeviceFamilyUnknown = 0,
+    GBDeviceFamilyiPhone,
+    GBDeviceFamilyiPad,
+    GBDeviceFamilyiPod,
+    GBDeviceFamilySimulator,
+};
+#else
+typedef NS_ENUM(NSInteger, GBDeviceFamily) {
+    GBDeviceFamilyUnknown = 0,
+    GBDeviceFamilyiMac,
+    GBDeviceFamilyMacMini,
+    GBDeviceFamilyMacPro,
+    GBDeviceFamilyMacBook,
+    GBDeviceFamilyMacBookAir,
+    GBDeviceFamilyMacBookPro,
+    GBDeviceFamilyXserve,
+};
+#endif

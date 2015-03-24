@@ -12,9 +12,9 @@
 		8A1B11EA16F22DF200BDDD2A /* GBDeviceInfo_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B11E816F22DF200BDDD2A /* GBDeviceInfo_OSX.m */; };
 		8A38F59C162DA1C100BCF240 /* GBDeviceInfo_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A38F59B162DA1C100BCF240 /* GBDeviceInfo_iOS.h */; };
 		8A38F59E162DA1C100BCF240 /* GBDeviceInfo_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A38F59D162DA1C100BCF240 /* GBDeviceInfo_iOS.m */; };
-		8A3F56E61A977C3700B84D6F /* GBDeviceInfoCommonUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56E41A977C3700B84D6F /* GBDeviceInfoCommonUtils.h */; };
-		8A3F56E71A977C3700B84D6F /* GBDeviceInfoCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F56E51A977C3700B84D6F /* GBDeviceInfoCommonUtils.m */; };
-		8A3F56E81A977C3700B84D6F /* GBDeviceInfoCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F56E51A977C3700B84D6F /* GBDeviceInfoCommonUtils.m */; };
+		8A3F56E61A977C3700B84D6F /* GBDeviceInfo_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56E41A977C3700B84D6F /* GBDeviceInfo_Common.h */; };
+		8A3F56E71A977C3700B84D6F /* GBDeviceInfo_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F56E51A977C3700B84D6F /* GBDeviceInfo_Common.m */; };
+		8A3F56E81A977C3700B84D6F /* GBDeviceInfo_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F56E51A977C3700B84D6F /* GBDeviceInfo_Common.m */; };
 		8A3F56EC1A977EA500B84D6F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3F56EB1A977EA500B84D6F /* CoreServices.framework */; };
 		8A3F56ED1A977EB300B84D6F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3F56E91A977E9F00B84D6F /* Cocoa.framework */; };
 		8A3F56EE1A977ED500B84D6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F596162DA1C100BCF240 /* Foundation.framework */; };
@@ -41,6 +41,7 @@
 		8A1B11B516F2246000BDDD2A /* GBDeviceInfoTypes_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoTypes_OSX.h; sourceTree = "<group>"; };
 		8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_OSX.h; sourceTree = "<group>"; };
 		8A1B11E816F22DF200BDDD2A /* GBDeviceInfo_OSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDeviceInfo_OSX.m; sourceTree = "<group>"; };
+		8A3052661AC1B77E0077F3BF /* GBDeviceInfo_Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_Subclass.h; sourceTree = "<group>"; };
 		8A38F593162DA1C100BCF240 /* libGBDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBDeviceInfo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A38F596162DA1C100BCF240 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBDeviceInfo-Prefix.pch"; sourceTree = "<group>"; };
@@ -49,8 +50,8 @@
 		8A38F5B7162DA4DF00BCF240 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8A3F56AC1A9761BD00B84D6F /* GBDeviceInfoTypes_Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoTypes_Common.h; sourceTree = "<group>"; };
 		8A3F56AE1A97627700B84D6F /* GBDeviceInfoInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoInterface.h; sourceTree = "<group>"; };
-		8A3F56E41A977C3700B84D6F /* GBDeviceInfoCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoCommonUtils.h; sourceTree = "<group>"; };
-		8A3F56E51A977C3700B84D6F /* GBDeviceInfoCommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDeviceInfoCommonUtils.m; sourceTree = "<group>"; };
+		8A3F56E41A977C3700B84D6F /* GBDeviceInfo_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_Common.h; sourceTree = "<group>"; };
+		8A3F56E51A977C3700B84D6F /* GBDeviceInfo_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDeviceInfo_Common.m; sourceTree = "<group>"; };
 		8A3F56E91A977E9F00B84D6F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		8A3F56EB1A977EA500B84D6F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		8A521B291701CE7800A89BE4 /* GBDeviceInfo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GBDeviceInfo-Info.plist"; sourceTree = "<group>"; };
@@ -158,10 +159,11 @@
 		8A3F56AD1A9761C100B84D6F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8A3F56AC1A9761BD00B84D6F /* GBDeviceInfoTypes_Common.h */,
 				8A3F56AE1A97627700B84D6F /* GBDeviceInfoInterface.h */,
-				8A3F56E41A977C3700B84D6F /* GBDeviceInfoCommonUtils.h */,
-				8A3F56E51A977C3700B84D6F /* GBDeviceInfoCommonUtils.m */,
+				8A3F56AC1A9761BD00B84D6F /* GBDeviceInfoTypes_Common.h */,
+				8A3F56E41A977C3700B84D6F /* GBDeviceInfo_Common.h */,
+				8A3F56E51A977C3700B84D6F /* GBDeviceInfo_Common.m */,
+				8A3052661AC1B77E0077F3BF /* GBDeviceInfo_Subclass.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -175,7 +177,7 @@
 			files = (
 				8A1B11A616F2211400BDDD2A /* GBDeviceInfo.h in Headers */,
 				8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */,
-				8A3F56E61A977C3700B84D6F /* GBDeviceInfoCommonUtils.h in Headers */,
+				8A3F56E61A977C3700B84D6F /* GBDeviceInfo_Common.h in Headers */,
 				8A521B281701CE1E00A89BE4 /* GBDeviceInfoTypes_OSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A1B11EA16F22DF200BDDD2A /* GBDeviceInfo_OSX.m in Sources */,
-				8A3F56E81A977C3700B84D6F /* GBDeviceInfoCommonUtils.m in Sources */,
+				8A3F56E81A977C3700B84D6F /* GBDeviceInfo_Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A38F59E162DA1C100BCF240 /* GBDeviceInfo_iOS.m in Sources */,
-				8A3F56E71A977C3700B84D6F /* GBDeviceInfoCommonUtils.m in Sources */,
+				8A3F56E71A977C3700B84D6F /* GBDeviceInfo_Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
