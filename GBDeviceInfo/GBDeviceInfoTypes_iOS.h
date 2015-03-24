@@ -47,14 +47,6 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPod5,
 };
 
-typedef NS_ENUM(NSInteger, GBDeviceFamily) {
-    GBDeviceFamilyUnknown = 0,
-    GBDeviceFamilyiPhone,
-    GBDeviceFamilyiPad,
-    GBDeviceFamilyiPod,
-    GBDeviceFamilySimulator,
-};
-
 typedef NS_ENUM(NSInteger, GBDeviceDisplay) {
     GBDeviceDisplayUnknown = 0,
     GBDeviceDisplayiPad,

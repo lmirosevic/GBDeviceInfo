@@ -17,16 +17,11 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import "GBDeviceInfoTypes_Common.h"
+#import "GBDeviceInfo_Common.h"
+
 #import "GBDeviceInfoTypes_OSX.h"
-#import "GBDeviceInfoInterface.h"
 
-@interface GBDeviceInfo : NSObject <GBDeviceInfoInterface>
-
-/**
- The raw system info string, e.g. "iMac13,2".
- */
-@property (strong, atomic, readonly) NSString           *rawSystemInfoString;
+@interface GBDeviceInfo : GBDeviceInfo_Common
 
 /**
  The node name on the network, e.g. "MyMachine.local".
@@ -36,26 +31,9 @@
 @property (strong, atomic, readonly) NSString           *nodeName;
 
 /**
- The device family. e.g. GBDeviceFamilyiMac.
- */
-@property (assign, atomic, readonly) GBDeviceFamily     family;
-
-/**
  The device version. e.g. {13, 2}.
  */
 @property (assign, atomic, readonly) GBDeviceVersion    deviceVersion;
-
-/**
- Information about the CPU.
- 
-  N.B.: Dynamic getter that recalculates the value each time.
- */
-@property (assign, atomic, readonly) GBCPUInfo          cpuInfo;
-
-/**
- Amount of physical memory (RAM) available to the system, in GB.
- */
-@property (assign, atomic, readonly) CGFloat            physicalMemory;         // GB (gibi)
 
 /**
  System byte order, e.g. GBByteOrderLittleEndian.
@@ -68,11 +46,6 @@
   N.B.: Dynamic getter that recalculates the value each time.
  */
 @property (assign, atomic, readonly) GBDisplayInfo      displayInfo;
-
-/**
- Information about the system's OS. e.g. {10, 8, 2}.
- */
-@property (assign, atomic, readonly) GBOSVersion        osVersion;
 
 /**
  Indicates whether the app store is available on this machine.
