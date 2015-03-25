@@ -45,6 +45,11 @@
 @property (assign, atomic, readonly) GBDeviceDisplay    display;
 
 /**
+ Information about the display.
+ */
+@property (assign, atomic, readonly) GBDisplayInfo      displayInfo;
+
+/**
  Is the device jailbroken?
  */
 @property (assign, atomic, readonly) BOOL               isJailbroken;
