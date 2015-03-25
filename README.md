@@ -20,6 +20,8 @@ Simple usage (examples on iPhone 6 running iOS 8.1.3):
 [GBDeviceInfo deviceInfo].modelString;                              // #> @"iPhone 6"
 [GBDeviceInfo deviceInfo].osVersion.major;                          // #> 8
 [GBDeviceInfo deviceInfo].osVersion.minor;                          // #> 1
+
+[GBDeviceInfo deviceInfo].displayInfo.pixelsPerInch;                // #> 326
 ```
 
 You can also reuse the returned object to save some typing. First assign the object to some variable:
