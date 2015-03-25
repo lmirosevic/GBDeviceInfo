@@ -47,6 +47,21 @@ inline static GBOSVersion GBOSVersionMake(NSUInteger major, NSUInteger minor,  N
     return (GBOSVersion){major, minor, patch};
 };
 
+/**
+ Makes a GBOSVersion struct by parsing a NSString.
+ 
+ e.g.   @"8.2.3"    -> GBOSVersionMake(8,2,3)
+        @"9.1"      -> GBOSVersionMake(9,1,0)
+ */
+inline static GBOSVersion GBOSVersionFromString(NSString *versionString) {
+    NSArray *components = [versionString componentsSeparatedByString:@"."];
+    NSUInteger major = components.count >= 1 ? [components[0] unsignedIntegerValue] : 0;
+    NSUInteger minor = components.count >= 2 ? [components[1] unsignedIntegerValue] : 0;
+    NSUInteger patch = components.count >= 3 ? [components[2] unsignedIntegerValue] : 0;
+    
+    return GBOSVersionMake(major, minor, patch);
+}
+
 typedef struct {
     /**
      Major device model. e.g. 13 for iMac13,2

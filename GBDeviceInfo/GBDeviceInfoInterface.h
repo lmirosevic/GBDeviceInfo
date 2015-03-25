@@ -32,6 +32,14 @@
 /**
  Check if the OS version is equal to or higher than version.
  */
-- (BOOL)isOperatingSystemAtLeastVersion:(GBOSVersion)version;
+- (BOOL)isOperatingSystemAtLeastOSVersion:(GBOSVersion)version;
+
+/**
+ Check if the OS version is equal to or higher than versionString, where versionString gets parsed into a GBOSVersion. 
+ 
+ e.g.   @"8.2.3"    -> GBOSVersionMake(8,2,3)
+        @"9.1"      -> GBOSVersionMake(9,1,0)
+ */
+- (BOOL)isOperatingSystemAtLeastVersion:(NSString *)versionString;
 
 @end

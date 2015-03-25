@@ -40,7 +40,7 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
     return _shared;
 }
 
-- (BOOL)isOperatingSystemAtLeastVersion:(GBOSVersion)version {
+- (BOOL)isOperatingSystemAtLeastOSVersion:(GBOSVersion)version {
     GBOSVersion currentVersion = [GBDeviceInfo deviceInfo].osVersion;
     
     // major bigger
@@ -77,6 +77,10 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
     else {
         return NO;
     }
+}
+
+- (BOOL)isOperatingSystemAtLeastVersion:(NSString *)versionString {
+    return [self isOperatingSystemAtLeastOSVersion:GBOSVersionFromString(versionString)];
 }
 
 #pragma mark - Private
