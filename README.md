@@ -320,6 +320,16 @@ Changelog
   * `rawSystemInfoString`
 * `rawSystemInfoString` method has been removed (you get the same string from the returned object now)
 
+Author
+------------
+
+[Luka Mirosevic](mailto:luka@goonbee.com) ([@lmirosevic](https://twitter.com/lmirosevic))
+
+Enterprise
+------------
+
+Premium support, integration, use-case adaptations and consulting available. Contact [sales@goonbee.com](mailto:sales@goonbee.com?subject=GBDeviceInfo%20Enterprise)
+
 Copyright & License
 ------------
 
