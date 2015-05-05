@@ -105,7 +105,7 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
     const char *keyCString = [key UTF8String];
     CGFloat answerFloat = 0;
     
-    size_t length;
+    size_t length = 0;
     sysctlbyname(keyCString, NULL, &length, NULL, 0);
     if (length) {
         char *answerRaw = malloc(length * sizeof(char));
