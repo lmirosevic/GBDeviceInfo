@@ -31,6 +31,8 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPhone5S,
     GBDeviceModeliPhone6,
     GBDeviceModeliPhone6Plus,
+    GBDeviceModeliPhone6S,
+    GBDeviceModeliPhone6SPlus,
     GBDeviceModeliPad1,
     GBDeviceModeliPad2,
     GBDeviceModeliPad3,
