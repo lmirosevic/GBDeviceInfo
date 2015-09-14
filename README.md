@@ -159,6 +159,8 @@ iOS Device support
 * iPhone5S
 * iPhone6
 * iPhone6Plus
+* iPhone6S
+* iPhone6SPlus
 * iPad1
 * iPad2
 * iPad3
