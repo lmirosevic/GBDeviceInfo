@@ -186,11 +186,11 @@
                 // 6
                 @[@(7), @(2)]: @[@(GBDeviceModeliPhone6), @"iPhone 6", @(326)],
                 
-                // 6S Plus
-                @[@(8), @(1)]: @[@(GBDeviceModeliPhone6SPlus), @"iPhone 6S Plus", @(401)],
-                
                 // 6S
-                @[@(8), @(2)]: @[@(GBDeviceModeliPhone6S), @"iPhone 6S", @(326)],
+                @[@(8), @(1)]: @[@(GBDeviceModeliPhone6S), @"iPhone 6S", @(326)],
+                
+                // 6S Plus
+                @[@(8), @(2)]: @[@(GBDeviceModeliPhone6SPlus), @"iPhone 6S Plus", @(401)],
             },
             @"iPad": @{
                 // 1
