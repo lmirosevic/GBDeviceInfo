@@ -323,24 +323,4 @@
     return GBOSVersionMake(majorVersion, minorVersion, patchVersion);
 }
 
-#pragma mark - Integrity protection
-
-#if !DEBUG
-typedef int (*ptrace_ptr_t)(int _request, pid_t _pid, caddr_t _addr, int _data);
-#ifndef PT_DENY_ATTACH
-#define PT_DENY_ATTACH 31
-#endif
-
-static void DisableGDB() {
-    void *handle = dlopen(0, RTLD_GLOBAL | RTLD_NOW);
-    ptrace_ptr_t ptrace_ptr = dlsym(handle, "ptrace");
-    ptrace_ptr(PT_DENY_ATTACH, 0, 0, 0);
-    dlclose(handle);
-}
-
-+ (void)load {
-    DisableGDB();
-}
-#endif
-
 @end
