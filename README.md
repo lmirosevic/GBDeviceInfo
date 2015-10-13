@@ -68,6 +68,12 @@ Don't forget to import header.
 #import <GBDeviceInfo/GBDeviceInfo.h>
 ```
 
+If you want to use the `isJailbroken` property, make sure you first add the Jailbreak subspec to your project's Podfile, e.g.:
+```ruby
+pod 'GBDeviceInfo', '~> 3.5'
+pod 'GBDeviceInfo/Jailbreak', '~> 3.5'
+```
+
 Missing a property you need? Submit a Pull Request or contact [sales@goonbee.com](mailto:sales@goonbee.com?subject=GBDeviceInfo%20Enterprise)!
 
 OS X
@@ -188,39 +194,6 @@ OS X Device family support
 * MacBookAir
 * MacBookPro
 * Xserve
-
-Changelog
-------------
-
-*February 2015 update*
-* Backwards incompatible API changes (bumped major version to 3.x.x)
-* Big refactor and cleanup of the public interface
-* Internal logic is much cleaner and easier for future maintenance
-* Better documentation
-* Fixed all known bugs
-* Replaced some deprecated API calls, with fallbacks
-* Consolidated related values into structs
-
-*November 2013 update*
-* Added new devices: iPhone 5C, iPhone5S, iPad Mini Retina, iPad Air
-
-*June 2013 update*
-* iOS version now has support for simulator detection
-* iOS version can now return a human readable string for the device, e.g. "iPhone 4S"
-
-*May 2013 update*
-* OSX version now has methods for checking whether the App Store and/or IAP are available on the machine
-
-*March 2013 update*
-* iOS version now returns an object instead of a struct, so you should declare your variables as `GBDeviceInfo *deviceInfo` instead of the old static way `GBDeviceInfo deviceInfo`
-* Some properties in iOS lib have been renamed:
-  * `iOSVersion` -> `majoriOSVersion`
-  * `bigModelNumber` -> `majorModelNumber`
-  * `smallModelNumber` -> `minorModelNumber`
-* New properties have been added in iOS lib:
-  * `minoriOSVersion`
-  * `rawSystemInfoString`
-* `rawSystemInfoString` method has been removed (you get the same string from the returned object now)
 
 Author
 ------------

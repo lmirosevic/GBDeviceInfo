@@ -50,7 +50,7 @@
 @property (assign, atomic, readonly) GBDisplayInfo      displayInfo;
 
 /**
- Is the device jailbroken?
+ Is the device jailbroken? Add the `GBDeviceInfo/Jailbreak` subspec to your project to use this property.
  */
 @property (assign, atomic, readonly) BOOL               isJailbroken;
 
