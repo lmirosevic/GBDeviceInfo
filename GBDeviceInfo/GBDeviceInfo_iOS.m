@@ -37,7 +37,11 @@
 
 @implementation GBDeviceInfo
 
-@dynamic isJailbroken;
+#pragma mark - Custom Accessors
+
+- (BOOL)isJailbroken {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"You have to include the Jailbreak subspec in order to access this property. Add `pod 'GBDeviceInfo/Jailbreak'` to your Podfile." userInfo:nil];
+}
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %ld\nfamily: %ld\ndisplay: %ld\nppi: %ld\ndeviceVersion.major: %ld\ndeviceVersion.minor: %ld\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f\nisJailbroken: %@",
