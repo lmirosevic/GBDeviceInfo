@@ -44,7 +44,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %ld\nfamily: %ld\ndisplay: %ld\nppi: %ld\ndeviceVersion.major: %ld\ndeviceVersion.minor: %ld\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f\nisJailbroken: %@",
+    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nmodel: %ld\nfamily: %ld\ndisplay: %ld\nppi: %ld\ndeviceVersion.major: %ld\ndeviceVersion.minor: %ld\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f",
             [super description],
             self.rawSystemInfoString,
             (long)self.model,
@@ -59,8 +59,7 @@
             self.cpuInfo.frequency,
             (unsigned long)self.cpuInfo.numberOfCores,
             self.cpuInfo.l2CacheSize,
-            self.physicalMemory,
-            self.isJailbroken ? @"YES" : @"NO"
+            self.physicalMemory
         ];
 }
 
