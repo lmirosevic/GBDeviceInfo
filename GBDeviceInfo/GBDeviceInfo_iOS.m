@@ -238,6 +238,9 @@
                 // Air 2
                 @[@(5), @(3)]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @(264)],
                 @[@(5), @(4)]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @(264)],
+
+                // Pro
+                @[@(6), @(8)]: @[@(GBDeviceModeliPadPro), @"iPad Pro", @(264)],
             },
             @"iPod": @{
                 // 1st Gen
@@ -287,6 +290,11 @@
         ((screenWidth == 1024) && (screenHeight == 768))) {
         return GBDeviceDisplayiPad;
     }
+    // iPad Pro
+    else if (((screenWidth == 1024) && (screenHeight == 1366)) ||
+             ((screenWidth == 1366) && (screenHeight == 1024))) {
+            return GBDeviceDisplayiPadPro;
+        }
     // iPhone 3.5 inch
     else if (((screenWidth == 320) && (screenHeight == 480)) ||
              ((screenWidth == 480) && (screenHeight == 320))) {
