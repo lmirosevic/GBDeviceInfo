@@ -176,6 +176,7 @@ iOS Device support
 * iPadMini3
 * iPadAir1
 * iPadAir2
+* iPadPro
 * iPod1
 * iPod2
 * iPod3
