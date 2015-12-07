@@ -155,109 +155,109 @@
         NSDictionary *modelManifest = @{
             @"iPhone": @{
                 // 1st Gen
-                @[@(1), @(1)]: @[@(GBDeviceModeliPhone1), @"iPhone 1", @(163)],
+                @[@1, @1]: @[@(GBDeviceModeliPhone1), @"iPhone 1", @163],
 
                 // 3G
-                @[@(1), @(2)]: @[@(GBDeviceModeliPhone3G), @"iPhone 3G", @(163)],
+                @[@1, @2]: @[@(GBDeviceModeliPhone3G), @"iPhone 3G", @163],
 
                 // 3GS
-                @[@(2), @(1)]: @[@(GBDeviceModeliPhone3GS), @"iPhone 3GS", @(163)],
+                @[@2, @1]: @[@(GBDeviceModeliPhone3GS), @"iPhone 3GS", @163],
 
                 // 4
-                @[@(3), @(1)]: @[@(GBDeviceModeliPhone4), @"iPhone 4", @(326)],
-                @[@(3), @(2)]: @[@(GBDeviceModeliPhone4), @"iPhone 4", @(326)],
-                @[@(3), @(3)]: @[@(GBDeviceModeliPhone4), @"iPhone 4", @(326)],
+                @[@3, @1]: @[@(GBDeviceModeliPhone4), @"iPhone 4", @326],
+                @[@3, @2]: @[@(GBDeviceModeliPhone4), @"iPhone 4", @326],
+                @[@3, @3]: @[@(GBDeviceModeliPhone4), @"iPhone 4", @326],
 
                 // 4S
-                @[@(4), @(1)]: @[@(GBDeviceModeliPhone4S), @"iPhone 4S", @(326)],
+                @[@4, @1]: @[@(GBDeviceModeliPhone4S), @"iPhone 4S", @326],
 
                 // 5
-                @[@(5), @(1)]: @[@(GBDeviceModeliPhone5), @"iPhone 5", @(326)],
-                @[@(5), @(2)]: @[@(GBDeviceModeliPhone5), @"iPhone 5", @(326)],
+                @[@5, @1]: @[@(GBDeviceModeliPhone5), @"iPhone 5", @326],
+                @[@5, @2]: @[@(GBDeviceModeliPhone5), @"iPhone 5", @326],
 
                 // 5C
-                @[@(5), @(3)]: @[@(GBDeviceModeliPhone5C), @"iPhone 5C", @(326)],
-                @[@(5), @(4)]: @[@(GBDeviceModeliPhone5C), @"iPhone 5C", @(326)],
+                @[@5, @3]: @[@(GBDeviceModeliPhone5C), @"iPhone 5C", @326],
+                @[@5, @4]: @[@(GBDeviceModeliPhone5C), @"iPhone 5C", @326],
 
                 // 5S
-                @[@(6), @(1)]: @[@(GBDeviceModeliPhone5S), @"iPhone 5S", @(326)],
-                @[@(6), @(2)]: @[@(GBDeviceModeliPhone5S), @"iPhone 5S", @(326)],
+                @[@6, @1]: @[@(GBDeviceModeliPhone5S), @"iPhone 5S", @326],
+                @[@6, @2]: @[@(GBDeviceModeliPhone5S), @"iPhone 5S", @326],
 
                 // 6 Plus
-                @[@(7), @(1)]: @[@(GBDeviceModeliPhone6Plus), @"iPhone 6 Plus", @(401)],
+                @[@7, @1]: @[@(GBDeviceModeliPhone6Plus), @"iPhone 6 Plus", @401],
 
                 // 6
-                @[@(7), @(2)]: @[@(GBDeviceModeliPhone6), @"iPhone 6", @(326)],
+                @[@7, @2]: @[@(GBDeviceModeliPhone6), @"iPhone 6", @326],
                 
                 // 6S
-                @[@(8), @(1)]: @[@(GBDeviceModeliPhone6S), @"iPhone 6S", @(326)],
+                @[@8, @1]: @[@(GBDeviceModeliPhone6S), @"iPhone 6S", @326],
                 
                 // 6S Plus
-                @[@(8), @(2)]: @[@(GBDeviceModeliPhone6SPlus), @"iPhone 6S Plus", @(401)],
+                @[@8, @2]: @[@(GBDeviceModeliPhone6SPlus), @"iPhone 6S Plus", @401],
             },
             @"iPad": @{
                 // 1
-                @[@(1), @(1)]: @[@(GBDeviceModeliPad1), @"iPad 1", @(132)],
+                @[@1, @1]: @[@(GBDeviceModeliPad1), @"iPad 1", @132],
 
                 // 2
-                @[@(2), @(1)]: @[@(GBDeviceModeliPad2), @"iPad 2", @(132)],
-                @[@(2), @(2)]: @[@(GBDeviceModeliPad2), @"iPad 2", @(132)],
-                @[@(2), @(3)]: @[@(GBDeviceModeliPad2), @"iPad 2", @(132)],
-                @[@(2), @(4)]: @[@(GBDeviceModeliPad2), @"iPad 2", @(132)],
+                @[@2, @1]: @[@(GBDeviceModeliPad2), @"iPad 2", @132],
+                @[@2, @2]: @[@(GBDeviceModeliPad2), @"iPad 2", @132],
+                @[@2, @3]: @[@(GBDeviceModeliPad2), @"iPad 2", @132],
+                @[@2, @4]: @[@(GBDeviceModeliPad2), @"iPad 2", @132],
 
                 // Mini
-                @[@(2), @(5)]: @[@(GBDeviceModeliPadMini1), @"iPad Mini 1", @(163)],
-                @[@(2), @(6)]: @[@(GBDeviceModeliPadMini1), @"iPad Mini 1", @(163)],
-                @[@(2), @(7)]: @[@(GBDeviceModeliPadMini1), @"iPad Mini 1", @(163)],
+                @[@2, @5]: @[@(GBDeviceModeliPadMini1), @"iPad Mini 1", @163],
+                @[@2, @6]: @[@(GBDeviceModeliPadMini1), @"iPad Mini 1", @163],
+                @[@2, @7]: @[@(GBDeviceModeliPadMini1), @"iPad Mini 1", @163],
 
                 // 3
-                @[@(3), @(1)]: @[@(GBDeviceModeliPad3), @"iPad 3", @(264)],
-                @[@(3), @(2)]: @[@(GBDeviceModeliPad3), @"iPad 3", @(264)],
-                @[@(3), @(3)]: @[@(GBDeviceModeliPad3), @"iPad 3", @(264)],
+                @[@3, @1]: @[@(GBDeviceModeliPad3), @"iPad 3", @264],
+                @[@3, @2]: @[@(GBDeviceModeliPad3), @"iPad 3", @264],
+                @[@3, @3]: @[@(GBDeviceModeliPad3), @"iPad 3", @264],
 
                 // 4
-                @[@(3), @(4)]: @[@(GBDeviceModeliPad4), @"iPad 4", @(264)],
-                @[@(3), @(5)]: @[@(GBDeviceModeliPad4), @"iPad 4", @(264)],
-                @[@(3), @(6)]: @[@(GBDeviceModeliPad4), @"iPad 4", @(264)],
+                @[@3, @4]: @[@(GBDeviceModeliPad4), @"iPad 4", @264],
+                @[@3, @5]: @[@(GBDeviceModeliPad4), @"iPad 4", @264],
+                @[@3, @6]: @[@(GBDeviceModeliPad4), @"iPad 4", @264],
 
                 // Air
-                @[@(4), @(1)]: @[@(GBDeviceModeliPadAir1), @"iPad Air 1", @(264)],
-                @[@(4), @(2)]: @[@(GBDeviceModeliPadAir1), @"iPad Air 1", @(264)],
-                @[@(4), @(3)]: @[@(GBDeviceModeliPadAir1), @"iPad Air 1", @(264)],
+                @[@4, @1]: @[@(GBDeviceModeliPadAir1), @"iPad Air 1", @264],
+                @[@4, @2]: @[@(GBDeviceModeliPadAir1), @"iPad Air 1", @264],
+                @[@4, @3]: @[@(GBDeviceModeliPadAir1), @"iPad Air 1", @264],
 
                 // Mini 2
-                @[@(4), @(4)]: @[@(GBDeviceModeliPadMini2), @"iPad Mini 2", @(326)],
-                @[@(4), @(5)]: @[@(GBDeviceModeliPadMini2), @"iPad Mini 2", @(326)],
-                @[@(4), @(6)]: @[@(GBDeviceModeliPadMini2), @"iPad Mini 2", @(326)],
+                @[@4, @4]: @[@(GBDeviceModeliPadMini2), @"iPad Mini 2", @326],
+                @[@4, @5]: @[@(GBDeviceModeliPadMini2), @"iPad Mini 2", @326],
+                @[@4, @6]: @[@(GBDeviceModeliPadMini2), @"iPad Mini 2", @326],
 
                 // Mini 3
-                @[@(4), @(7)]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @(326)],
-                @[@(4), @(8)]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @(326)],
-                @[@(4), @(9)]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @(326)],
+                @[@4, @7]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @326],
+                @[@4, @8]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @326],
+                @[@4, @9]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @326],
 
                 // Air 2
-                @[@(5), @(3)]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @(264)],
-                @[@(5), @(4)]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @(264)],
+                @[@5, @3]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @264],
+                @[@5, @4]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @264],
 
                 // Pro
-                @[@(6), @(7)]: @[@(GBDeviceModeliPadPro), @"iPad Pro", @(264)],
-                @[@(6), @(8)]: @[@(GBDeviceModeliPadPro), @"iPad Pro", @(264)],
+                @[@6, @7]: @[@(GBDeviceModeliPadPro), @"iPad Pro", @264],
+                @[@6, @8]: @[@(GBDeviceModeliPadPro), @"iPad Pro", @264],
             },
             @"iPod": @{
                 // 1st Gen
-                @[@(1), @(1)]: @[@(GBDeviceModeliPod1), @"iPod Touch 1", @(163)],
+                @[@1, @1]: @[@(GBDeviceModeliPod1), @"iPod Touch 1", @163],
 
                 // 2nd Gen
-                @[@(2), @(1)]: @[@(GBDeviceModeliPod2), @"iPod Touch 2", @(163)],
+                @[@2, @1]: @[@(GBDeviceModeliPod2), @"iPod Touch 2", @163],
 
                 // 3rd Gen
-                @[@(3), @(1)]: @[@(GBDeviceModeliPod3), @"iPod Touch 3", @(163)],
+                @[@3, @1]: @[@(GBDeviceModeliPod3), @"iPod Touch 3", @163],
 
                 // 4th Gen
-                @[@(4), @(1)]: @[@(GBDeviceModeliPod4), @"iPod Touch 4", @(326)],
+                @[@4, @1]: @[@(GBDeviceModeliPod4), @"iPod Touch 4", @326],
 
                 // 5th Gen
-                @[@(5), @(1)]: @[@(GBDeviceModeliPod5), @"iPod Touch 5", @(326)],
+                @[@5, @1]: @[@(GBDeviceModeliPod5), @"iPod Touch 5", @326],
             },
         };
         
