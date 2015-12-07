@@ -240,6 +240,7 @@
                 @[@(5), @(4)]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @(264)],
 
                 // Pro
+                @[@(6), @(7)]: @[@(GBDeviceModeliPadPro), @"iPad Pro", @(264)],
                 @[@(6), @(8)]: @[@(GBDeviceModeliPadPro), @"iPad Pro", @(264)],
             },
             @"iPod": @{
