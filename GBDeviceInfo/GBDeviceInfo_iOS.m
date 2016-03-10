@@ -175,13 +175,13 @@
                 @[@5, @1]: @[@(GBDeviceModeliPhone5), @"iPhone 5", @326],
                 @[@5, @2]: @[@(GBDeviceModeliPhone5), @"iPhone 5", @326],
 
-                // 5C
-                @[@5, @3]: @[@(GBDeviceModeliPhone5C), @"iPhone 5C", @326],
-                @[@5, @4]: @[@(GBDeviceModeliPhone5C), @"iPhone 5C", @326],
+                // 5c
+                @[@5, @3]: @[@(GBDeviceModeliPhone5c), @"iPhone 5c", @326],
+                @[@5, @4]: @[@(GBDeviceModeliPhone5c), @"iPhone 5c", @326],
 
-                // 5S
-                @[@6, @1]: @[@(GBDeviceModeliPhone5S), @"iPhone 5S", @326],
-                @[@6, @2]: @[@(GBDeviceModeliPhone5S), @"iPhone 5S", @326],
+                // 5s
+                @[@6, @1]: @[@(GBDeviceModeliPhone5s), @"iPhone 5s", @326],
+                @[@6, @2]: @[@(GBDeviceModeliPhone5s), @"iPhone 5s", @326],
 
                 // 6 Plus
                 @[@7, @1]: @[@(GBDeviceModeliPhone6Plus), @"iPhone 6 Plus", @401],
@@ -189,11 +189,11 @@
                 // 6
                 @[@7, @2]: @[@(GBDeviceModeliPhone6), @"iPhone 6", @326],
                 
-                // 6S
-                @[@8, @1]: @[@(GBDeviceModeliPhone6S), @"iPhone 6S", @326],
+                // 6s
+                @[@8, @1]: @[@(GBDeviceModeliPhone6s), @"iPhone 6s", @326],
                 
-                // 6S Plus
-                @[@8, @2]: @[@(GBDeviceModeliPhone6SPlus), @"iPhone 6S Plus", @401],
+                // 6s Plus
+                @[@8, @2]: @[@(GBDeviceModeliPhone6sPlus), @"iPhone 6s Plus", @401],
             },
             @"iPad": @{
                 // 1
