@@ -234,6 +234,10 @@
                 @[@4, @7]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @326],
                 @[@4, @8]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @326],
                 @[@4, @9]: @[@(GBDeviceModeliPadMini3), @"iPad Mini 3", @326],
+                
+                // Mini 4
+                @[@5, @1]: @[@(GBDeviceModeliPadMini4), @"iPad Mini 4", @326],
+                @[@5, @2]: @[@(GBDeviceModeliPadMini4), @"iPad Mini 4", @326],
 
                 // Air 2
                 @[@5, @3]: @[@(GBDeviceModeliPadAir2), @"iPad Air 2", @264],

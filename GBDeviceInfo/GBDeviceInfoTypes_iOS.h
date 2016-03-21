@@ -40,6 +40,7 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPadMini1,
     GBDeviceModeliPadMini2,
     GBDeviceModeliPadMini3,
+    GBDeviceModeliPadMini4,
     GBDeviceModeliPadAir1,
     GBDeviceModeliPadAir2,
     GBDeviceModeliPadPro,
