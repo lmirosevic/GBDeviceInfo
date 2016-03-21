@@ -262,6 +262,9 @@
 
                 // 5th Gen
                 @[@5, @1]: @[@(GBDeviceModeliPod5), @"iPod Touch 5", @326],
+
+                // 6th Gen
+                @[@7, @1]: @[@(GBDeviceModeliPod6), @"iPod Touch 6", @326],
             },
         };
         
