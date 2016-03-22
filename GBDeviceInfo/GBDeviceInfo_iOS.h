@@ -40,17 +40,14 @@
 @property (assign, atomic, readonly) GBDeviceModel      model;
 
 /**
- The display identifier, e.g. GBDeviceDisplayiPhone47Inch
- */
-@property (assign, atomic, readonly) GBDeviceDisplay    display;
-
-/**
  Information about the display.
  */
 @property (assign, atomic, readonly) GBDisplayInfo      displayInfo;
 
 /**
- Is the device jailbroken? Add the `GBDeviceInfo/Jailbreak` subspec to your project to use this property.
+ Is the device jailbroken? 
+ 
+ You must add the `GBDeviceInfo/Jailbreak` subspec to your project in order to use this property.
  */
 @property (assign, atomic, readonly) BOOL               isJailbroken;
 

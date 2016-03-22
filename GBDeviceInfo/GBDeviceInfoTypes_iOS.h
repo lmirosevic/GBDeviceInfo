@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPhone5,
     GBDeviceModeliPhone5c,
     GBDeviceModeliPhone5s,
+    GBDeviceModeliPhoneSE,
     GBDeviceModeliPhone6,
     GBDeviceModeliPhone6Plus,
     GBDeviceModeliPhone6s,
@@ -43,7 +44,8 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPadMini4,
     GBDeviceModeliPadAir1,
     GBDeviceModeliPadAir2,
-    GBDeviceModeliPadPro,
+    GBDeviceModeliPadPro9p7Inch,
+    GBDeviceModeliPadPro12p9Inch,
     GBDeviceModeliPod1,
     GBDeviceModeliPod2,
     GBDeviceModeliPod3,
@@ -54,24 +56,34 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
 
 typedef NS_ENUM(NSInteger, GBDeviceDisplay) {
     GBDeviceDisplayUnknown = 0,
-    GBDeviceDisplayiPad,
-    GBDeviceDisplayiPadPro,
-    GBDeviceDisplayiPhone35Inch,
-    GBDeviceDisplayiPhone4Inch,
-    GBDeviceDisplayiPhone47Inch,
-    GBDeviceDisplayiPhone55Inch,
+    GBDeviceDisplay3p5Inch,
+    GBDeviceDisplay4Inch,
+    GBDeviceDisplay4p7Inch,
+    GBDeviceDisplay5p5Inch,
+    GBDeviceDisplay7p9Inch,
+    GBDeviceDisplay9p7Inch,
+    GBDeviceDisplay12p9Inch,
 };
 
 typedef struct {
     /**
-     The display's pixel density in ppi (pixels per inch).
+     The display of this device.
+     
+     Returns GBDeviceDisplayUnknown on the simulator.
      */
-    CGFloat                                              pixelsPerInch;
+    GBDeviceDisplay                                     display;
+    
+    /**
+     The display's pixel density in ppi (pixels per inch).
+     
+     Returns 0 on the simulator.
+     */
+    CGFloat                                             pixelsPerInch;
 } GBDisplayInfo;
 
 /**
  Makes a GBDisplayInfo struct.
  */
-inline static GBDisplayInfo GBDisplayInfoMake(CGFloat pixelsPerInch) {
-    return (GBDisplayInfo){pixelsPerInch};
+inline static GBDisplayInfo GBDisplayInfoMake(GBDeviceDisplay display, CGFloat pixelsPerInch) {
+    return (GBDisplayInfo){display, pixelsPerInch};
 };
