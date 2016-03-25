@@ -49,7 +49,7 @@ if (deviceInfo.family != GBDeviceFamilyiPad) {
 }
 
 //Screen type
-if (deviceInfo.display == GBDeviceDisplayiPhone47Inch) {
+if (deviceInfo.display == GBDeviceDisplayiPhone4p7Inch) {
     NSLog(@"4.7 Inch display");                                     // 4.7 Inch display
 }
 
@@ -167,6 +167,7 @@ iOS Device support
 * iPhone6Plus
 * iPhone6S
 * iPhone6SPlus
+* iPhoneSE
 * iPad1
 * iPad2
 * iPad3
@@ -176,12 +177,14 @@ iOS Device support
 * iPadMini3
 * iPadAir1
 * iPadAir2
-* iPadPro
+* iPadPro9p7Inch
+* iPadPro12p9Inch
 * iPod1
 * iPod2
 * iPod3
 * iPod4
 * iPod5
+* iPod6
 * iPhone Simulator
 * iPad Simulator
 
