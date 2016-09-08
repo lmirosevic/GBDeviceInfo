@@ -168,6 +168,8 @@ iOS Device support
 * iPhone6S
 * iPhone6SPlus
 * iPhoneSE
+* iPhone7
+* iPhone7Plus
 * iPad1
 * iPad2
 * iPad3
