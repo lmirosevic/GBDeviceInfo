@@ -195,10 +195,10 @@
                 // SE
                 @[@8, @4]: @[@(GBDeviceModeliPhoneSE), @"iPhone SE", @(GBDeviceDisplay4Inch), @326],
                 
-                // 7s
+                // 7
                 @[@9, @3]: @[@(GBDeviceModeliPhone7), @"iPhone 7", @(GBDeviceDisplay4p7Inch), @326],
                 
-                // 7s Plus
+                // 7 Plus
                 @[@9, @4]: @[@(GBDeviceModeliPhone7Plus), @"iPhone 7 Plus", @(GBDeviceDisplay5p5Inch), @401],
             },
             @"iPad": @{
