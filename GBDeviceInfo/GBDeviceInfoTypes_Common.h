@@ -55,9 +55,9 @@ inline static GBOSVersion GBOSVersionMake(NSUInteger major, NSUInteger minor,  N
  */
 inline static GBOSVersion GBOSVersionFromString(NSString *versionString) {
     NSArray *components = [versionString componentsSeparatedByString:@"."];
-    NSUInteger major = components.count >= 1 ? [components[0] unsignedIntegerValue] : 0;
-    NSUInteger minor = components.count >= 2 ? [components[1] unsignedIntegerValue] : 0;
-    NSUInteger patch = components.count >= 3 ? [components[2] unsignedIntegerValue] : 0;
+    NSInteger major = components.count >= 1 ? [components[0] integerValue] : 0;
+    NSInteger minor = components.count >= 2 ? [components[1] integerValue] : 0;
+    NSInteger patch = components.count >= 3 ? [components[2] integerValue] : 0;
     
     return GBOSVersionMake(major, minor, patch);
 }
