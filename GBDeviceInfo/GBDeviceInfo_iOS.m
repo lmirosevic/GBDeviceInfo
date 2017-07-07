@@ -264,6 +264,14 @@
                               @(GBDeviceDisplay9p7Inch), @264],
                 @[@6, @12]: @[@(GBDeviceModeliPad5), @"iPad 2017",
                               @(GBDeviceDisplay9p7Inch), @264],
+
+                // Pro 12.9-inch, 2017
+                @[@7, @1]: @[@(GBDeviceModeliPadPro12p9Inch), @"iPad Pro 12.9-inch", @(GBDeviceDisplay12p9Inch), @264],
+                @[@7, @2]: @[@(GBDeviceModeliPadPro12p9Inch), @"iPad Pro 12.9-inch", @(GBDeviceDisplay12p9Inch), @264],
+                
+                // Pro 10.5-inch, 2017
+                @[@7, @3]: @[@(GBDeviceModeliPadPro10p5Inch), @"iPad Pro 10.5-inch", @(GBDeviceDisplay10p5Inch), @264],
+                @[@7, @4]: @[@(GBDeviceModeliPadPro10p5Inch), @"iPad Pro 10.5-inch", @(GBDeviceDisplay10p5Inch), @264],
             },
             @"iPod": @{
                 // 1st Gen
