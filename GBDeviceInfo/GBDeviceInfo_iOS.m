@@ -331,4 +331,14 @@
     return GBOSVersionMake(majorVersion, minorVersion, patchVersion);
 }
 
++ (BOOL)isJail {
+    char *env = getenv("DYLD_INSERT_LIBRARIES");
+    NSString *envStr = [NSString stringWithCString:env encoding:NSUTF8StringEncoding];
+    if (envStr) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 @end
