@@ -19,6 +19,9 @@
 		8A3F56ED1A977EB300B84D6F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3F56E91A977E9F00B84D6F /* Cocoa.framework */; };
 		8A3F56EE1A977ED500B84D6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F596162DA1C100BCF240 /* Foundation.framework */; };
 		8A521B281701CE1E00A89BE4 /* GBDeviceInfoTypes_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11B516F2246000BDDD2A /* GBDeviceInfoTypes_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA8F65B61FCDB197009CEB6F /* GBDeviceInfoTypes_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56AC1A9761BD00B84D6F /* GBDeviceInfoTypes_Common.h */; };
+		AA8F65B71FCDB1A0009CEB6F /* GBDeviceInfoInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56AE1A97627700B84D6F /* GBDeviceInfoInterface.h */; };
+		AA8F65B81FCDB1EB009CEB6F /* GBDeviceInfo-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -176,9 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A1B11A616F2211400BDDD2A /* GBDeviceInfo.h in Headers */,
+				AA8F65B71FCDB1A0009CEB6F /* GBDeviceInfoInterface.h in Headers */,
 				8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */,
 				8A3F56E61A977C3700B84D6F /* GBDeviceInfo_Common.h in Headers */,
 				8A521B281701CE1E00A89BE4 /* GBDeviceInfoTypes_OSX.h in Headers */,
+				AA8F65B81FCDB1EB009CEB6F /* GBDeviceInfo-Prefix.pch in Headers */,
+				AA8F65B61FCDB197009CEB6F /* GBDeviceInfoTypes_Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
