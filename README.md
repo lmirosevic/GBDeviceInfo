@@ -170,6 +170,9 @@ iOS Device support
 * iPhoneSE
 * iPhone7
 * iPhone7Plus
+* iPhone8
+* iPhone8Plus
+* iPhoneX
 * iPad1
 * iPad2
 * iPad3
