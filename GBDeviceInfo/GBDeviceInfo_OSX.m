@@ -127,8 +127,19 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 }
 
 + (GBDisplayInfo)_displayInfo {
+    CGSize displaySize = CGDisplayScreenSize(kCGDirectMainDisplay); // CGMainDisplayID()
+    CGFloat displayAreaMm = displaySize.width * displaySize.height;
+    
+    NSScreen *mainScreen = [NSScreen mainScreen];
+    CGFloat width = (CGFloat)CGDisplayPixelsWide(kCGDirectMainDisplay) * mainScreen.backingScaleFactor;
+    CGFloat height = (CGFloat)CGDisplayPixelsHigh(kCGDirectMainDisplay) * mainScreen.backingScaleFactor;
+    CGFloat pixelCount = width * height;
+    
+    CGFloat pixelsPerMm = sqrt(pixelCount / displayAreaMm);
+    CGFloat pixelsPerInch = pixelsPerMm * 25.4;
+    
     return GBDisplayInfoMake(
-        [NSScreen mainScreen].frame.size
+        mainScreen.frame.size, pixelsPerInch
     );
 }
 

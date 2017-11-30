@@ -22,11 +22,16 @@ typedef struct {
      The main display's resolution.
      */
     CGSize                                              resolution;
+
+    /**
+     The display's pixel density in ppi (pixels per inch).
+     */
+    CGFloat                                             pixelsPerInch;
 } GBDisplayInfo;
 
 /**
  Makes a GBDisplayInfo struct.
  */
-inline static GBDisplayInfo GBDisplayInfoMake(CGSize resolution) {
-    return (GBDisplayInfo){resolution};
+inline static GBDisplayInfo GBDisplayInfoMake(CGSize resolution, CGFloat pixelsPerInch) {
+    return (GBDisplayInfo){resolution, pixelsPerInch};
 };
