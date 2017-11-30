@@ -183,7 +183,10 @@ iOS Device support
 * iPadAir1
 * iPadAir2
 * iPadPro9p7Inch
+* iPadPro10p5Inch
+* iPadPro10p5Inch2
 * iPadPro12p9Inch
+* iPadPro12p9Inch2
 * iPod1
 * iPod2
 * iPod3
