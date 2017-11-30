@@ -135,7 +135,7 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
     CGFloat height = (CGFloat)CGDisplayPixelsHigh(kCGDirectMainDisplay) * mainScreen.backingScaleFactor;
     CGFloat pixelCount = width * height;
     
-    CGFloat pixelsPerMm = pow(pixelCount / displayAreaMm, 0.5);
+    CGFloat pixelsPerMm = sqrt(pixelCount / displayAreaMm);
     CGFloat pixelsPerInch = pixelsPerMm / 0.0393701;
     
     return GBDisplayInfoMake(
