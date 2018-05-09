@@ -316,8 +316,12 @@
                     modelString = modelNuances[1];
                     display = [modelNuances[2] integerValue];
                     pixelsPerInch = [modelNuances[3] doubleValue];
+                } else {
+                    model = -1;
+                    modelString = @"Currently Unknown";
+                    display = GBDeviceDisplayUnknown;
+                    pixelsPerInch = [UIFont systemFontOfSize:72].lineHeight;
                 }
-                
                 break;
             }
         }
