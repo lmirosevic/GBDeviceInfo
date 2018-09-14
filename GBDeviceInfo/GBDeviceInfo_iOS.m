@@ -218,12 +218,12 @@
                 // XR
                 @[@11, @8]: @[@(GBDeviceModeliPhoneXR), @"iPhone XR", @(GBDeviceDisplay6p1Inch), @326],
 
-                // Xs
-                @[@11, @2]: @[@(GBDeviceModeliPhoneXs), @"iPhone Xs", @(GBDeviceDisplay5p8Inch), @458],
+                // XS
+                @[@11, @2]: @[@(GBDeviceModeliPhoneXS), @"iPhone XS", @(GBDeviceDisplay5p8Inch), @458],
 
-                // Xs Max
-                @[@11, @4]: @[@(GBDeviceModeliPhoneXsMax), @"iPhone Xs Max", @(GBDeviceDisplay6p5Inch), @458],
-                @[@11, @6]: @[@(GBDeviceModeliPhoneXsMax), @"iPhone Xs Max", @(GBDeviceDisplay6p5Inch), @458],
+                // XS Max
+                @[@11, @4]: @[@(GBDeviceModeliPhoneXSMax), @"iPhone XS Max", @(GBDeviceDisplay6p5Inch), @458],
+                @[@11, @6]: @[@(GBDeviceModeliPhoneXSMax), @"iPhone XS Max", @(GBDeviceDisplay6p5Inch), @458],
             },
             @"iPad": @{
                 // 1
