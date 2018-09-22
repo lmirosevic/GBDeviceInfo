@@ -180,6 +180,8 @@ iOS Device support
 * iPad2
 * iPad3
 * iPad4
+* iPad5
+* iPad6
 * iPadMini1
 * iPadMini2
 * iPadMini3
