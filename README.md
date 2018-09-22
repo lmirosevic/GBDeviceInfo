@@ -173,6 +173,9 @@ iOS Device support
 * iPhone8
 * iPhone8Plus
 * iPhoneX
+* iPhoneXR
+* iPhoneXS
+* iPhoneXSMax
 * iPad1
 * iPad2
 * iPad3
