@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		37387FAF21B554DD00D47266 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F596162DA1C100BCF240 /* Foundation.framework */; };
 		37387FB021B555C700D47266 /* GBDeviceInfo_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56E41A977C3700B84D6F /* GBDeviceInfo_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37387FB221B55A8200D47266 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A38F5B7162DA4DF00BCF240 /* UIKit.framework */; };
 		39D9831821A58D0A001B6361 /* GBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39D9831921A58D11001B6361 /* GBDeviceInfoTypes_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56AC1A9761BD00B84D6F /* GBDeviceInfoTypes_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39D9831A21A58D17001B6361 /* GBDeviceInfo_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A38F59B162DA1C100BCF240 /* GBDeviceInfo_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37387FB221B55A8200D47266 /* UIKit.framework in Frameworks */,
 				37387FAF21B554DD00D47266 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,8 +387,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GBDeviceInfo/GBDeviceInfo-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/GBDeviceInfo/GBDeviceInfo-Info.plist";
@@ -434,8 +431,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GBDeviceInfo/GBDeviceInfo-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/GBDeviceInfo/GBDeviceInfo-Info.plist";

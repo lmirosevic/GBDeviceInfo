@@ -17,6 +17,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#include <CoreGraphics/CoreGraphics.h>
 
 typedef NS_ENUM(NSInteger, GBByteOrder) {
     GBByteOrderLittleEndian,

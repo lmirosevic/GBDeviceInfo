@@ -19,6 +19,8 @@
 
 #import "GBDeviceInfo_iOS.h"
 
+#include <UIKit/UIKit.h>
+
 #import <sys/utsname.h>
 #import "dlfcn.h"
 
