@@ -146,19 +146,20 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 + (GBDeviceFamily)_deviceFamily {
     NSString *systemInfoString = [self _rawSystemInfoString];
     
-    if ([systemInfoString hasPrefix:@"iMac"]) {
-        return GBDeviceFamilyiMac;
-    }
-    else if ([systemInfoString hasPrefix:@"Mac Mini"]) {
-        return GBDeviceFamilyMacMini;
-    }
-    else if ([systemInfoString hasPrefix:@"Mac Pro"]) {
+    if ([systemInfoString hasPrefix:@"MacPro"] ||
+        [systemInfoString hasPrefix:@"iMacPro"]) {
         return GBDeviceFamilyMacPro;
     }
-    else if ([systemInfoString hasPrefix:@"MacBook Pro"]) {
+    else if ([systemInfoString hasPrefix:@"iMac"]) {
+        return GBDeviceFamilyiMac;
+    }
+    else if ([systemInfoString hasPrefix:@"Macmini"]) {
+        return GBDeviceFamilyMacMini;
+    }
+    else if ([systemInfoString hasPrefix:@"MacBookPro"]) {
         return GBDeviceFamilyMacBookPro;
     }
-    else if ([systemInfoString hasPrefix:@"MacBook Air"]) {
+    else if ([systemInfoString hasPrefix:@"MacBookAir"]) {
         return GBDeviceFamilyMacBookAir;
     }
     else if ([systemInfoString hasPrefix:@"MacBook"]) {
