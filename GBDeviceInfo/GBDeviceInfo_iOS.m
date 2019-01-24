@@ -99,9 +99,13 @@
 #pragma mark - Private API
 
 + (NSString *)_rawSystemInfoString {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    if (TARGET_IPHONE_SIMULATOR) {
+        return [NSString stringWithUTF8String:getenv("SIMULATOR_MODEL_IDENTIFIER")];
+    } else {
+        struct utsname systemInfo;
+        uname(&systemInfo);
+        return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    }
 }
 
 + (GBDeviceVersion)_deviceVersion {
@@ -129,16 +133,16 @@
     CGFloat pixelsPerInch = 0;
     
     // Simulator
-    if (TARGET_IPHONE_SIMULATOR) {
-        family = GBDeviceFamilySimulator;
-        BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-        model = iPadScreen ? GBDeviceModelSimulatoriPad : GBDeviceModelSimulatoriPhone;
-        modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
-        display = GBDeviceDisplayUnknown;
-        pixelsPerInch = 0;
-    }
-    // Actual device
-    else {
+//    if (TARGET_IPHONE_SIMULATOR) {
+//        family = GBDeviceFamilySimulator;
+//        BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+//        model = iPadScreen ? GBDeviceModelSimulatoriPad : GBDeviceModelSimulatoriPhone;
+//        modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
+//        display = GBDeviceDisplayUnknown;
+//        pixelsPerInch = 0;
+//    }
+//    // Actual device
+//    else {
         GBDeviceVersion deviceVersion = [self _deviceVersion];
         NSString *systemInfoString = [self _rawSystemInfoString];
         
@@ -348,7 +352,7 @@
                 break;
             }
         }
-    }
+//    }
     
     return @[@(family), @(model), modelString, @(display), @(pixelsPerInch)];
 }
