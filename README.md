@@ -71,7 +71,7 @@ Don't forget to import header.
 If you want to use the `isJailbroken` property, make sure you first add the Jailbreak subspec to your project's Podfile, e.g.:
 ```ruby
 pod 'GBDeviceInfo', '~> 6.0'
-pod 'GBDeviceInfo/Jailbreak', '~> 4.2'
+pod 'GBDeviceInfo/Jailbreak', '~> 6.0'
 ```
 
 Missing a property you need? Submit a Pull Request or contact [sales@goonbee.com](mailto:sales@goonbee.com?subject=GBDeviceInfo%20Enterprise)!
