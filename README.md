@@ -70,7 +70,7 @@ Don't forget to import header.
 
 If you want to use the `isJailbroken` property, make sure you first add the Jailbreak subspec to your project's Podfile, e.g.:
 ```ruby
-pod 'GBDeviceInfo', '~> 4.2'
+pod 'GBDeviceInfo', '~> 6.0'
 pod 'GBDeviceInfo/Jailbreak', '~> 4.2'
 ```
 
