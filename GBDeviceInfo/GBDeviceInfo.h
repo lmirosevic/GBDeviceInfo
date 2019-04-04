@@ -17,6 +17,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#include "TargetConditionals.h"
 
 /* iOS imports */
 
@@ -34,4 +35,3 @@
 #import "GBDeviceInfo_OSX.h"
 
 #endif
-

@@ -19,6 +19,7 @@
 
 #import "GBDeviceInfo_OSX.h"
 
+#import <Cocoa/Cocoa.h>
 #import <sys/utsname.h>
 
 #import "GBDeviceInfo_Common.h"
