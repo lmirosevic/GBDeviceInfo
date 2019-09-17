@@ -331,6 +331,9 @@
 
                 // 6th Gen
                 @[@7, @1]: @[@(GBDeviceModeliPod6), @"iPod Touch 6", @(GBDeviceDisplay4Inch), @326],
+                
+                // 7th Gen
+                @[@9, @1]: @[@(GBDeviceModeliPod6), @"iPod Touch 7", @(GBDeviceDisplay4Inch), @326],
             },
         };
         
