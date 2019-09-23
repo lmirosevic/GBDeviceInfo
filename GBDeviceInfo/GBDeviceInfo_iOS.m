@@ -232,7 +232,7 @@
                 @[@12, @3]: @[@(GBDeviceModeliPhone11Pro), @"iPhone 11 Pro", @(GBDeviceDisplay5p8Inch), @458],
 
                 // 11 Pro Max
-                @[@11, @5]: @[@(GBDeviceModeliPhone11ProMax), @"iPhone 11 Pro Max", @(GBDeviceDisplay6p5Inch), @458],
+                @[@12, @5]: @[@(GBDeviceModeliPhone11ProMax), @"iPhone 11 Pro Max", @(GBDeviceDisplay6p5Inch), @458],
             },
             @"iPad": @{
                 // 1
