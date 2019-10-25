@@ -299,8 +299,8 @@
                 @[@7, @2]: @[@(GBDeviceModeliPadPro12p9Inch2), @"iPad Pro 12.9-inch 2017", @(GBDeviceDisplay12p9Inch), @264],
                 
                 // Pro 10.5-inch, 2017
-                @[@7, @3]: @[@(GBDeviceModeliPadPro10p5Inch2), @"iPad Pro 10.5-inch 2017", @(GBDeviceDisplay10p5Inch), @264],
-                @[@7, @4]: @[@(GBDeviceModeliPadPro10p5Inch2), @"iPad Pro 10.5-inch 2017", @(GBDeviceDisplay10p5Inch), @264],
+                @[@7, @3]: @[@(GBDeviceModeliPadPro10p5Inch), @"iPad Pro 10.5-inch 2017", @(GBDeviceDisplay10p5Inch), @264],
+                @[@7, @4]: @[@(GBDeviceModeliPadPro10p5Inch), @"iPad Pro 10.5-inch 2017", @(GBDeviceDisplay10p5Inch), @264],
                 
                 // iPad 6th Gen, 2018
                 @[@7, @5]: @[@(GBDeviceModeliPad6), @"iPad 2018", @(GBDeviceDisplay9p7Inch), @264],
