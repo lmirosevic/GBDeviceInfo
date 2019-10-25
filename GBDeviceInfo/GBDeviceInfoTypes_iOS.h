@@ -58,7 +58,6 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPadPro9p7Inch,
     GBDeviceModeliPadPro10p5Inch,
     GBDeviceModeliPadPro12p9Inch,
-    GBDeviceModeliPadPro10p5Inch2,
     GBDeviceModeliPadPro12p9Inch2,
     GBDeviceModeliPadPro11p,
     GBDeviceModeliPadPro11p1TB,
