@@ -182,11 +182,15 @@ iOS Device support
 * iPad4
 * iPad5
 * iPad6
+* iPad7
 * iPadMini1
 * iPadMini2
 * iPadMini3
+* iPadMini4
+* iPadMini5
 * iPadAir1
 * iPadAir2
+* iPadAir3
 * iPadPro9p7Inch
 * iPadPro10p5Inch
 * iPadPro10p5Inch2
