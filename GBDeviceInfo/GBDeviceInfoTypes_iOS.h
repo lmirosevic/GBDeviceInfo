@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger, GBDeviceDisplay) {
     GBDeviceDisplay7p9Inch,
     GBDeviceDisplay9p7Inch,
     GBDeviceDisplay10p2Inch,
-	GBDeviceDisplay10p5Inch,
+    GBDeviceDisplay10p5Inch,
     GBDeviceDisplay11pInch,
     GBDeviceDisplay12p9Inch,
 };
