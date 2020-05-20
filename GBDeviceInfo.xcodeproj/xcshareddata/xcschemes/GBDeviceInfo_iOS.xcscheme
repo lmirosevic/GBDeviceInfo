@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8A38F592162DA1C100BCF240"
-               BuildableName = "libGBDeviceInfo.a"
-               BlueprintName = "GBDeviceInfo-iOS"
+               BlueprintIdentifier = "D337971F224E382600FECA2C"
+               BuildableName = "GBDeviceInfo_iOS.framework"
+               BlueprintName = "GBDeviceInfo_iOS"
                ReferencedContainer = "container:GBDeviceInfo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A38F592162DA1C100BCF240"
-            BuildableName = "libGBDeviceInfo.a"
-            BlueprintName = "GBDeviceInfo-iOS"
+            BlueprintIdentifier = "D337971F224E382600FECA2C"
+            BuildableName = "GBDeviceInfo_iOS.framework"
+            BlueprintName = "GBDeviceInfo_iOS"
             ReferencedContainer = "container:GBDeviceInfo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D337971F224E382600FECA2C"
+            BuildableName = "GBDeviceInfo_iOS.framework"
+            BlueprintName = "GBDeviceInfo_iOS"
+            ReferencedContainer = "container:GBDeviceInfo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
