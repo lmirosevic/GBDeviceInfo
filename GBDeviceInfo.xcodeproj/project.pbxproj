@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		8A1B118D16F21F2E00BDDD2A /* GBDeviceInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GBDeviceInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo.h; sourceTree = "<group>"; };
+		8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfo.h; path = Public/GBDeviceInfo.h; sourceTree = "<group>"; };
 		8A1B11B416F2242500BDDD2A /* GBDeviceInfoTypes_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoTypes_iOS.h; sourceTree = "<group>"; };
 		8A1B11B516F2246000BDDD2A /* GBDeviceInfoTypes_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoTypes_OSX.h; sourceTree = "<group>"; };
 		8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_OSX.h; sourceTree = "<group>"; };

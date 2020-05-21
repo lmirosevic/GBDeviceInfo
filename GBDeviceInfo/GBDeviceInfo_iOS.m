@@ -19,6 +19,16 @@
 
 #import "GBDeviceInfo_iOS.h"
 
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+
+    #if TARGET_OS_OSX
+        #import <Cocoa/Cocoa.h>
+    #else
+        #import <UIKit/UIKit.h>
+    #endif
+#endif
+
 #import <sys/utsname.h>
 #import "dlfcn.h"
 
