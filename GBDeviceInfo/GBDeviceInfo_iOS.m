@@ -17,17 +17,13 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#include <TargetConditionals.h>
+
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+
 #import "GBDeviceInfo_iOS.h"
 
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-
-    #if TARGET_OS_OSX
-        #import <Cocoa/Cocoa.h>
-    #else
-        #import <UIKit/UIKit.h>
-    #endif
-#endif
+#import <UIKit/UIKit.h>
 
 #import <sys/utsname.h>
 #import "dlfcn.h"
@@ -401,3 +397,5 @@
 }
 
 @end
+
+#endif

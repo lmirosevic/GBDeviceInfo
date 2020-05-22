@@ -14,12 +14,12 @@
 		D334F979225DEB1900B87EF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D334F977225DEB1900B87EF0 /* LaunchScreen.storyboard */; };
 		D334F984225DEB1900B87EF0 /* GBDeviceInfoExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334F983225DEB1900B87EF0 /* GBDeviceInfoExampleTests.swift */; };
 		D334F990225DEB8900B87EF0 /* GBDeviceInfo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D334F98F225DEB8900B87EF0 /* GBDeviceInfo_iOS.framework */; };
+		EB1CF5882477E3520048EED4 /* GBDeviceInfo in Frameworks */ = {isa = PBXBuildFile; productRef = EB1CF5872477E3520048EED4 /* GBDeviceInfo */; };
 		EBDE833A2476680500A8BDAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334F970225DEB1800B87EF0 /* ViewController.swift */; };
 		EBDE833B2476680500A8BDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334F96E225DEB1800B87EF0 /* AppDelegate.swift */; };
 		EBDE833F2476680500A8BDAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D334F977225DEB1900B87EF0 /* LaunchScreen.storyboard */; };
 		EBDE83402476680500A8BDAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D334F975225DEB1900B87EF0 /* Assets.xcassets */; };
 		EBDE83412476680500A8BDAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D334F972225DEB1800B87EF0 /* Main.storyboard */; };
-		EBDE83482476682600A8BDAE /* GBDeviceInfo_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = EBDE83472476682600A8BDAE /* GBDeviceInfo_iOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,6 @@
 		D334F985225DEB1900B87EF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D334F98F225DEB8900B87EF0 /* GBDeviceInfo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GBDeviceInfo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBDE83452476680500A8BDAE /* GBDeviceInfoExample_iOS from Package.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GBDeviceInfoExample_iOS from Package.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBDE83462476680500A8BDAE /* GBDeviceInfoExample_iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GBDeviceInfoExample_iOS copy-Info.plist"; path = "/Users/p_hilippe/Documents/Projects/Dev/Rhomboard/Externals/GBDeviceInfo/GBDeviceInfoExample/GBDeviceInfoExample_iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBDE83482476682600A8BDAE /* GBDeviceInfo_iOS in Frameworks */,
+				EB1CF5882477E3520048EED4 /* GBDeviceInfo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +81,6 @@
 				D334F982225DEB1900B87EF0 /* GBDeviceInfoExampleTests */,
 				D334F96C225DEB1800B87EF0 /* Products */,
 				D334F98E225DEB8900B87EF0 /* Frameworks */,
-				EBDE83462476680500A8BDAE /* GBDeviceInfoExample_iOS copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,7 +176,7 @@
 			);
 			name = "GBDeviceInfoExample_iOS from Package";
 			packageProductDependencies = (
-				EBDE83472476682600A8BDAE /* GBDeviceInfo_iOS */,
+				EB1CF5872477E3520048EED4 /* GBDeviceInfo */,
 			);
 			productName = GBDeviceInfoExample;
 			productReference = EBDE83452476680500A8BDAE /* GBDeviceInfoExample_iOS from Package.app */;
@@ -509,7 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "GBDeviceInfoExample_iOS copy-Info.plist";
+				INFOPLIST_FILE = GBDeviceInfoExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,7 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "GBDeviceInfoExample_iOS copy-Info.plist";
+				INFOPLIST_FILE = GBDeviceInfoExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,9 +581,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EBDE83472476682600A8BDAE /* GBDeviceInfo_iOS */ = {
+		EB1CF5872477E3520048EED4 /* GBDeviceInfo */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = GBDeviceInfo_iOS;
+			productName = GBDeviceInfo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

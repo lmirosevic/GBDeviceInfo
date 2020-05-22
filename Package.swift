@@ -4,15 +4,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "GBDeviceInfoSPM",
+    name: "GBDeviceInfo",
 	platforms: [
 		.iOS(.v8),
+		.macOS(.v10_10)
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "GBDeviceInfo_iOS",
-            targets: ["GBDeviceInfo_iOS"]),
+            name: "GBDeviceInfo",
+            targets: ["GBDeviceInfo"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,13 +23,13 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
 		.target(
-            name: "GBDeviceInfo_iOS",
+            name: "GBDeviceInfo",
             dependencies: [],
 			path: "GBDeviceInfo",
-			sources: ["GBDeviceInfo_Common.h","GBDeviceInfo_Common.m","GBDeviceInfo_iOS.h","GBDeviceInfo_iOS.m", "GBDeviceInfo.h", "GBDeviceInfoInterface.h", "GBDeviceInfo_Subclass.h"],
+			sources: ["GBDeviceInfo_Common.m", "GBDeviceInfo_iOS.m","GBDeviceInfo_OSX.m"],
 			publicHeadersPath: "Public"
 		),
-
+		
 		// required GBJailbreakDetection to be converted to package
 //		.target(
 //			name: "iOS jailbreak",

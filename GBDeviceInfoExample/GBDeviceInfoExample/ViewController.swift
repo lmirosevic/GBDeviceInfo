@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import GBDeviceInfo_iOS
+import GBDeviceInfo
 
 class ViewController: UIViewController {
 

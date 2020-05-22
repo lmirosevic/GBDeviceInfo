@@ -17,7 +17,13 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#include <TargetConditionals.h>
+
+#if TARGET_OS_OSX
+
 #import "GBDeviceInfo_OSX.h"
+
+#import <Cocoa/Cocoa.h>
 
 #import <sys/utsname.h>
 
@@ -214,3 +220,5 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 }
 
 @end
+
+#endif
