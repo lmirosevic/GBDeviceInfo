@@ -233,6 +233,9 @@
 
                 // 11 Pro Max
                 @[@12, @5]: @[@(GBDeviceModeliPhone11ProMax), @"iPhone 11 Pro Max", @(GBDeviceDisplay6p5Inch), @458],
+
+                // SE 2nd Gen
+                @[@12, @8]: @[@(GBDeviceModeliPhoneSE2), @"iPhone SE 2", @(GBDeviceDisplay4p7Inch), @326],
             },
             @"iPad": @{
                 // 1
