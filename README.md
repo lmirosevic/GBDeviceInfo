@@ -180,6 +180,10 @@ iOS Device support
 * iPhone11
 * iPhone11Pro
 * iPhone11ProMax
+* iPhone12Mini
+* iPhone12
+* iPhone12Pro
+* iPhone12ProMax
 * iPad1
 * iPad2
 * iPad3
@@ -187,6 +191,7 @@ iOS Device support
 * iPad5
 * iPad6
 * iPad7
+* iPad8
 * iPadMini1
 * iPadMini2
 * iPadMini3
@@ -195,6 +200,7 @@ iOS Device support
 * iPadAir1
 * iPadAir2
 * iPadAir3
+* iPadAir4
 * iPadPro9p7Inch
 * iPadPro10p5Inch
 * iPadPro12p9Inch
