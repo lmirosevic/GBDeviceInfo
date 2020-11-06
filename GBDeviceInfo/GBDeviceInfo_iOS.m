@@ -242,6 +242,18 @@
 
                 // SE 2
                 @[@12, @8]: @[@(GBDeviceModeliPhoneSE2), @"iPhone SE 2", @(GBDeviceDisplay4p7Inch), @326],
+
+                // 12 mini
+                @[@13, @1]: @[@(GBDeviceModeliPhone12Mini), @"iPhone 12 Mini", @(GBDeviceDisplay5p4Inch), @476],
+
+                // 12
+                @[@13, @2]: @[@(GBDeviceModeliPhone12), @"iPhone 12", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 12 Pro
+                @[@13, @3]: @[@(GBDeviceModeliPhone12Pro), @"iPhone 12 Pro", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 12 Pro Max
+                @[@13, @4]: @[@(GBDeviceModeliPhone12ProMax), @"iPhone 12 Pro Max", @(GBDeviceDisplay6p7Inch), @458],
             },
             @"iPad": @{
                 // 1
@@ -316,8 +328,8 @@
                 @[@7, @6]: @[@(GBDeviceModeliPad6), @"iPad 2018", @(GBDeviceDisplay9p7Inch), @264],
                 
                 // iPad 7th Gen, 2019
-                @[@7, @11]: @[@(GBDeviceModeliPad6), @"iPad 2019", @(GBDeviceDisplay10p2Inch), @264],
-                @[@7, @12]: @[@(GBDeviceModeliPad6), @"iPad 2019", @(GBDeviceDisplay10p2Inch), @264],
+                @[@7, @11]: @[@(GBDeviceModeliPad7), @"iPad 2019", @(GBDeviceDisplay10p2Inch), @264],
+                @[@7, @12]: @[@(GBDeviceModeliPad7), @"iPad 2019", @(GBDeviceDisplay10p2Inch), @264],
 
                 // iPad Pro 3rd Gen 11-inch, 2018
                 @[@8, @1]: @[@(GBDeviceModeliPadPro11p), @"iPad Pro 3rd Gen (11 inch, WiFi)", @(GBDeviceDisplay11pInch), @264],
@@ -350,6 +362,14 @@
                 // Air 3
                 @[@11, @3]: @[@(GBDeviceModeliPadAir3), @"iPad Air 3", @(GBDeviceDisplay10p5Inch), @264],
                 @[@11, @4]: @[@(GBDeviceModeliPadAir3), @"iPad Air 3", @(GBDeviceDisplay10p5Inch), @264],
+
+                // iPad 8th Gen, 2020
+                @[@11, @6]: @[@(GBDeviceModeliPad8), @"iPad 2020", @(GBDeviceDisplay10p2Inch), @264],
+                @[@11, @7]: @[@(GBDeviceModeliPad8), @"iPad 2020", @(GBDeviceDisplay10p2Inch), @264],
+
+                // Air 4
+                @[@13, @1]: @[@(GBDeviceModeliPadAir4), @"iPad Air 4", @(GBDeviceDisplay10p9Inch), @264],
+                @[@13, @2]: @[@(GBDeviceModeliPadAir4), @"iPad Air 4", @(GBDeviceDisplay10p9Inch), @264],
             },
             @"iPod": @{
                 // 1st Gen
