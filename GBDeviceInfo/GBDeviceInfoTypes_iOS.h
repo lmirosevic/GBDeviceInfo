@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, GBDeviceModel) {
     GBDeviceModeliPhone11,
     GBDeviceModeliPhone11Pro,
     GBDeviceModeliPhone11ProMax,
-    GBDeviceModeliPhone12mini,
+    GBDeviceModeliPhone12Mini,
     GBDeviceModeliPhone12,
     GBDeviceModeliPhone12Pro,
     GBDeviceModeliPhone12ProMax,

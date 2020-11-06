@@ -244,7 +244,7 @@
                 @[@12, @8]: @[@(GBDeviceModeliPhoneSE2), @"iPhone SE 2", @(GBDeviceDisplay4p7Inch), @326],
 
                 // 12 mini
-                @[@13, @1]: @[@(GBDeviceModeliPhone12mini), @"iPhone 12 mini", @(GBDeviceDisplay5p4Inch), @476],
+                @[@13, @1]: @[@(GBDeviceModeliPhone12Mini), @"iPhone 12 Mini", @(GBDeviceDisplay5p4Inch), @476],
 
                 // 12
                 @[@13, @2]: @[@(GBDeviceModeliPhone12), @"iPhone 12", @(GBDeviceDisplay6p1Inch), @460],
