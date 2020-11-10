@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
   s.default_subspec           = 'Core'
 
   s.subspec 'Core' do |ss|
-    ss.ios.source_files          = 'GBDeviceInfo/*_iOS.{h,m}', 'GBDeviceInfo/*_Common.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
-    ss.ios.public_header_files   = 'GBDeviceInfo/*_iOS.h', 'GBDeviceInfo/*_Common.h', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
-    ss.osx.source_files          = 'GBDeviceInfo/*_OSX.{h,m}', 'GBDeviceInfo/*_Common.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
-    ss.osx.public_header_files   = 'GBDeviceInfo/*_OSX.h', 'GBDeviceInfo/*_Common.h', 'GBDeviceInfo/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
+    ss.ios.source_files          = 'GBDeviceInfo/*_iOS.{h,m}', 'GBDeviceInfo/*_Common.{h,m}', 'GBDeviceInfo/Public/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
+    ss.ios.public_header_files   = 'GBDeviceInfo/*_iOS.h', 'GBDeviceInfo/*_Common.h', 'GBDeviceInfo/Public/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
+    ss.osx.source_files          = 'GBDeviceInfo/*_OSX.{h,m}', 'GBDeviceInfo/*_Common.{h,m}', 'GBDeviceInfo/Public/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
+    ss.osx.public_header_files   = 'GBDeviceInfo/*_OSX.h', 'GBDeviceInfo/*_Common.h', 'GBDeviceInfo/Public/GBDeviceInfo.h', 'GBDeviceInfo/GBDeviceInfoInterface.h', 'GBDeviceInfo/GBDeviceInfo_Subclass.h'
     ss.osx.frameworks            = 'Cocoa', 'CoreServices', 'Foundation'
     ss.ios.frameworks            = 'Foundation'
   end
