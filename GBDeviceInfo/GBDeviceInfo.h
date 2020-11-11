@@ -23,7 +23,7 @@
 
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 
-#import "../GBDeviceInfo_iOS.h"
+#import "GBDeviceInfo_iOS.h"
 
 #endif
 
@@ -31,7 +31,7 @@
 
 #if TARGET_OS_OSX
 
-#import "../GBDeviceInfo_OSX.h"
+#import "GBDeviceInfo_OSX.h"
 
 #endif
 

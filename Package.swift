@@ -27,7 +27,7 @@ let package = Package(
             dependencies: [],
 			path: "GBDeviceInfo",
 			sources: ["GBDeviceInfo_Common.m", "GBDeviceInfo_iOS.m","GBDeviceInfo_OSX.m"],
-			publicHeadersPath: "Public"
+			publicHeadersPath: ""
 		),
 		
 		// required GBJailbreakDetection to be converted to package
