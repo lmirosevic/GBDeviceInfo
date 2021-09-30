@@ -254,6 +254,18 @@
 
                 // 12 Pro Max
                 @[@13, @4]: @[@(GBDeviceModeliPhone12ProMax), @"iPhone 12 Pro Max", @(GBDeviceDisplay6p7Inch), @458],
+                
+                // 13 mini
+                @[@14, @4]: @[@(GBDeviceModeliPhone13Mini), @"iPhone 13 mini", @(GBDeviceDisplay5p4Inch), @476],
+
+                // 13
+                @[@14, @5]: @[@(GBDeviceModeliPhone13), @"iPhone 13", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 13 Pro
+                @[@14, @2]: @[@(GBDeviceModeliPhone13Pro), @"iPhone 13 Pro", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 13 Pro Max
+                @[@14, @3]: @[@(GBDeviceModeliPhone13ProMax), @"iPhone 13 Pro Max", @(GBDeviceDisplay6p7Inch), @458],
             },
             @"iPad": @{
                 // 1
@@ -370,6 +382,14 @@
                 // Air 4
                 @[@13, @1]: @[@(GBDeviceModeliPadAir4), @"iPad Air 4", @(GBDeviceDisplay10p9Inch), @264],
                 @[@13, @2]: @[@(GBDeviceModeliPadAir4), @"iPad Air 4", @(GBDeviceDisplay10p9Inch), @264],
+                
+                // mini 6
+                @[@14, @1]: @[@(GBDeviceModeliPadMini6), @"iPad mini 6", @(GBDeviceDisplay7p9Inch), @326],
+                @[@14, @2]: @[@(GBDeviceModeliPadMini6), @"iPad mini 6", @(GBDeviceDisplay7p9Inch), @326],
+                
+                // iPad 9th Gen, 2021
+                @[@12, @1]: @[@(GBDeviceModeliPad9), @"iPad 2021", @(GBDeviceDisplay10p2Inch), @264],
+                @[@12, @2]: @[@(GBDeviceModeliPad9), @"iPad 2021", @(GBDeviceDisplay10p2Inch), @264],
             },
             @"iPod": @{
                 // 1st Gen

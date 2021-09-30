@@ -184,6 +184,10 @@ iOS Device support
 * iPhone12
 * iPhone12Pro
 * iPhone12ProMax
+* iPhone13Mini
+* iPhone13
+* iPhone13Pro
+* iPhone13ProMax
 * iPad1
 * iPad2
 * iPad3
@@ -192,11 +196,13 @@ iOS Device support
 * iPad6
 * iPad7
 * iPad8
+* iPad9
 * iPadMini1
 * iPadMini2
 * iPadMini3
 * iPadMini4
 * iPadMini5
+* iPadMini6
 * iPadAir1
 * iPadAir2
 * iPadAir3
