@@ -21,7 +21,6 @@
 		8A521B281701CE1E00A89BE4 /* GBDeviceInfoTypes_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11B516F2246000BDDD2A /* GBDeviceInfoTypes_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA8F65B61FCDB197009CEB6F /* GBDeviceInfoTypes_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56AC1A9761BD00B84D6F /* GBDeviceInfoTypes_Common.h */; };
 		AA8F65B71FCDB1A0009CEB6F /* GBDeviceInfoInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56AE1A97627700B84D6F /* GBDeviceInfoInterface.h */; };
-		AA8F65B81FCDB1EB009CEB6F /* GBDeviceInfo-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */; };
 		D3379728224E385C00FECA2C /* GBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3379729224E386D00FECA2C /* GBDeviceInfo_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A38F59B162DA1C100BCF240 /* GBDeviceInfo_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D337972A224E387F00FECA2C /* GBDeviceInfo_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A38F59D162DA1C100BCF240 /* GBDeviceInfo_iOS.m */; };
@@ -30,7 +29,6 @@
 		D337972D224E38B000FECA2C /* GBDeviceInfo_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56E41A977C3700B84D6F /* GBDeviceInfo_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D337972E224E38B400FECA2C /* GBDeviceInfoTypes_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56AC1A9761BD00B84D6F /* GBDeviceInfoTypes_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D337972F224E38B700FECA2C /* GBDeviceInfoInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3F56AE1A97627700B84D6F /* GBDeviceInfoInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3379730224E38C000FECA2C /* GBDeviceInfo-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		8A1B118D16F21F2E00BDDD2A /* GBDeviceInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GBDeviceInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBDeviceInfo.h; path = Public/GBDeviceInfo.h; sourceTree = "<group>"; };
+		8A1B11A516F2211400BDDD2A /* GBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo.h; sourceTree = "<group>"; };
 		8A1B11B416F2242500BDDD2A /* GBDeviceInfoTypes_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoTypes_iOS.h; sourceTree = "<group>"; };
 		8A1B11B516F2246000BDDD2A /* GBDeviceInfoTypes_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfoTypes_OSX.h; sourceTree = "<group>"; };
 		8A1B11E716F22DF200BDDD2A /* GBDeviceInfo_OSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_OSX.h; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 		8A3052661AC1B77E0077F3BF /* GBDeviceInfo_Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_Subclass.h; sourceTree = "<group>"; };
 		8A38F593162DA1C100BCF240 /* libGBDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBDeviceInfo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A38F596162DA1C100BCF240 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBDeviceInfo-Prefix.pch"; sourceTree = "<group>"; };
 		8A38F59B162DA1C100BCF240 /* GBDeviceInfo_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBDeviceInfo_iOS.h; sourceTree = "<group>"; };
 		8A38F59D162DA1C100BCF240 /* GBDeviceInfo_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBDeviceInfo_iOS.m; sourceTree = "<group>"; };
 		8A38F5B7162DA4DF00BCF240 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -172,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				8A521B291701CE7800A89BE4 /* GBDeviceInfo-Info.plist */,
-				8A38F59A162DA1C100BCF240 /* GBDeviceInfo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,7 +197,6 @@
 				8A1B11E916F22DF200BDDD2A /* GBDeviceInfo_OSX.h in Headers */,
 				8A3F56E61A977C3700B84D6F /* GBDeviceInfo_Common.h in Headers */,
 				8A521B281701CE1E00A89BE4 /* GBDeviceInfoTypes_OSX.h in Headers */,
-				AA8F65B81FCDB1EB009CEB6F /* GBDeviceInfo-Prefix.pch in Headers */,
 				AA8F65B61FCDB197009CEB6F /* GBDeviceInfoTypes_Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +205,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3379730224E38C000FECA2C /* GBDeviceInfo-Prefix.pch in Headers */,
 				D337972E224E38B400FECA2C /* GBDeviceInfoTypes_Common.h in Headers */,
 				D337972F224E38B700FECA2C /* GBDeviceInfoInterface.h in Headers */,
 				D337972B224E389200FECA2C /* GBDeviceInfoTypes_iOS.h in Headers */,
