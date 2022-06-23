@@ -404,8 +404,8 @@
                 @[@13, @17]: @[@(GBDeviceModeliPadAir5), @"iPad Air 5th Gen (WiFi+Cellular)", @(GBDeviceDisplay10p9Inch), @264],
                 
                 // mini 6
-                @[@14, @1]: @[@(GBDeviceModeliPadMini6), @"iPad mini 6", @(GBDeviceDisplay7p9Inch), @326],
-                @[@14, @2]: @[@(GBDeviceModeliPadMini6), @"iPad mini 6", @(GBDeviceDisplay7p9Inch), @326],
+                @[@14, @1]: @[@(GBDeviceModeliPadMini6), @"iPad mini 6", @(GBDeviceDisplay8p3Inch), @326],
+                @[@14, @2]: @[@(GBDeviceModeliPadMini6), @"iPad mini 6", @(GBDeviceDisplay8p3Inch), @326],
                 
                 // iPad 9th Gen, 2021
                 @[@12, @1]: @[@(GBDeviceModeliPad9), @"iPad 2021", @(GBDeviceDisplay10p2Inch), @264],
