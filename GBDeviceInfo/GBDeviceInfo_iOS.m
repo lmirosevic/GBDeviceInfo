@@ -269,6 +269,18 @@
                 
                 // SE 3rd Gen
                 @[@14, @6]: @[@(GBDeviceModeliPhoneSE3), @"iPhone SE 3rd Gen", @(GBDeviceDisplay4p7Inch), @326],
+                
+                // 14
+                @[@14, @7]: @[@(GBDeviceModeliPhone14), @"iPhone 14", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 14 Plus
+                @[@14, @8]: @[@(GBDeviceModeliPhone14Plus), @"iPhone 14 Plus", @(GBDeviceDisplay6p7Inch), @458],
+
+                // 14 Pro
+                @[@15, @2]: @[@(GBDeviceModeliPhone14Pro), @"iPhone 14 Pro", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 14 Pro Max
+                @[@15, @3]: @[@(GBDeviceModeliPhone14ProMax), @"iPhone 14 Pro Max", @(GBDeviceDisplay6p7Inch), @460],
 
             },
             @"iPad": @{
