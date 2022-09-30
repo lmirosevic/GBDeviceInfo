@@ -281,7 +281,6 @@
 
                 // 14 Pro Max
                 @[@15, @3]: @[@(GBDeviceModeliPhone14ProMax), @"iPhone 14 Pro Max", @(GBDeviceDisplay6p7Inch), @460],
-
             },
             @"iPad": @{
                 // 1
@@ -374,7 +373,7 @@
                 // iPad Pro 3rd Gen 12.9-inch 1TB, 2018
                 @[@8, @6]: @[@(GBDeviceModeliPadPro12p9Inch31TB), @"iPad Pro 3rd Gen (12.9 inch, 1TB, WiFi)", @(GBDeviceDisplay12p9Inch), @264],
                 @[@8, @8]: @[@(GBDeviceModeliPadPro12p9Inch31TB), @"iPad Pro 3rd Gen (12.9 inch, 1TB, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
-
+                
                 // iPad Pro 2nd Gen 11-inch, 2020
                 @[@8, @9]: @[@(GBDeviceModeliPadPro11pInch2), @"iPad Pro 2nd Gen (11 inch, WiFi)", @(GBDeviceDisplay11pInch), @264],
                 @[@8, @10]: @[@(GBDeviceModeliPadPro11pInch2), @"iPad Pro 2nd Gen (11 inch, WiFi+Cellular)", @(GBDeviceDisplay11pInch), @264],
@@ -411,6 +410,22 @@
                 @[@13, @10]: @[@(GBDeviceModeliPadPro12p9Inch5), @"iPad Pro 5th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
                 @[@13, @11]: @[@(GBDeviceModeliPadPro12p9Inch5), @"iPad Pro 5th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
 
+                // Air 5, 2022
+                @[@13, @16]: @[@(GBDeviceModeliPadAir5), @"iPad Air 5th Gen (WiFi)", @(GBDeviceDisplay10p9Inch), @264],
+                @[@13, @17]: @[@(GBDeviceModeliPadAir5), @"iPad Air 5th Gen (WiFi+Cellular)", @(GBDeviceDisplay10p9Inch), @264],
+                
+                // iPad Pro 3rd Gen 11-inch, 2021
+                @[@13, @4]: @[@(GBDeviceModeliPadPro11pInch3), @"iPad Pro 3rd Gen (11 inch, WiFi)", @(GBDeviceDisplay11pInch), @264],
+                @[@13, @5]: @[@(GBDeviceModeliPadPro11pInch3), @"iPad Pro 3rd Gen (11 inch, WiFi+Cellular)", @(GBDeviceDisplay11pInch), @264],
+                @[@13, @6]: @[@(GBDeviceModeliPadPro11pInch3), @"iPad Pro 3rd Gen (11 inch, WiFi+Cellular)", @(GBDeviceDisplay11pInch), @264],
+                @[@13, @7]: @[@(GBDeviceModeliPadPro11pInch3), @"iPad Pro 3rd Gen (11 inch, WiFi+Cellular)", @(GBDeviceDisplay11pInch), @264],
+                
+                // iPad Pro 5th Gen 12.9-inch, 2021
+                @[@13, @8]: @[@(GBDeviceModeliPadPro12p9Inch5), @"iPad Pro 5th Gen (12.9 inch, WiFi)", @(GBDeviceDisplay12p9Inch), @264],
+                @[@13, @9]: @[@(GBDeviceModeliPadPro12p9Inch5), @"iPad Pro 5th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
+                @[@13, @10]: @[@(GBDeviceModeliPadPro12p9Inch5), @"iPad Pro 5th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
+                @[@13, @11]: @[@(GBDeviceModeliPadPro12p9Inch5), @"iPad Pro 5th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
+                                
                 // Air 5, 2022
                 @[@13, @16]: @[@(GBDeviceModeliPadAir5), @"iPad Air 5th Gen (WiFi)", @(GBDeviceDisplay10p9Inch), @264],
                 @[@13, @17]: @[@(GBDeviceModeliPadAir5), @"iPad Air 5th Gen (WiFi+Cellular)", @(GBDeviceDisplay10p9Inch), @264],
