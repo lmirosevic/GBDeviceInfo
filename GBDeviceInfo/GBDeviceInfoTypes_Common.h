@@ -122,6 +122,7 @@ typedef NS_ENUM(NSInteger, GBDeviceFamily) {
     GBDeviceFamilyiMac,
     GBDeviceFamilyiMacPro,
     GBDeviceFamilyMacMini,
+    GBDeviceFamilyMacStudio,
     GBDeviceFamilyMacPro,
     GBDeviceFamilyMacBook,
     GBDeviceFamilyMacBookAir,
