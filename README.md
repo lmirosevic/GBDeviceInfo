@@ -218,10 +218,8 @@ iOS Device support
 * iPadPro12p9Inch
 * iPadPro12p9Inch2
 * iPadPro11Inch
-* iPadPro11Inch1TB
 * iPadPro11Inch2
 * iPadPro12p9Inch3
-* iPadPro12p9Inch31TB
 * iPadPro12p9Inch4
 * iPadPro11Inch3
 * iPadPro12p9Inch5
