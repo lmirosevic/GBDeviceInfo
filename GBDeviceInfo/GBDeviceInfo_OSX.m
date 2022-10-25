@@ -161,13 +161,18 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
     else if ([systemInfoString hasPrefix:@"Macmini"]) {
         return GBDeviceFamilyMacMini;
     }
+    else if ([systemInfoString hasPrefix:@"Mac13,"]) { // See https://support.apple.com/en-us/HT213073
+        return GBDeviceFamilyMacStudio;
+    }
     else if ([systemInfoString hasPrefix:@"MacPro"]) {
         return GBDeviceFamilyMacPro;
     }
-    else if ([systemInfoString hasPrefix:@"MacBookPro"]) {
+    else if ([systemInfoString hasPrefix:@"MacBookPro"]
+             || [systemInfoString isEqualToString:@"Mac14,7"]) { // See https://support.apple.com/en-us/HT201300
         return GBDeviceFamilyMacBookPro;
     }
-    else if ([systemInfoString hasPrefix:@"MacBookAir"]) {
+    else if ([systemInfoString hasPrefix:@"MacBookAir"]
+             || [systemInfoString isEqualToString:@"Mac14,2"]) { // See https://support.apple.com/en-us/HT201862
         return GBDeviceFamilyMacBookAir;
     }
     else if ([systemInfoString hasPrefix:@"MacBook"]) {

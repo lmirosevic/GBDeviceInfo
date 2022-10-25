@@ -237,7 +237,9 @@ OS X Device family support
 ------------
 
 * iMac
+* iMacPro
 * MacMini
+* MacStudio
 * MacPro
 * MacBook
 * MacBookAir
