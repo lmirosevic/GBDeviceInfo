@@ -437,6 +437,18 @@
                 // iPad 9th Gen, 2021
                 @[@12, @1]: @[@(GBDeviceModeliPad9), @"iPad 2021", @(GBDeviceDisplay10p2Inch), @264],
                 @[@12, @2]: @[@(GBDeviceModeliPad9), @"iPad 2021", @(GBDeviceDisplay10p2Inch), @264],
+
+                // iPad 10th Gen, 2022
+                @[@13, @18]: @[@(GBDeviceModeliPad10), @"iPad 2022", @(GBDeviceDisplay10p9Inch), @264],
+                @[@13, @19]: @[@(GBDeviceModeliPad10), @"iPad 2022", @(GBDeviceDisplay10p9Inch), @264],
+
+                // iPad Pro 4th Gen 11-inch, 2022
+                @[@14, @3]: @[@(GBDeviceModeliPadPro11Inch4), @"iPad Pro 4th Gen (11 inch, WiFi)", @(GBDeviceDisplay11Inch), @264],
+                @[@14, @4]: @[@(GBDeviceModeliPadPro11Inch4), @"iPad Pro 4th Gen (11 inch, WiFi+Cellular)", @(GBDeviceDisplay11Inch), @264],
+                
+                // iPad Pro 6th Gen 12.9-inch, 2022
+                @[@14, @5]: @[@(GBDeviceModeliPadPro12p9Inch6), @"iPad Pro 6th Gen (12.9 inch, WiFi)", @(GBDeviceDisplay12p9Inch), @264],
+                @[@14, @6]: @[@(GBDeviceModeliPadPro12p9Inch6), @"iPad Pro 6th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
             },
             @"iPod": @{
                 // 1st Gen

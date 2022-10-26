@@ -202,6 +202,7 @@ iOS Device support
 * iPad7
 * iPad8
 * iPad9
+* iPad10
 * iPadMini1
 * iPadMini2
 * iPadMini3
@@ -223,6 +224,8 @@ iOS Device support
 * iPadPro12p9Inch4
 * iPadPro11Inch3
 * iPadPro12p9Inch5
+* iPadPro11Inch4
+* iPadPro12p9Inch6
 * iPod1
 * iPod2
 * iPod3
