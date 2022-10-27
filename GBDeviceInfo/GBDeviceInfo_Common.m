@@ -129,7 +129,6 @@ static NSString * const kHardwareL2CacheSizeKey =           @"hw.l2cachesize";
     return answerFloat;
 }
 
-
 + (GBCPUInfo)_cpuInfo {
     return GBCPUInfoMake(
                          [self _sysctlCGFloatForKey:kHardwareCPUFrequencyKey] / 1000000000., //giga
