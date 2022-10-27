@@ -21,6 +21,11 @@
 @property (strong, atomic, readonly) NSString           *rawSystemInfoString;
 
 /**
+ The device version. e.g. {7, 2}.
+ */
+@property (assign, atomic, readonly) GBDeviceVersion    deviceVersion;
+
+/**
  The device family. e.g. GBDeviceFamilyiPhone.
  */
 @property (assign, atomic, readonly) GBDeviceFamily     family;

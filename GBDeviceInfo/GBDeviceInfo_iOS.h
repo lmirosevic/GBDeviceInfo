@@ -24,15 +24,9 @@
 @interface GBDeviceInfo : GBDeviceInfo_Common
 
 /**
- The device version. e.g. {7, 2}.
- */
-@property (assign, atomic, readonly) GBDeviceVersion    deviceVersion;
-
-/**
  The human readable name for the device, e.g. "iPhone 6".
  */
 @property (strong, atomic, readonly) NSString           *modelString;
-
 
 /**
  The specific device model, e.g. GBDeviceModeliPhone6.
