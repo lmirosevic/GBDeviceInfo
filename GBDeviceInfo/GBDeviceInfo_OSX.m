@@ -70,6 +70,7 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
     if (self = [super init]) {
         self.rawSystemInfoString = [self.class _rawSystemInfoString];
         self.family = [self.class _deviceFamily];
+        self.cpuInfo = [self.class _cpuInfo];
         self.physicalMemory = [self.class _physicalMemory];
         self.systemByteOrder = [self.class _systemByteOrder];
         self.osVersion = [self.class _osVersion];
@@ -85,10 +86,6 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 
 - (NSString *)nodeName {
     return [self.class _nodeName];
-}
-
-- (GBCPUInfo)cpuInfo {
-    return [self.class _cpuInfo];
 }
 
 - (GBDisplayInfo)displayInfo {
