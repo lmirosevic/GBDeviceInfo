@@ -19,7 +19,7 @@
 
 #include <TargetConditionals.h>
 
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+#if TARGET_OS_IPHONE
 
 #import "GBDeviceInfo_iOS.h"
 
@@ -134,17 +134,15 @@
     GBDeviceDisplay display = GBDeviceDisplayUnknown;
     CGFloat pixelsPerInch = 0;
     
-    // Simulator
-    if (TARGET_IPHONE_SIMULATOR) {
+    #if TARGET_OS_SIMULATOR
         family = GBDeviceFamilySimulator;
         BOOL iPadScreen = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
         model = iPadScreen ? GBDeviceModelSimulatoriPad : GBDeviceModelSimulatoriPhone;
         modelString = iPadScreen ? @"iPad Simulator": @"iPhone Simulator";
         display = GBDeviceDisplayUnknown;
         pixelsPerInch = 0;
-    }
-    // Actual device
-    else {
+    #else
+        // Actual device
         GBDeviceVersion deviceVersion = [self _deviceVersion];
         NSString *systemInfoString = [self _rawSystemInfoString];
         
@@ -488,7 +486,7 @@
                 break;
             }
         }
-    }
+    #endif
     
     return @[@(family), @(model), modelString, @(display), @(pixelsPerInch)];
 }
