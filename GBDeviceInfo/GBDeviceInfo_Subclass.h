@@ -9,10 +9,11 @@
 @interface GBDeviceInfo_Common ()
 
 @property (strong, atomic, readwrite) NSString          *rawSystemInfoString;
+@property (assign, atomic, readwrite) GBDeviceVersion   deviceVersion;
+@property (assign, atomic, readwrite) GBDeviceFamily    family;
 @property (assign, atomic, readwrite) GBCPUInfo         cpuInfo;
 @property (assign, atomic, readwrite) CGFloat           physicalMemory;
 @property (assign, atomic, readwrite) GBOSVersion       osVersion;
-@property (assign, atomic, readwrite) GBDeviceFamily    family;
 
 + (NSString *)_sysctlStringForKey:(NSString *)key;
 + (CGFloat)_sysctlCGFloatForKey:(NSString *)key;

@@ -31,11 +31,6 @@
 @property (strong, atomic, readonly) NSString           *nodeName;
 
 /**
- The device version. e.g. {13, 2}.
- */
-@property (assign, atomic, readonly) GBDeviceVersion    deviceVersion;
-
-/**
  System byte order, e.g. GBByteOrderLittleEndian.
  */
 @property (assign, atomic, readonly) GBByteOrder        systemByteOrder;

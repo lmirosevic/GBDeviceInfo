@@ -33,7 +33,6 @@
 
 @interface GBDeviceInfo ()
 
-@property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
 @property (strong, atomic, readwrite) NSString              *modelString;
 @property (assign, atomic, readwrite) GBDeviceModel         model;
 @property (assign, atomic, readwrite) GBDisplayInfo         displayInfo;

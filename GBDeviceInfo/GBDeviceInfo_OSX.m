@@ -34,7 +34,6 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 
 @interface GBDeviceInfo ()
 
-@property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
 @property (assign, atomic, readwrite) GBByteOrder           systemByteOrder;
 @property (assign, atomic, readwrite) BOOL                  isMacAppStoreAvailable;
 @property (assign, atomic, readwrite) BOOL                  isIAPAvailable;
