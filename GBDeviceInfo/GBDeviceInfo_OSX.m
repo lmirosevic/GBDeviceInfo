@@ -17,7 +17,13 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+#include <TargetConditionals.h>
+
+#if TARGET_OS_OSX
+
 #import "GBDeviceInfo_OSX.h"
+
+#import <Cocoa/Cocoa.h>
 
 #import <sys/utsname.h>
 
@@ -28,7 +34,6 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 
 @interface GBDeviceInfo ()
 
-@property (assign, atomic, readwrite) GBDeviceVersion       deviceVersion;
 @property (assign, atomic, readwrite) GBByteOrder           systemByteOrder;
 @property (assign, atomic, readwrite) BOOL                  isMacAppStoreAvailable;
 @property (assign, atomic, readwrite) BOOL                  isIAPAvailable;
@@ -38,7 +43,7 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 @implementation GBDeviceInfo
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nnodeName: %@\nfamily: %ld\ndeviceModel.major: %ld\ndeviceModel.minor: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\npysicalMemory: %.3f\nsystemByteOrder: %ld\nscreenResolution: %.0fx%.0f\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld",
+    return [NSString stringWithFormat:@"%@\nrawSystemInfoString: %@\nnodeName: %@\nfamily: %ld\ndeviceModel.major: %ld\ndeviceModel.minor: %ld\ncpuInfo.frequency: %.3f\ncpuInfo.numberOfCores: %ld\ncpuInfo.l2CacheSize: %.3f\nphysicalMemory: %.3f\nsystemByteOrder: %ld\nscreenResolution: %.0fx%.0f\nosVersion.major: %ld\nosVersion.minor: %ld\nosVersion.patch: %ld",
         [super description],
         self.rawSystemInfoString,
         self.nodeName,
@@ -64,6 +69,7 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
     if (self = [super init]) {
         self.rawSystemInfoString = [self.class _rawSystemInfoString];
         self.family = [self.class _deviceFamily];
+        self.cpuInfo = [self.class _cpuInfo];
         self.physicalMemory = [self.class _physicalMemory];
         self.systemByteOrder = [self.class _systemByteOrder];
         self.osVersion = [self.class _osVersion];
@@ -79,10 +85,6 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 
 - (NSString *)nodeName {
     return [self.class _nodeName];
-}
-
-- (GBCPUInfo)cpuInfo {
-    return [self.class _cpuInfo];
 }
 
 - (GBDisplayInfo)displayInfo {
@@ -152,16 +154,30 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
     else if ([systemInfoString hasPrefix:@"iMac"]) {
         return GBDeviceFamilyiMac;
     }
-    else if ([systemInfoString hasPrefix:@"Macmini"]) {
+    else if ([systemInfoString hasPrefix:@"Macmini"]
+            // See https://support.apple.com/en-us/HT201894
+            || [systemInfoString isEqualToString:@"Mac14,3"]
+            || [systemInfoString isEqualToString:@"Mac14,12"]) {
         return GBDeviceFamilyMacMini;
+    }
+    else if ([systemInfoString hasPrefix:@"Mac13,"]) { // See https://support.apple.com/en-us/HT213073
+        return GBDeviceFamilyMacStudio;
     }
     else if ([systemInfoString hasPrefix:@"MacPro"]) {
         return GBDeviceFamilyMacPro;
     }
-    else if ([systemInfoString hasPrefix:@"MacBookPro"]) {
+    else if ([systemInfoString hasPrefix:@"MacBookPro"]
+             // See https://support.apple.com/en-us/HT201300
+             || [systemInfoString isEqualToString:@"Mac14,5"]
+             || [systemInfoString isEqualToString:@"Mac14,9"]
+             || [systemInfoString isEqualToString:@"Mac14,6"]
+             || [systemInfoString isEqualToString:@"Mac14,10"]
+             || [systemInfoString isEqualToString:@"Mac14,7"]) {
         return GBDeviceFamilyMacBookPro;
     }
-    else if ([systemInfoString hasPrefix:@"MacBookAir"]) {
+    else if ([systemInfoString hasPrefix:@"MacBookAir"]
+             // See https://support.apple.com/en-us/HT201862
+             || [systemInfoString isEqualToString:@"Mac14,2"]) {
         return GBDeviceFamilyMacBookAir;
     }
     else if ([systemInfoString hasPrefix:@"MacBook"]) {
@@ -214,3 +230,5 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
 }
 
 @end
+
+#endif

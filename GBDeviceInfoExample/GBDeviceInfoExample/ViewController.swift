@@ -6,7 +6,13 @@
 //
 
 import UIKit
+
+// Import the cross platform Swift Package if possible, otherwise import the iOS framework
+#if canImport(GBDeviceInfo)
+import GBDeviceInfo
+#else
 import GBDeviceInfo_iOS
+#endif
 
 class ViewController: UIViewController {
 

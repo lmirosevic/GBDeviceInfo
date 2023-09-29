@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                      = 'GBDeviceInfo'
-  s.version                   = '6.3.0'
+  s.version                   = '7.2.0'
   s.summary                   = 'Detects the hardware, software and display of the current iOS or Mac OS X device at runtime.'
   s.author                    = 'Luka Mirosevic'      
   s.homepage                  = 'https://github.com/lmirosevic/GBDeviceInfo'
@@ -23,5 +23,8 @@ Pod::Spec.new do |s|
   s.subspec 'Jailbreak' do |ss|
     ss.platform = :ios
     ss.ios.dependency 'GBJailbreakDetection', '~> 1.3'
+
+    ss.pod_target_xcconfig       = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    ss.user_target_xcconfig      = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   end
 end

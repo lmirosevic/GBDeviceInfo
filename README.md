@@ -167,15 +167,32 @@ iOS Device support
 * iPhone6Plus
 * iPhone6S
 * iPhone6SPlus
-* iPhoneSE
 * iPhone7
 * iPhone7Plus
 * iPhone8
 * iPhone8Plus
+* iPhoneSE
+* iPhoneSE2
+* iPhoneSE3
 * iPhoneX
 * iPhoneXR
 * iPhoneXS
 * iPhoneXSMax
+* iPhone11
+* iPhone11Pro
+* iPhone11ProMax
+* iPhone12Mini
+* iPhone12
+* iPhone12Pro
+* iPhone12ProMax
+* iPhone13Mini
+* iPhone13
+* iPhone13Pro
+* iPhone13ProMax
+* iPhone14
+* iPhone14Plus
+* iPhone14Pro
+* iPhone14ProMax
 * iPad1
 * iPad2
 * iPad3
@@ -183,24 +200,39 @@ iOS Device support
 * iPad5
 * iPad6
 * iPad7
+* iPad8
+* iPad9
+* iPad10
 * iPadMini1
 * iPadMini2
 * iPadMini3
 * iPadMini4
 * iPadMini5
+* iPadMini6
 * iPadAir1
 * iPadAir2
 * iPadAir3
+* iPadAir4
+* iPadAir5
 * iPadPro9p7Inch
 * iPadPro10p5Inch
 * iPadPro12p9Inch
 * iPadPro12p9Inch2
+* iPadPro11Inch
+* iPadPro11Inch2
+* iPadPro12p9Inch3
+* iPadPro12p9Inch4
+* iPadPro11Inch3
+* iPadPro12p9Inch5
+* iPadPro11Inch4
+* iPadPro12p9Inch6
 * iPod1
 * iPod2
 * iPod3
 * iPod4
 * iPod5
 * iPod6
+* iPod7
 * iPhone Simulator
 * iPad Simulator
 
@@ -208,7 +240,9 @@ OS X Device family support
 ------------
 
 * iMac
+* iMacPro
 * MacMini
+* MacStudio
 * MacPro
 * MacBook
 * MacBookAir

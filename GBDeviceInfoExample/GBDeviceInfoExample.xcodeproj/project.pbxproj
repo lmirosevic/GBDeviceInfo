@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,12 @@
 		D334F979225DEB1900B87EF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D334F977225DEB1900B87EF0 /* LaunchScreen.storyboard */; };
 		D334F984225DEB1900B87EF0 /* GBDeviceInfoExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334F983225DEB1900B87EF0 /* GBDeviceInfoExampleTests.swift */; };
 		D334F990225DEB8900B87EF0 /* GBDeviceInfo_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D334F98F225DEB8900B87EF0 /* GBDeviceInfo_iOS.framework */; };
+		EB1CF5882477E3520048EED4 /* GBDeviceInfo in Frameworks */ = {isa = PBXBuildFile; productRef = EB1CF5872477E3520048EED4 /* GBDeviceInfo */; };
+		EBDE833A2476680500A8BDAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334F970225DEB1800B87EF0 /* ViewController.swift */; };
+		EBDE833B2476680500A8BDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334F96E225DEB1800B87EF0 /* AppDelegate.swift */; };
+		EBDE833F2476680500A8BDAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D334F977225DEB1900B87EF0 /* LaunchScreen.storyboard */; };
+		EBDE83402476680500A8BDAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D334F975225DEB1900B87EF0 /* Assets.xcassets */; };
+		EBDE83412476680500A8BDAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D334F972225DEB1800B87EF0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,7 @@
 		D334F983225DEB1900B87EF0 /* GBDeviceInfoExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBDeviceInfoExampleTests.swift; sourceTree = "<group>"; };
 		D334F985225DEB1900B87EF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D334F98F225DEB8900B87EF0 /* GBDeviceInfo_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GBDeviceInfo_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBDE83452476680500A8BDAE /* GBDeviceInfoExample_iOS from Package.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GBDeviceInfoExample_iOS from Package.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +60,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBDE833C2476680500A8BDAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB1CF5882477E3520048EED4 /* GBDeviceInfo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +89,7 @@
 			children = (
 				D334F96B225DEB1800B87EF0 /* GBDeviceInfoExample_iOS.app */,
 				D334F97F225DEB1900B87EF0 /* GBDeviceInfoExample_iOS_Tests.xctest */,
+				EBDE83452476680500A8BDAE /* GBDeviceInfoExample_iOS from Package.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +162,26 @@
 			productReference = D334F97F225DEB1900B87EF0 /* GBDeviceInfoExample_iOS_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EBDE83382476680500A8BDAE /* GBDeviceInfoExample_iOS from Package */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBDE83422476680500A8BDAE /* Build configuration list for PBXNativeTarget "GBDeviceInfoExample_iOS from Package" */;
+			buildPhases = (
+				EBDE83392476680500A8BDAE /* Sources */,
+				EBDE833C2476680500A8BDAE /* Frameworks */,
+				EBDE833E2476680500A8BDAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GBDeviceInfoExample_iOS from Package";
+			packageProductDependencies = (
+				EB1CF5872477E3520048EED4 /* GBDeviceInfo */,
+			);
+			productName = GBDeviceInfoExample;
+			productReference = EBDE83452476680500A8BDAE /* GBDeviceInfoExample_iOS from Package.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,6 +215,7 @@
 			targets = (
 				D334F96A225DEB1800B87EF0 /* GBDeviceInfoExample_iOS */,
 				D334F97E225DEB1900B87EF0 /* GBDeviceInfoExample_iOS_Tests */,
+				EBDE83382476680500A8BDAE /* GBDeviceInfoExample_iOS from Package */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +238,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EBDE833E2476680500A8BDAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBDE833F2476680500A8BDAE /* LaunchScreen.storyboard in Resources */,
+				EBDE83402476680500A8BDAE /* Assets.xcassets in Resources */,
+				EBDE83412476680500A8BDAE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -218,6 +265,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D334F984225DEB1900B87EF0 /* GBDeviceInfoExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBDE83392476680500A8BDAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBDE833A2476680500A8BDAE /* ViewController.swift in Sources */,
+				EBDE833B2476680500A8BDAE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +501,44 @@
 			};
 			name = Release;
 		};
+		EBDE83432476680500A8BDAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = GBDeviceInfoExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.goonbee.GBDeviceInfoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EBDE83442476680500A8BDAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = GBDeviceInfoExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.goonbee.GBDeviceInfoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -475,7 +569,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		EBDE83422476680500A8BDAE /* Build configuration list for PBXNativeTarget "GBDeviceInfoExample_iOS from Package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBDE83432476680500A8BDAE /* Debug */,
+				EBDE83442476680500A8BDAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB1CF5872477E3520048EED4 /* GBDeviceInfo */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GBDeviceInfo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D334F963225DEB1800B87EF0 /* Project object */;
 }
