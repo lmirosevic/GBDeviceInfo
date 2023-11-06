@@ -278,6 +278,18 @@
 
                 // 14 Pro Max
                 @[@15, @3]: @[@(GBDeviceModeliPhone14ProMax), @"iPhone 14 Pro Max", @(GBDeviceDisplay6p7Inch), @460],
+                
+                // 15
+                @[@15, @4]: @[@(GBDeviceModeliPhone15), @"iPhone 15", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 15 Plus
+                @[@15, @5]: @[@(GBDeviceModeliPhone15Plus), @"iPhone 15 Plus", @(GBDeviceDisplay6p7Inch), @460],
+
+                // 15 Pro
+                @[@16, @1]: @[@(GBDeviceModeliPhone15Pro), @"iPhone 15 Pro", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 15 Pro Max
+                @[@16, @2]: @[@(GBDeviceModeliPhone15ProMax), @"iPhone 15 Pro Max", @(GBDeviceDisplay6p7Inch), @460],
             },
             @"iPad": @{
                 // 1

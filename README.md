@@ -193,6 +193,10 @@ iOS Device support
 * iPhone14Plus
 * iPhone14Pro
 * iPhone14ProMax
+* iPhone15
+* iPhone15Plus
+* iPhone15Pro
+* iPhone15ProMax
 * iPad1
 * iPad2
 * iPad3
