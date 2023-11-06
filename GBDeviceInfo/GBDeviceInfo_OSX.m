@@ -160,8 +160,8 @@ static NSString * const kHardwareModelKey =                 @"hw.model";
             || [systemInfoString isEqualToString:@"Mac14,12"]) {
         return GBDeviceFamilyMacMini;
     }
-    else if (// See https://support.apple.com/en-us/HT213073
-             || [systemInfoString isEqualToString:@"Mac14,13"]
+    else if (// Mac Studio: See https://support.apple.com/en-us/HT213073
+             [systemInfoString isEqualToString:@"Mac14,13"]
              || [systemInfoString isEqualToString:@"Mac14,14"]
              || [systemInfoString hasPrefix:@"Mac13,"]) {
         return GBDeviceFamilyMacStudio;
