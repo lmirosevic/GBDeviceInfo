@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.license                   = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.source                    = { :git => 'https://github.com/lmirosevic/GBDeviceInfo.git', :tag => s.version.to_s }
   s.requires_arc              = true
-  s.ios.deployment_target     = '6.0'
-  s.osx.deployment_target     = '10.10'
+  s.ios.deployment_target     = '15.0'
+  s.osx.deployment_target     = '11.0'
   s.default_subspec           = 'Core'
 
   s.subspec 'Core' do |ss|
