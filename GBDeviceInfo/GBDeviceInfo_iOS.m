@@ -290,6 +290,18 @@
 
                 // 15 Pro Max
                 @[@16, @2]: @[@(GBDeviceModeliPhone15ProMax), @"iPhone 15 Pro Max", @(GBDeviceDisplay6p7Inch), @460],
+
+                // 16 Pro
+                @[@17, @1]: @[@(GBDeviceModeliPhone16Pro), @"iPhone 16 Pro", @(GBDeviceDisplay6p1Inch), @460],
+                
+                // 16 Pro Max
+                @[@17, @2]: @[@(GBDeviceModeliPhone16ProMax), @"iPhone 16 Pro Max", @(GBDeviceDisplay6p7Inch), @460],
+                
+                // 16
+                @[@17, @3]: @[@(GBDeviceModeliPhone16), @"iPhone 16", @(GBDeviceDisplay6p1Inch), @460],
+                
+                // 16 Plus
+                @[@17, @4]: @[@(GBDeviceModeliPhone16Plus), @"iPhone 16 Plus", @(GBDeviceDisplay6p7Inch), @460],
             },
             @"iPad": @{
                 // 1
@@ -454,6 +466,23 @@
                 // iPad Pro 6th Gen 12.9-inch, 2022
                 @[@14, @5]: @[@(GBDeviceModeliPadPro12p9Inch6), @"iPad Pro 6th Gen (12.9 inch, WiFi)", @(GBDeviceDisplay12p9Inch), @264],
                 @[@14, @6]: @[@(GBDeviceModeliPadPro12p9Inch6), @"iPad Pro 6th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
+
+                // Air 6, 2024
+                @[@14, @8]: @[@(GBDeviceModeliPadAir6), @"iPad Air 6th Gen (WiFi)", @(GBDeviceDisplay10p9Inch), @264],
+                @[@14, @9]: @[@(GBDeviceModeliPadAir6), @"iPad Air 6th Gen (WiFi+Cellular)", @(GBDeviceDisplay10p9Inch), @264],
+
+                // Air 7, 2024
+                @[@14, @10]: @[@(GBDeviceModeliPadAir7), @"iPad Air 7th Gen (WiFi)", @(GBDeviceDisplay10p9Inch), @264],
+                @[@14, @11]: @[@(GBDeviceModeliPadAir7), @"iPad Air 7th Gen (WiFi+Cellular)", @(GBDeviceDisplay10p9Inch), @264],
+
+                // iPad Pro 5th Gen 11-inch, 2024
+                @[@16, @3]: @[@(GBDeviceModeliPadPro11Inch5), @"iPad Pro 5th Gen (11 inch, WiFi)", @(GBDeviceDisplay11Inch), @264],
+                @[@16, @4]: @[@(GBDeviceModeliPadPro11Inch5), @"iPad Pro 5th Gen (11 inch, WiFi+Cellular)", @(GBDeviceDisplay11Inch), @264],
+
+                // iPad Pro 7th Gen 12.9-inch, 2024
+                @[@16, @5]: @[@(GBDeviceModeliPadPro12p9Inch7), @"iPad Pro 7th Gen (12.9 inch, WiFi)", @(GBDeviceDisplay12p9Inch), @264],
+                @[@16, @6]: @[@(GBDeviceModeliPadPro12p9Inch7), @"iPad Pro 7th Gen (12.9 inch, WiFi+Cellular)", @(GBDeviceDisplay12p9Inch), @264],
+
             },
             @"iPod": @{
                 // 1st Gen
