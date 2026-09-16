@@ -197,6 +197,16 @@ iOS Device support
 * iPhone15Plus
 * iPhone15Pro
 * iPhone15ProMax
+* iPhone16Pro
+* iPhone16ProMax
+* iPhone16
+* iPhone16Plus
+* iPhone16e
+* iPhone17Pro
+* iPhone17ProMax
+* iPhone17
+* iPhoneAir
+* iPhone17e
 * iPad1
 * iPad2
 * iPad3
@@ -207,12 +217,14 @@ iOS Device support
 * iPad8
 * iPad9
 * iPad10
+* iPad11
 * iPadMini1
 * iPadMini2
 * iPadMini3
 * iPadMini4
 * iPadMini5
 * iPadMini6
+* iPadMini7
 * iPadAir1
 * iPadAir2
 * iPadAir3
@@ -230,6 +242,16 @@ iOS Device support
 * iPadPro12p9Inch5
 * iPadPro11Inch4
 * iPadPro12p9Inch6
+* iPadAir6
+* iPadAir7
+* iPadPro11Inch5
+* iPadPro12p9Inch7
+* iPadAir11InchM3
+* iPadAir13InchM3
+* iPadPro11Inch6
+* iPadPro12p9Inch8
+* iPadAir11InchM4
+* iPadAir13InchM4
 * iPod1
 * iPod2
 * iPod3
@@ -261,12 +283,12 @@ Author
 Enterprise
 ------------
 
-Premium support, integration, use-case adaptations and consulting available. Contact [sales@goonbee.com](mailto:sales@goonbee.com?subject=GBDeviceInfo%20Enterprise).
+Premium support, integration, use-case adaptations and consulting available. Contact [luka@goonbee.com](mailto:luka@goonbee.com?subject=GBDeviceInfo%20Enterprise).
 
 Copyright & License
 ------------
 
-Copyright 2015 Goonbee
+Copyright 2026
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:
 
