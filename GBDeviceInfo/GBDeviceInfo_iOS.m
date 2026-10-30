@@ -320,6 +320,16 @@
 
                 // 17e
                 @[@18, @5]: @[@(GBDeviceModeliPhone17e), @"iPhone 17e", @(GBDeviceDisplay6p1Inch), @460],
+
+                // 18 Pro
+                @[@19, @2]: @[@(GBDeviceModeliPhone18Pro), @"iPhone 18 Pro", @(GBDeviceDisplay6p3Inch), @460],
+
+                // 18 Pro Max
+                @[@19, @3]: @[@(GBDeviceModeliPhone18ProMax), @"iPhone 18 Pro Max", @(GBDeviceDisplay6p9Inch), @460],
+                @[@19, @7]: @[@(GBDeviceModeliPhone18ProMax), @"iPhone 18 Pro Max", @(GBDeviceDisplay6p9Inch), @460],
+
+                // Duo (inner display; the outer display is 5.4 inch)
+                @[@19, @4]: @[@(GBDeviceModeliPhoneDuo), @"iPhone Duo", @(GBDeviceDisplay7p6Inch), @460],
             },
             @"iPad": @{
                 // 1
